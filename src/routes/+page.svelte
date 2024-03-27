@@ -55,7 +55,7 @@
         <h3 class="h3 text-accent text-4xl">How We Can Help</h3>
         <p>Morningtide Consulting can help you craft a compelling school strategy. We then provide you an unconventional framework to successfully implement it - while keeping your stakeholders engaged and committed.</p>
         <p>Take a look around our site and read some of our articles, service offerings, and recommendations.</p>
-        <p>When you are ready, book an <a href="/" class="text-accent hover:text-primary">obligation-free consoltation.</a></p>
+        <p>When you are ready, book an <a href="/" class="link link-accent">obligation-free consoltation.</a></p>
     </div>
     <div class="row-span-2 col-span-2 col-start-4 row-start-2 place-self-center">
         <img class="mask mask-parallelogram-3 w-72" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" alt="something" />

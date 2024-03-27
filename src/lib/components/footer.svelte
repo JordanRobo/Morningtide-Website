@@ -2,7 +2,7 @@
     import logoWhite from '$lib/images/MC-Logo-2020-W-RGB-768x256.png';
 </script>
 
-<footer class="footer p-10 bg-primary text-white grid-cols-6 space-x-4">
+<footer class="footer p-10 bg-primary text-white lg:grid-cols-6 space-x-4">
     <nav class="col-start-2 col-span-2">
       <h6 class="footer-title font-heading">Who Are We?</h6> 
       <p class="font-body">Morningtide is a specialist consultancy working with independent school Boards, Principals, and their teams to create compelling strategy. We are dedicated to ensuring the success of your strategic execution, and our goal is to establish a sustained culture of strategic planning within your school long after our job is complete.</p>
@@ -22,7 +22,7 @@
       <a href="/" class="link link-hover font-body">Competitor Analysis</a>
     </nav>
   </footer> 
-  <footer class="footer px-10 py-4 border-t bg-primary text-white border-accent grid-cols-6">
+  <footer class="footer px-10 py-4 border-t bg-primary text-white border-accent lg:grid-cols-6">
     <aside class="items-center grid-flow-col col-start-2 col-span-2">
         <img src={logoWhite} alt="Morningtide Logo" class="h-16 pr-4">
         <p class="font-body">Morningtide Consulting<br>© 2024 Morningtide Consulting</p>

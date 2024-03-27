@@ -5,6 +5,6 @@
 
 <div class="flex justify-center bg-stone-50">
     <article class="prose my-8">
-        {@html formatMarkdown(data.post)}
+        {@html formatMarkdown(data.page.data.attributes.content)}
     </article>
 </div>

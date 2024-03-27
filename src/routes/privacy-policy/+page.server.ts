@@ -1,8 +1,4 @@
-import * as db from '$lib/server/pages.json';
-import type { PageServerLoad } from './$types';
-
-export const load: PageServerLoad = async () => {
-    return {
-        post: db.privacyPolicy,
-    };
-};
+export async function load({ fetch }) {
+    const data = await fetch('http://localhost:1337/api/privacy-policy').then(res => res.json());
+    return { page: data };
+  }
