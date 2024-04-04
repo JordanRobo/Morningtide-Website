@@ -1,4 +1,9 @@
-export async function load({ fetch }) {
-   const post = await fetch('http://localhost:1337/api/posts').then(res => res.json());
-   return { posts: post.data};
- }
+import api from '$lib/db';
+import type { PageServerLoad } from './$types';
+
+export const load: PageServerLoad = async () => {
+    const posts = await api.posts.browse();
+    return {
+        posts
+    };
+}

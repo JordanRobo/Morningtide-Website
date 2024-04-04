@@ -1,7 +1,15 @@
-// place files you want to import through the `$lib` alias in this folder.
-import showdown from 'showdown';
+import HomeContent from '$lib/components/HomeContent.svelte';
+import Hero from '$lib/components/Hero.svelte';
+import Footer from '$lib/components/Footer.svelte';
+import Navbar from '$lib/components/Navbar.svelte';
+import RecentPostLeft from '$lib/components/RecentPostLeft.svelte';
+import RecentPostRight from '$lib/components/RecentPostRight.svelte';
 
-export function formatMarkdown(markdownText: string) {
-    const converter = new showdown.Converter();
-    return converter.makeHtml(markdownText);
-}
+export {
+    HomeContent,
+    Hero,
+    Footer,
+    Navbar,
+    RecentPostLeft,
+    RecentPostRight
+};

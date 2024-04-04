@@ -1,8 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import type { PageServerLoad } from "./$types";
+import api from '$lib/db';
+import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async ({ fetch, params }) => {
-  const res = await fetch("http://localhost:1337/api/posts").then((res) => res.json());
-  const post = res.data.find((item: any) => item.attributes.url === params.slug);
-  return { post: post ? post.attributes : null };
-};
+export const load: PageServerLoad = async ({ params }) => {
+    const post = await api.posts.read({ slug: params.slug, include: 'tags,authors'});
+    return {
+        post
+    };
+}

@@ -21,7 +21,7 @@
             </details>
           </li>
         <li class="text-primary"><a href="/">About</a></li>
-        <li class="text-primary"><a href="/">Courses</a></li>
+        <li class="text-primary"><a href="https://courses.morningtide.com.au/">Courses</a></li>
       </ul>
     </div>
   </div>

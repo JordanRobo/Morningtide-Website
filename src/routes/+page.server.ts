@@ -2,8 +2,8 @@ import api from '$lib/db';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
-    const privacyPolicy = await api.pages.read({ slug: 'privacy-policy' });
+    const posts = await api.posts.browse({limit: 3, include: 'tags,authors'});
     return {
-        privacyPolicy
+        posts
     };
 }
