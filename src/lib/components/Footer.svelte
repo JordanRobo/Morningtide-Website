@@ -2,19 +2,19 @@
     import logoWhite from '$lib/images/MC-Logo-2020-W-RGB-768x256.png';
 </script>
 
-<footer class="footer p-10 bg-primary text-white lg:grid-cols-6 space-x-4">
-    <nav class="col-start-2 col-span-2">
+<footer class="footer p-10 bg-primary text-white md:grid-cols-6 md:space-x-4">
+    <nav class="md:col-start-2 md:col-span-2">
       <h6 class="footer-title font-heading">Who Are We?</h6> 
-      <p class="font-body">Morningtide is a specialist consultancy working with independent school Boards, Principals, and their teams to create compelling strategy. We are dedicated to ensuring the success of your strategic execution, and our goal is to establish a sustained culture of strategic planning within your school long after our job is complete.</p>
+      <p class="font-body text-sm">Morningtide is a specialist consultancy working with independent school Boards, Principals, and their teams to create compelling strategy. We are dedicated to ensuring the success of your strategic execution, and our goal is to establish a sustained culture of strategic planning within your school long after our job is complete.</p>
     </nav> 
-    <nav class="col-start-4 md:justify-self-end">
+    <nav class="md:col-start-4 md:justify-self-end">
       <h6 class="footer-title font-heading">Site Links</h6> 
       <a href="/privacy-policy" class="link link-hover">Privacy Policy</a>
       <a href="/" class="link link-hover font-body">About</a>
       <a href="/" class="link link-hover font-body">Articles</a>
       <a href="/" class="link link-hover font-body">Contact</a>
     </nav> 
-    <nav class="col-start-5 md:justify-self-end">
+    <nav class="md:col-start-5 md:justify-self-end">
       <h6 class="footer-title font-heading">Services</h6> 
       <a href="/" class="link link-hover font-body">Strategy Planning</a>
       <a href="/" class="link link-hover font-body">Customer Experience Audit</a>
@@ -22,12 +22,12 @@
       <a href="/" class="link link-hover font-body">Competitor Analysis</a>
     </nav>
   </footer> 
-  <footer class="footer px-10 py-4 border-t bg-primary text-white border-accent lg:grid-cols-6">
-    <aside class="items-center grid-flow-col col-start-2 col-span-2">
-        <img src={logoWhite} alt="Morningtide Logo" class="h-16 pr-4">
-        <p class="font-body">Morningtide Consulting<br>© 2024 Morningtide Consulting</p>
+  <footer class="footer md:px-10 py-4 border-t bg-primary text-white border-accent md:grid-cols-6">
+    <aside class="grid mx-auto items-center grid-flow-col md:col-start-2 md:col-span-2">
+        <img src={logoWhite} alt="Morningtide Logo" class="max-h-16 w-full pr-4">
+        <p class="font-body text-sm">Morningtide Consulting<br>© 2024 Morningtide Consulting</p>
     </aside> 
-    <nav class="md:place-self-center md:justify-self-end col-start-5">
+    <nav class="place-self-center md:justify-self-end md:col-start-5">
       <div class="grid grid-flow-col gap-4">
         <a href="https://www.linkedin.com/in/stuart-robinson-mba/" aria-label="View Stuart Robinson's LinkedIn Profile"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 448 512"><path fill="#ffffff" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
         <a href="https://twitter.com/Morningtide_Go" aria-label="View Morningtide Consulting's Twitter Account"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 448 512"><path fill="#ffffff" d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z"/></svg></a>

@@ -4,9 +4,16 @@
     export let data: PageData;
 
     let post = data.post;
-    console.log(post);
-</script>
 
+    
+</script>
+<div class="text-sm breadcrumbs">
+    <ul>
+      <li><a href="/">Home</a></li> 
+      <li><a href="/insights">Insights</a></li> 
+      <li>{post.title}</li>
+    </ul>
+  </div>
 <div class="flex flex-col max-w-[640px] mx-auto bg-white mb-4 p-4">
     <div class="space-y-6">
         <h1 class="h1 text-4xl font-bold text-center">{post.title}</h1>
