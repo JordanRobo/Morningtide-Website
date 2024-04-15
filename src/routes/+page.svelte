@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { PageData } from './$types';
-    import { Hero, HomeContent }from "$lib";
+    import { Hero, HomeContent, LatestPost }from "$lib";
     import { goto } from "$app/navigation";
     export let data: PageData;
 </script>
@@ -36,18 +36,9 @@
 </div>
 <div class="container mx-auto">
     <div class="bg-stone-50">
-        <div class="max-w-lg lg:max-w-4xl mx-auto"> 
+        <div class="w-[280px] sm:w-[600px] md:w-[720px] lg:w-[960px] mx-auto space-y-4 my-4"> 
             {#each data.posts as post}
-            <div class="hero min-h-[360px]">
-                <div class="hero-content flex-col lg:flex-row">
-                <img src={post.feature_image} class="max-w-72 md:max-w-sm object-contain rounded-lg shadow-2xl" alt="Something" />
-                <div class="space-y-2 px-2">
-                    <h4 class="text-accent">{post.title}</h4>
-                    <p class="py-2">{post.custom_excerpt}</p>
-                    <button on:click={() => goto("/insights/" + post.slug)} class="btn btn-primary">Read more</button>
-                </div>
-                </div>
-            </div>
+                <LatestPost title={post.title} image={post.feature_image} custom_excerpt={post.custom_excerpt} slug={post.slug} />
             {/each}
         </div>
     </div>

@@ -10,17 +10,17 @@
       <ul class="menu menu-horizontal px-1 hidden md:flex">
         <li class="text-primary"><a href="/insights">Insights</a></li>
         <li>
-            <details>
-              <summary class="text-primary">
-                Services
-              </summary>
-              <ul class="p-2 bg-base-100 rounded-t-none">
-                <li><a href="/">Link 1</a></li>
-                <li><a href="/">Link 2</a></li>
-              </ul>
-            </details>
-          </li>
-        <li class="text-primary"><a href="/">About</a></li>
+          <div class="dropdown dropdown-bottom dropdown-hover dropdown-end">
+            <a role="button" class="text-primary" href="/services">Services</a>
+            <ul class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+              <li><a href="/services/competitor-analysis">Competitor Analysis</a></li>
+              <li><a href="/services/customer-experience-audit">Customer Experience Audit</a></li>
+              <li><a href="/services/financial-forecast-review">Financial Forecast Review</a></li>
+              <li><a href="/services/strategy-planning">Strategy Planning</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="text-primary"><a href="/about">About</a></li>
         <li class="text-primary"><a href="https://courses.morningtide.com.au/">Courses</a></li>
         <li>
         </li>
