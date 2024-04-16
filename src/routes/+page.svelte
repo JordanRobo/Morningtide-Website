@@ -36,7 +36,7 @@
 </div>
 <div class="container mx-auto">
     <div class="bg-stone-50">
-        <div class="w-[280px] sm:w-[600px] md:w-[720px] lg:w-[960px] mx-auto space-y-4 my-4"> 
+        <div class="w-[280px] sm:w-[600px] md:w-[720px] lg:w-[960px] mx-auto space-y-8 my-8"> 
             {#each data.posts as post}
                 <LatestPost title={post.title} image={post.feature_image} custom_excerpt={post.custom_excerpt} slug={post.slug} />
             {/each}

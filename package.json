@@ -37,6 +37,7 @@
   "type": "module",
   "dependencies": {
     "@sveltejs/enhanced-img": "^0.2.0",
+    "@tryghost/admin-api": "^1.13.11",
     "@tryghost/content-api": "^1.11.20",
     "showdown": "^2.1.0",
     "svelte-preprocess": "^5.1.3"

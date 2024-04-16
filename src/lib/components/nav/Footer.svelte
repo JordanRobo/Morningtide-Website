@@ -16,10 +16,10 @@
     </nav> 
     <nav class="md:col-start-5 md:justify-self-end">
       <h6 class="footer-title font-heading">Services</h6> 
-      <a href="/" class="link link-hover font-body">Strategy Planning</a>
-      <a href="/" class="link link-hover font-body">Customer Experience Audit</a>
-      <a href="/" class="link link-hover font-body">Financial Forecast Review</a>
-      <a href="/" class="link link-hover font-body">Competitor Analysis</a>
+      <a href="/services/strategy-planning" class="link link-hover font-body">Strategy Planning</a>
+      <a href="/services/customer-experience-audit" class="link link-hover font-body">Customer Experience Audit</a>
+      <a href="/services/financial-forecast-review" class="link link-hover font-body">Financial Forecast Review</a>
+      <a href="/services/competitor-analysis" class="link link-hover font-body">Competitor Analysis</a>
     </nav>
   </footer> 
   <footer class="footer md:px-10 py-4 border-t bg-primary text-white border-accent md:grid-cols-6">

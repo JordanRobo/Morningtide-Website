@@ -2,8 +2,6 @@
     import type { PageData } from './$types';
     import PostCard from '$lib/components/PostCard.svelte';
     export let data: PageData;
-
-    console.log(data);
 </script>
 
 <div class="flex flex-wrap justify-center gap-8 my-8">
