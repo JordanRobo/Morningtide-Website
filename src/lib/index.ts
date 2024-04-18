@@ -4,10 +4,4 @@ import Footer from '$lib/components/nav/Footer.svelte';
 import Navbar from '$lib/components/nav/Navbar.svelte';
 import LatestPost from '$lib/components/home/LatestPost.svelte';
 
-export {
-    HomeContent,
-    Hero,
-    Footer,
-    Navbar,
-    LatestPost
-};
+export { HomeContent, Hero, Footer, Navbar, LatestPost };
