@@ -12,6 +12,7 @@
 
 	const transitionIn = { easing: cubicOut, y, duration, delay };
 	const transitionOut = { easing: cubicIn, y: -y, duration };
+
 </script>
 
 <div class="bg-stone-50">

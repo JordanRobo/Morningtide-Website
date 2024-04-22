@@ -14,7 +14,23 @@
 	</div>
 	<div class="flex-none">
 		<ul class="menu menu-horizontal px-1 hidden md:flex">
-			<li class="text-primary"><a href="/insights">Insights</a></li>
+			<li>
+				<div class="dropdown dropdown-bottom dropdown-hover dropdown-end">
+					<a role="button" class="text-primary" href="/insights">Insights</a>
+					<ul class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+						<li><a href="/insights">View All</a></li>
+						<div class="divider"></div> 
+						<li><a href="/insights">Change Management</a></li>
+						<li><a href="/insights">Innovation</a></li>
+						<li><a href="/insights">Leadership Development</a></li>
+						<li><a href="/insights">Learning</a></li>
+						<li><a href="/insights">Organisational Culture</a></li>
+						<li><a href="/insights">People</a></li>
+						<li><a href="/insights">Recruitment</a></li>
+						<li><a href="/insights">Strategy</a></li>
+					</ul>
+				</div>
+			</li>
 			<li>
 				<div class="dropdown dropdown-bottom dropdown-hover dropdown-end">
 					<a role="button" class="text-primary" href="/services">Services</a>

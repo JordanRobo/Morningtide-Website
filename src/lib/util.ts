@@ -5,3 +5,11 @@ export function formatDate(date: string): string {
 		year: 'numeric'
 	});
 }
+
+export function newPost(date: string) {
+	const postDate = new Date(date);
+	const currentDate = new Date();
+	const timeDifference = currentDate.getTime() - postDate.getTime();
+	const daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
+	return daysDifference < 7;
+};

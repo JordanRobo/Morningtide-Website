@@ -5,6 +5,7 @@
 	export let custom_excerpt: string;
 	export let feature_image: string;
 	export let slug: string;
+	export let tags: { id: number, name: string }[];
 </script>
 
 <div class="card w-5/6 sm:w-2/3 md:w-96 bg-base-100 shadow-xl">
@@ -13,6 +14,11 @@
 		<h2 class="card-title h2 text-2xl">
 			{title}
 		</h2>
+		<div class="w-full flex gap-2">
+			{#each tags as tag (tag.id)}
+				<div class="badge badge-accent badge-outline">{tag.name}</div>
+			{/each}
+		</div>
 		<p>{custom_excerpt}</p>
 		<div class="card-actions justify-between">
 			<div class="self-end"></div>
