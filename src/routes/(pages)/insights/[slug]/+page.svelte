@@ -4,6 +4,12 @@
 	export let data: PageData;
 
 	let post = data.post;
+
+	console.log(data)
+
+	// TODO: Add feature image with parrallax effect
+	// Add Author Info
+	// Add Commenting for post (Either Post as guest of login, figure out how to prevent bots)
 </script>
 
 <div class="text-sm breadcrumbs">

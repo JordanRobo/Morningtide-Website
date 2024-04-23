@@ -3,6 +3,8 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
+
+	// TODO: Need to create About Page
 </script>
 
 <div class="modal" role="dialog" id="privacy_modal">
@@ -14,6 +16,7 @@
 			</article>
 		</div>
 		<div class="modal-action">
+			<!-- svelte-ignore a11y-invalid-attribute -->
 			<a href="#" class="btn btn-accent">Close</a>
 		</div>
 	</div>

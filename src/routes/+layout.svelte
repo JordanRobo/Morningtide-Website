@@ -13,6 +13,9 @@
 	const transitionIn = { easing: cubicOut, y, duration, delay };
 	const transitionOut = { easing: cubicIn, y: -y, duration };
 
+	// FIXME: Adjust layout for Mobiles 
+	// TODO: Add Mobile Navigation
+
 </script>
 
 <div class="bg-stone-50">
