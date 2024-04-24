@@ -1,16 +1,21 @@
+// src/routes/insights/+page.server.ts
 import { admin } from '$lib/db';
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async () => {
-	const tagFilter = 'change-managment'
+export const load: PageServerLoad = async ({ url }) => {
+  const selectedTag = url.searchParams.get('tag') || null;
+  let filter = {};
 
-	const posts = await admin.posts.browse({include: 'tags'});
-	const tags = await admin.tags.browse();
-	const filter = await admin.posts.browse({filter: 'tag:' + tagFilter});
-	return {
-		posts,
-		tags,
-		filter
-	};
+  if (selectedTag) {
+    filter = { filter: 'tag:' + selectedTag };
+  }
+
+  const posts = await admin.posts.browse({ include: 'tags', ...filter });
+  const tags = await admin.tags.browse();
+
+  return {
+    posts,
+    tags,
+    selectedTag
+  };
 };
-
