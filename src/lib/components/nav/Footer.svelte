@@ -16,7 +16,7 @@
 		<h6 class="footer-title font-heading">Site Links</h6>
 		<a href="/privacy-policy" class="link link-hover">Privacy Policy</a>
 		<a href="/" class="link link-hover font-body">About</a>
-		<a href="/" class="link link-hover font-body">Articles</a>
+		<a href="/insights" class="link link-hover font-body">Articles</a>
 		<a href="/" class="link link-hover font-body">Contact</a>
 	</nav>
 	<nav class="md:col-start-5 md:justify-self-end">

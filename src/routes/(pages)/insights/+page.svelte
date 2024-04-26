@@ -12,6 +12,8 @@
 	$: $selectedTag = $page.url.searchParams.get('tag') || '';
 
 	console.log(data);
+
+	// TODO: Add in pagination of blog posts
 </script>
 
 <div class="flex flex-wrap justify-center my-4">

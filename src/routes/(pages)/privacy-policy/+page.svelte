@@ -3,9 +3,9 @@
 	export let data: PageData;
 </script>
 
-<div class="flex justify-center bg-stone-50">
-	<article class="prose my-8">
+<div class="flex flex-col max-w-[640px] mx-auto bg-white my-8 px-4">
+	<div class="prose my-8">
 		<h1>{data.privacyPolicy.title}</h1>
 		{@html data.privacyPolicy.html}
-	</article>
+	</div>
 </div>

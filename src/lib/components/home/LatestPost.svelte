@@ -9,7 +9,7 @@
 
 <div class="card lg:card-side bg-white shadow-xl">
 	<figure class="lg:w-1/2 max-h-[220px] lg:max-h-[300px]">
-		<img class="object-cover" src={image} alt={title} />
+		<img class="object-cover h-full" src={image} alt={title} />
 	</figure>
 	<div class="card-body lg:w-1/2">
 		<h2 class="card-title">{title}</h2>

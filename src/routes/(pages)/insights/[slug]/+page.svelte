@@ -7,19 +7,10 @@
 
 	console.log(data)
 
-	// TODO: Add feature image with parrallax effect
-	// Add Author Info
-	// Add Commenting for post (Either Post as guest of login, figure out how to prevent bots)
 </script>
 
-<div class="text-sm breadcrumbs">
-	<ul>
-		<li><a href="/">Home</a></li>
-		<li><a href="/insights">Insights</a></li>
-		<li>{post.title}</li>
-	</ul>
-</div>
-<div class="flex flex-col max-w-[640px] mx-auto bg-white mb-4 p-4">
+
+<div class="flex flex-col max-w-[640px] mx-auto bg-white mb-4 p-4 -m-32">
 	<div class="space-y-6">
 		<h1 class="h1 text-4xl font-bold text-center">{post.title}</h1>
 		<div class="border border-accent"></div>
@@ -31,6 +22,18 @@
 		<div class="border border-accent"></div>
 		<div class="prose pl-4">
 			{@html post.html}
+		</div>
+	</div>
+	<div class="divider"></div> 
+	<div class="mt-4 grid grid-cols-3">
+		<div class="avatar justify-self-center">
+			<div class="w-32 rounded-full">
+			  <img src={post.primary_author.profile_image} alt={post.primary_author.name} />
+			</div>
+		</div>
+		<div class="col-span-2">
+			<h5>{post.primary_author.name}</h5>
+			<p>{post.primary_author.bio}</p>
 		</div>
 	</div>
 </div>
