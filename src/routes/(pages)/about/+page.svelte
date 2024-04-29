@@ -23,7 +23,7 @@
 </div>
 
 <div class="flex flex-wrap justify-center gap-8 my-8">
-	<form method="POST" action="?/test" use:enhance>
+	<form method="POST" action="?/submit" use:enhance>
 		<div class="w-[820px] grid grid-cols-2 justify-stretch gap-2">
 			<div>
 				<input

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { formatDate } from '$lib/util';
+	import { RelatedCard } from '$lib';
 	export let data: PageData;
 
 	let post = data.post;
@@ -8,9 +9,12 @@
 	console.log(data)
 
 </script>
+<svelte:head>
+	<title>Morningtide Consulting | {post.meta_title}</title>
+	<meta name="description" content={post.meta_description} />
+</svelte:head>
 
-
-<div class="flex flex-col max-w-[640px] mx-auto bg-white mb-4 p-4 -m-32">
+<div class="flex flex-col max-w-[640px] mx-auto bg-white mb-4 p-4 -m-32 space-y-8">
 	<div class="space-y-6">
 		<h1 class="h1 text-4xl font-bold text-center">{post.title}</h1>
 		<div class="border border-accent"></div>
@@ -25,7 +29,7 @@
 		</div>
 	</div>
 	<div class="divider"></div> 
-	<div class="mt-4 grid grid-cols-3">
+	<div class="grid grid-cols-3">
 		<div class="avatar justify-self-center">
 			<div class="w-32 rounded-full">
 			  <img src={post.primary_author.profile_image} alt={post.primary_author.name} />
@@ -36,4 +40,18 @@
 			<p>{post.primary_author.bio}</p>
 		</div>
 	</div>
+	<div class="divider"></div> 
+	<h3 class="text-center">Related Posts</h3>
+	<div class="carousel rounded-box gap-2">
+		{#each data.related as related}
+			<div class="carousel-item w-1/2">
+				<RelatedCard
+					title={related.title}
+					tags={related.tags}
+					feature_image={related.feature_image}
+					slug={related.slug}
+				/>
+			</div>
+		{/each}
+	</div> 
 </div>

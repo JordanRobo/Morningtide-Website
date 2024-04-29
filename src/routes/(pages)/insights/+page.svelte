@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { page } from '$app/stores';
+	import { PostCard } from '$lib';
 	import { newPost } from '$lib/util';
-	import PostCard from '$lib/components/PostCard.svelte';
 	export let data: PageData;
 	import { writable } from 'svelte/store';
 	import { goto } from '$app/navigation';
@@ -32,17 +32,13 @@
 
 <div class="flex flex-wrap justify-center gap-8 my-8">
     {#each data.posts as post}
-	<div class="indicator">
-		{#if newPost(post.published_at)}
-			<span class="indicator-item badge badge-accent badge-lg">New</span>
-		{/if}
 		<PostCard
-			title={post.title}
-			tags={post.tags}
-			custom_excerpt={post.custom_excerpt}
-			feature_image={post.feature_image}
-			slug={post.slug}
-		/>
-	</div>
+            checkNew={newPost(post.published_at)}
+            title={post.title}
+            tags={post.tags}
+            custom_excerpt={post.custom_excerpt}
+            feature_image={post.feature_image}
+            slug={post.slug}
+        />
     {/each}
 </div>

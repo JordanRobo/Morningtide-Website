@@ -3,5 +3,7 @@ import Hero from '$lib/components/home/Hero.svelte';
 import Footer from '$lib/components/nav/Footer.svelte';
 import Navbar from '$lib/components/nav/Navbar.svelte';
 import LatestPost from '$lib/components/home/LatestPost.svelte';
+import PostCard from '$lib/components/posts/PostCard.svelte';
+import RelatedCard from '$lib/components/posts/RelatedCard.svelte';
 
-export { HomeContent, Hero, Footer, Navbar, LatestPost };
+export { HomeContent, Hero, Footer, Navbar, LatestPost, PostCard, RelatedCard };

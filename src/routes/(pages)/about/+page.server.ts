@@ -11,7 +11,7 @@ export const load: PageServerLoad = async () => {
 };
 
 export const actions: Actions = {
-	test: async ({ request }) => {
+	submit: async ({ request }) => {
 		const formData = await request.formData();
 		const email = formData.get('email'); 
 		const name = formData.get('name');
@@ -21,6 +21,7 @@ export const actions: Actions = {
 		const message = formData.get('message');
 
 		const response = await admin.members.add({ 
+			headers: { 'Content-Type': 'application/json'},
 			email: email,
 			name: name, 
 			note: 'School: ' + school + '\nMessage:' + message,
