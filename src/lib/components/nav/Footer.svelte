@@ -32,7 +32,7 @@
 		>
 	</nav>
 </footer>
-<footer class="footer md:px-10 py-4 border-t bg-primary text-white border-accent md:grid-cols-6">
+<footer class="footer px-4 md:px-10 py-4 border-t bg-primary text-white border-accent md:grid-cols-6">
 	<aside class="grid mx-auto items-center grid-flow-col md:col-start-2 md:col-span-2">
 		<img src={logoWhite} alt="Morningtide Logo" class="max-h-16 w-full pr-4" />
 		<p class="font-body text-sm">Morningtide Consulting<br />© 2024 Morningtide Consulting</p>

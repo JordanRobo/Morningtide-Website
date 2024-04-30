@@ -2,6 +2,7 @@
 	import type { PageData } from './$types';
 	import { Hero, HomeContent, LatestPost } from '$lib';
 	import { goto } from '$app/navigation';
+
 	export let data: PageData;
 </script>
 
@@ -42,7 +43,7 @@
 </div>
 <div class="container mx-auto">
 	<div class="bg-stone-50">
-		<div class="w-[280px] sm:w-[600px] md:w-[720px] lg:w-[960px] mx-auto space-y-8 my-8">
+		<div class="p-6 w-full sm:w-[600px] md:w-[720px] lg:w-[960px] mx-auto space-y-8 my-8">
 			{#each data.posts as post}
 				<LatestPost
 					title={post.title}

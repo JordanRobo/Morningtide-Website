@@ -13,3 +13,7 @@ export function newPost(date: string) {
 	const daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
 	return daysDifference < 7;
 };
+
+export function tagLink( tag: string ) {
+	return `/insights?tag=${tag}`;
+};

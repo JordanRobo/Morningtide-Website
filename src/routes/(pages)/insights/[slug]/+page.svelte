@@ -1,12 +1,10 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { formatDate } from '$lib/util';
+	import { formatDate } from '$lib/utils';
 	import { RelatedCard } from '$lib';
 	export let data: PageData;
 
 	let post = data.post;
-
-	console.log(data)
 
 </script>
 <svelte:head>
@@ -32,7 +30,7 @@
 	<div class="grid grid-cols-3">
 		<div class="avatar justify-self-center">
 			<div class="w-32 rounded-full">
-			  <img src={post.primary_author.profile_image} alt={post.primary_author.name} />
+				<img src={post.primary_author.profile_image} alt={post.primary_author.name} />
 			</div>
 		</div>
 		<div class="col-span-2">

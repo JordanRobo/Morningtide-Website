@@ -1,5 +1,6 @@
 // @ts-expect-error - required for loading
 import GhostContentAPI from '@tryghost/content-api';
+// @ts-expect-error - required for loading
 import GhostAdminAPI from '@tryghost/admin-api';
 
 const api = GhostContentAPI({
