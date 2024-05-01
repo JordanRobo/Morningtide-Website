@@ -42,7 +42,7 @@
 	<h3 class="text-center">Related Posts</h3>
 	<div class="carousel rounded-box gap-2">
 		{#each data.related as related}
-			<div class="carousel-item w-1/2">
+			<div class="carousel-item w-full sm:w-1/2">
 				<RelatedCard
 					title={related.title}
 					tags={related.tags}

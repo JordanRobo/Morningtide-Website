@@ -5,8 +5,7 @@
 	import { cubicIn, cubicOut } from 'svelte/easing';
 	import type { LayoutData } from './$types';
 	import { drawer } from '$lib/stores';
-	import { page } from '$app/stores';
-
+	
 	export let data: LayoutData;
 
 	const duration = 300;
@@ -25,7 +24,6 @@
 
 	$: { if (data && data.pathname) { drawer.close(); }};
 
-	// console.log($page.data);
 </script>
 
 <div class="bg-stone-50">

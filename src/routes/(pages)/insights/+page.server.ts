@@ -1,21 +1,23 @@
 // src/routes/insights/+page.server.ts
-import { admin } from '$lib/db';
+import { api } from '$lib/db';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ url }) => {
   const selectedTag = url.searchParams.get('tag') || null;
-  let filter = {};
+  const pageNo = url.searchParams.get('page') || 1;
 
+  let filter = {};
+  
   if (selectedTag) {
     filter = { filter: 'tag:' + selectedTag };
   }
 
-  const posts = await admin.posts.browse({ include: 'tags', ...filter });
-  const tags = await admin.tags.browse();
+  const posts = await api.posts.browse({ include: 'tags', ...filter, limit: 9, page: pageNo });
+  const { meta } = await api.posts.browse({ include: 'tags', ...filter, limit: 9, page: pageNo });
 
   return {
     posts,
-    tags,
+    meta,
     selectedTag
   };
 };

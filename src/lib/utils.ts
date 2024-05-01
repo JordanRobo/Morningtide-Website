@@ -15,5 +15,5 @@ export function newPost(date: string) {
 };
 
 export function tagLink( tag: string ) {
-	return `/insights?tag=${tag}`;
+	return `/insights?page=1&tag=${tag}`;
 };
