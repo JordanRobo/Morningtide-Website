@@ -1,39 +1,40 @@
-import { api, admin } from '$lib/db';
+import { api } from '$lib/db';
 import type { PageServerLoad, Actions } from './$types';
+import PocketBase from 'pocketbase';
+
+const pb = new PocketBase('https://jordanrobo.xyz/db');
 
 export const load: PageServerLoad = async () => {
 	const privacyPolicy = await api.pages.read({ slug: 'privacy-policy' });
-	const members = await admin.members.browse();
 	return {
-		privacyPolicy,
-		members
+		privacyPolicy
 	};
 };
 
 export const actions: Actions = {
-	submit: async ({ request }) => {
-		const formData = await request.formData();
-		const email = formData.get('email'); 
-		const name = formData.get('name');
-		const position = formData.get('position');
-		const positionSlug = position?.toString().toLowerCase().replace(/\s+/g, '-');
-		const school = formData.get('school');
-		const message = formData.get('message');
+	submit: async () => {
+		// const formData = await request.formData();
+		// const name = formData.get('name');
+		// const school = formData.get('school');
+		// const position = formData.get('position');
+		// const email = formData.get('email'); 
+		// const message = formData.get('message');
 
-		const response = await admin.members.add({ 
-			headers: { 'Content-Type': 'application/json'},
-			email: email,
-			name: name, 
-			note: 'School: ' + school + '\nMessage:' + message,
-			labels: [
-				{ name: 'Enquiry', slug: 'enquiry' },
-				{ name: position, slug: positionSlug }
-			],
-		});
-		if (response.ok) {
+		const data = {
+			"Name": "test",
+			"School": "test",
+			"Position": "test",
+			"Email": "test@example.com",
+			"Message": "test"
+		};
+
+		const record = await pb.collection('About_Form').create(data);
+
+		if (record.ok) {
             return { success: true };
         } else {
             return { success: false, error: 'Error adding user' };
         } 
 	},
 };
+
