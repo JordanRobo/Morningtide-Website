@@ -22,4 +22,4 @@ RUN bun run build
 # Expose the port on which your app will run (adjust if needed)
 EXPOSE 3000
 
-ENTRYPOINT [ "bun", "run", "start" ]
+ENTRYPOINT [ "bun", "start" ]
