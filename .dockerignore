@@ -1,8 +1,0 @@
-.sveltekit
-node_modules
-Dockerfile
-.gitignore
-.prettierignore
-.prettierrc
-.eslintrc.cjs
-README.md
