@@ -9,8 +9,9 @@ LICENSE
 .vscode
 Makefile
 helm-charts
-.env
 .editorconfig
 .idea
 coverage*
 .svelte-kit
+.env
+docker_build.txt

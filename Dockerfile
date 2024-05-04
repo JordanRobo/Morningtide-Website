@@ -5,9 +5,15 @@ FROM oven/bun
 # Set the working directory inside the container
 WORKDIR /app
 
+# Define build arguments for your environment variables
+ARG VITE_GHOST_URL
+ARG VITE_GHOST_KEY
+ARG VITE_GHOST_KEY_ADMIN
+ARG VITE_GHOST_VERSION
+ARG VITE_PB_URL
+
 # Copy package.json and bun.lockb (if you have one) to the working directory
-COPY package.json ./
-COPY bun.lockb ./ 
+COPY package*.json bun.lockb ./
 
 # Install dependencies
 RUN bun install
@@ -15,11 +21,17 @@ RUN bun install
 # Copy the rest of your app's source code to the working directory
 COPY . .
 
+# Set environment variables using the build arguments
+ENV VITE_GHOST_URL=${VITE_GHOST_URL}
+ENV VITE_GHOST_KEY=${VITE_GHOST_KEY}
+ENV VITE_GHOST_KEY_ADMIN=${VITE_GHOST_KEY_ADMIN}
+ENV VITE_GHOST_VERSION=${VITE_GHOST_VERSION}
+ENV VITE_PB_URL=${VITE_PB_URL}
+
 # Build your SvelteKit app
-ENV NODE_ENV=production
 RUN bun run build
 
 # Expose the port on which your app will run (adjust if needed)
 EXPOSE 3000
 
-ENTRYPOINT [ "bun", "start" ]
+ENTRYPOINT [ "bun", "start", "--prod" ]
