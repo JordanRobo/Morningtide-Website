@@ -12,6 +12,13 @@ ARG VITE_GHOST_KEY_ADMIN
 ARG VITE_GHOST_VERSION
 ARG VITE_PB_URL
 
+# Set environment variables using the build arguments
+ENV VITE_GHOST_URL=${VITE_GHOST_URL}
+ENV VITE_GHOST_KEY=${VITE_GHOST_KEY}
+ENV VITE_GHOST_KEY_ADMIN=${VITE_GHOST_KEY_ADMIN}
+ENV VITE_GHOST_VERSION=${VITE_GHOST_VERSION}
+ENV VITE_PB_URL=${VITE_PB_URL}
+
 # Copy package.json and bun.lockb (if you have one) to the working directory
 COPY package*.json bun.lockb ./
 
@@ -20,13 +27,6 @@ RUN bun install
 
 # Copy the rest of your app's source code to the working directory
 COPY . .
-
-# Set environment variables using the build arguments
-ENV VITE_GHOST_URL=${VITE_GHOST_URL}
-ENV VITE_GHOST_KEY=${VITE_GHOST_KEY}
-ENV VITE_GHOST_KEY_ADMIN=${VITE_GHOST_KEY_ADMIN}
-ENV VITE_GHOST_VERSION=${VITE_GHOST_VERSION}
-ENV VITE_PB_URL=${VITE_PB_URL}
 
 # Build your SvelteKit app
 RUN bun run build

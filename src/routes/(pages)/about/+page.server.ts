@@ -12,29 +12,29 @@ export const load: PageServerLoad = async () => {
 };
 
 export const actions: Actions = {
-	submit: async () => {
-		// const formData = await request.formData();
-		// const name = formData.get('name');
-		// const school = formData.get('school');
-		// const position = formData.get('position');
-		// const email = formData.get('email'); 
-		// const message = formData.get('message');
+	submit: async ({ request }) => {
+		const formData = await request.formData();
+		const name = formData.get('name');
+		const school = formData.get('school');
+		const position = formData.get('position');
+		const email = formData.get('email'); 
+		const message = formData.get('message');
 
 		const data = {
-			"Name": "test",
-			"School": "test",
-			"Position": "test",
-			"Email": "test@example.com",
-			"Message": "test"
+			"name": name,
+			"school": school,
+			"position": position,
+			"email": email,
+			"message": message
 		};
 
-		const record = await pb.collection('About_Form').create(data);
+		const response = await pb.collection('about_form').create(data);
 
-		if (record.ok) {
-            return { success: true };
-        } else {
-            return { success: false, error: 'Error adding user' };
-        } 
+		if (response.ok) {
+			return { success: true, successMessage: 'Form submitted successfully!' };
+		} else {
+			return { success: false, errorMessage: 'Error adding user' };
+		}
 	},
 };
 
