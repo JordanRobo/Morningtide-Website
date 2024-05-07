@@ -6,13 +6,11 @@ FROM oven/bun
 WORKDIR /app
 
 # Define build arguments for your environment variables
-ARG ORIGIN
 ARG VITE_GHOST_URL
 ARG VITE_GHOST_KEY
 ARG VITE_PB_URL
 
 # Set environment variables using the build arguments
-ENV ORIGIN=${ORIGIN}
 ENV VITE_GHOST_URL=${VITE_GHOST_URL}
 ENV VITE_GHOST_KEY=${VITE_GHOST_KEY}
 ENV VITE_PB_URL=${VITE_PB_URL}
@@ -31,5 +29,8 @@ RUN bun run build
 
 # Expose the port on which your app will run (adjust if needed)
 EXPOSE 3000
+
+# assumes the default SvelteKit host and port
+ENV ORIGIN=http://localhost:3000
 
 CMD [ "bun", "start", "--prod" ]
