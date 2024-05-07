@@ -29,6 +29,5 @@ RUN bun run build
 
 # Expose the port on which your app will run (adjust if needed)
 EXPOSE 3000
-ENV ORIGIN=https://jordanrobo.xyz
 
-CMD [ "bun", "start", "--prod" ]
+CMD [ "bun", "start" ]
