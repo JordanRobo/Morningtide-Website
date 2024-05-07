@@ -2,10 +2,10 @@
     import { tagLink } from '$lib/utils';
 
     const services = [
-		{ title: 'Competitor Analysis', url: '/services/competitor-analysis' },
-		{ title: 'Customer Experience Audit', url: '/services/customer-experience-audit' },
-		{ title: 'Financial Forecast Review', url: '/services/financial-forecast-review' },
-		{ title: 'Strategy Planning', url: '/services/strategy-planning' }
+		{ title: 'Competitor Analysis', url: '/services' },
+		{ title: 'Customer Experience Audit', url: '/services' },
+		{ title: 'Financial Forecast Review', url: '/services' },
+		{ title: 'Strategy Planning', url: '/services' }
 	];
 
 	export let insights: { name: string, slug: string }[];

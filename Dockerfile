@@ -6,17 +6,15 @@ FROM oven/bun
 WORKDIR /app
 
 # Define build arguments for your environment variables
+ARG ORIGIN
 ARG VITE_GHOST_URL
 ARG VITE_GHOST_KEY
-ARG VITE_GHOST_KEY_ADMIN
-ARG VITE_GHOST_VERSION
 ARG VITE_PB_URL
 
 # Set environment variables using the build arguments
+ENV ORIGIN=${ORIGIN}
 ENV VITE_GHOST_URL=${VITE_GHOST_URL}
 ENV VITE_GHOST_KEY=${VITE_GHOST_KEY}
-ENV VITE_GHOST_KEY_ADMIN=${VITE_GHOST_KEY_ADMIN}
-ENV VITE_GHOST_VERSION=${VITE_GHOST_VERSION}
 ENV VITE_PB_URL=${VITE_PB_URL}
 
 # Copy package.json and bun.lockb (if you have one) to the working directory
