@@ -28,7 +28,11 @@ export const actions: Actions = {
 			"message": message
 		};
 
-		const response = await pb.collection('about_form').create(data);
+		const response = await pb.collection('about_form').create(data, {
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
 
 		if (response.ok) {
 			return { success: true, successMessage: 'Form submitted successfully!' };

@@ -29,7 +29,7 @@
 		<ul class="menu menu-horizontal">
 			<li>
 				<div class="dropdown dropdown-bottom dropdown-hover dropdown-end">
-					<a role="button" class="text-primary" href="insights">Insights</a>
+					<a role="button" class="text-primary" href="/insights">Insights</a>
 					<ul class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
 						<li><a href="/insights">View All</a></li>
 						<div class="divider"></div> 
@@ -41,7 +41,7 @@
 			</li>
 			<li>
 				<div class="dropdown dropdown-bottom dropdown-hover dropdown-end">
-					<a role="button" class="text-primary" href="services">Services</a>
+					<a role="button" class="text-primary" href="/services">Services</a>
 					<ul class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
 						{#each services as service}
 							<li><a href={service.url}>{service.title}</a></li>
@@ -49,7 +49,7 @@
 					</ul>
 				</div>
 			</li>
-			<li class="text-primary"><a href="about">About</a></li>
+			<li class="text-primary"><a href="/about">About</a></li>
 			<li class="text-primary"><a href="https://courses.morningtide.com.au/">Courses</a></li>
 		</ul>
 	</div>
