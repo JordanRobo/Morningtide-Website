@@ -4,8 +4,6 @@
 
 	export let data: PageData;
 
-	export let form;
-
 	// TODO: Need to create About Page
 </script>
 
