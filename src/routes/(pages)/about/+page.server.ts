@@ -13,26 +13,9 @@ export const load: PageServerLoad = async () => {
 
 export const actions: Actions = {
 	submit: async ({ request }) => {
-		const formData = await request.formData();
-		const name = formData.get('name');
-		const school = formData.get('school');
-		const position = formData.get('position');
-		const email = formData.get('email'); 
-		const message = formData.get('message');
+		const data = await request.formData();
 
-		const data = {
-			"name": name,
-			"school": school,
-			"position": position,
-			"email": email,
-			"message": message
-		};
-
-		const response = await pb.collection('about_form').create(data, {
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		});
+		const response = await pb.collection('about_form').create(data);
 
 		if (response.ok) {
 			return { success: true, successMessage: 'Form submitted successfully!' };
