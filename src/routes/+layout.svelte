@@ -26,7 +26,7 @@
 
 </script>
 
-<div class="bg-stone-50">
+<div class="bg-stone-50 pb-8">
 	<div class="min-h-dvh">
 		<Navbar insights={data.tags}/>
 		<div class="drawer drawer-end">

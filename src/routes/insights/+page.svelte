@@ -8,16 +8,29 @@
 
 	export let data: PageData;
 
+	let next = false;
+	let previous = false;
+	
 	const selectedTag = writable<string | null>('');
 
 	$: $selectedTag = $page.url.searchParams.get('tag') || '';
 
 	function nextPage() {
-		// write function for next page (filter = &page=#)
+		const page: any = $page.url.searchParams.get('page') || 1;
+		if (data.meta.pagination.page < data.meta.pagination.pages) {
+			goto(`/insights?page=${parseInt(page) + 1}&tag=${$selectedTag}`);
+		} else {
+			
+		}
 	};
 
 	function prevPage() {
-		// previous page function
+		const page: any = $page.url.searchParams.get('page') || 1;
+		if (data.meta.pagination.page > 1) {
+			goto(`/insights?page=${parseInt(page) - 1}&tag=${$selectedTag}`);
+		} else {
+			
+		}
 
 	};
 
@@ -63,8 +76,8 @@
 <div class="flex flex-wrap justify-center py-8">
 	<div class="max-w-lg space-x-2 space-y-1 text-center">
 		<div class="join grid grid-cols-2">
-			<button class="join-item btn btn-outline">Previous page</button>
-			<button class="join-item btn btn-outline">Next</button>
+			<button disabled={previous} class="join-item btn btn-outline" on:click={prevPage}>Previous page</button>
+			<button disabled={next} class="join-item btn btn-outline" on:click={nextPage}>Next</button>
 		</div>
 	</div>
 </div>

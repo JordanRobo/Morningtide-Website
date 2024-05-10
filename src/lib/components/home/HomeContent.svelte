@@ -27,11 +27,5 @@
 			>
 		</p>
 	</div>
-	<div class="hidden md:block row-span-2 col-span-2 col-start-4 row-start-2 place-self-center">
-		<img
-			class="mask mask-parallelogram-3 w-72"
-			src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg"
-			alt="something"
-		/>
-	</div>
+	
 </div>
