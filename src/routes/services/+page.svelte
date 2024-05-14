@@ -60,7 +60,7 @@
 				</div>
 				<div class="col-span-2 flex justify-between items-center">
 					<div>
-						<span class="label-text"></span>By submitting you confirm you have read<br>and accept the <button class="link link-accent" on:click={() => showModal('privacy_policy')}>Privacy Policy.</button>
+						<span class="label-text">By submitting you confirm you have read<br>and accept the <button class="link link-accent" on:click|preventDefault={() => showModal('privacy_policy')}>Privacy Policy.</button></span>
 					</div>
 					<div>
 						<button class="btn">Submit</button>
