@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Services, SectionHero } from '$lib';
+	import { showModal } from '$lib/utils';
 	import { enhance } from '$app/forms';
 	import type { PageData } from './$types';
 
@@ -23,27 +24,15 @@
 </svelte:head>
 
 <SectionHero image={services.image} badge={services.badge} heading={services.heading} subheading={services.subheading} />
-<div class="container max-w-[760px] flex flex-col mx-auto bg-white mt-8">
+<div class="container max-w-[760px] flex flex-col mx-auto bg-white mt-8 pb-4">
 	<Services />
+</div>
+
+<div class="container max-w-[760px] flex flex-col mx-auto bg-white mt-8">
 	<div class="flex flex-col items-center justify-center p-4 mt-8">
 		<h1 class="text-center text-2xl font-bold md:text-5xl">Ready to Begin?</h1>
 		<span class="text-md mt-2 px-2 text-center md:mt-4 md:px-5 md:text-xl">Take the first step to discuss your strategy needs.</span>
 	</div>
-	<div class="modal" role="dialog" id="privacy_modal">
-		<div class="modal-box">
-			<div class="my-4 mx-8 bg-stone-50">
-				<article class="prose p-8">
-					<h1>{data.privacyPolicy.title}</h1>
-					{@html data.privacyPolicy.html}
-				</article>
-			</div>
-			<div class="modal-action">
-				<!-- svelte-ignore a11y-invalid-attribute -->
-				<a href="#" class="btn btn-accent">Close</a>
-			</div>
-		</div>
-	</div>
-	
 	<div class="flex flex-wrap justify-center gap-8 my-8">
 		<form method="POST" action="?/submit" use:enhance>
 			<div class="grid grid-cols-2 justify-stretch gap-2">
@@ -71,7 +60,7 @@
 				</div>
 				<div class="col-span-2 flex justify-between items-center">
 					<div>
-						<span class="label-text"></span>By submitting you confirm you have read<br>and accept the <a class="link link-accent" href="#privacy_modal">Privacy Policy.</a>
+						<span class="label-text"></span>By submitting you confirm you have read<br>and accept the <button class="link link-accent" on:click={() => showModal('privacy_policy')}>Privacy Policy.</button>
 					</div>
 					<div>
 						<button class="btn">Submit</button>
@@ -81,3 +70,19 @@
 		</form>
 	</div>
 </div>
+
+<dialog id="privacy_policy" class="modal">
+	<div class="modal-box w-2/3 max-w-4xl p-12 h-3/4">
+		<div class="bg-stone-50 overflow-y-scroll">
+			<article class="flex flex-col mx-auto prose py-12">
+				<h1>{data.privacyPolicy.title}</h1>
+				{@html data.privacyPolicy.html}
+			</article>
+		</div>
+		<div class="modal-action">
+			<form method="dialog">
+				<button class="btn btn-accent">Close</button>
+			</form>
+		</div>
+	</div>
+</dialog>

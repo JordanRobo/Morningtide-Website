@@ -14,6 +14,15 @@ export function newPost(date: string) {
 	return daysDifference < 7;
 };
 
-export function tagLink( tag: string ) {
+export function tagLink(tag: string) {
 	return `/insights?page=1&tag=${tag}`;
+};
+
+export function showModal(id: string) {
+	const modal = document.getElementById(id) as HTMLDialogElement | null;
+	if (modal) {
+		modal.showModal();
+	} else {
+		console.error('Modal element not found');
+	}
 };

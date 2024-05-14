@@ -1,8 +1,5 @@
-import { api } from '$lib/db';
+import { api, pb } from '$lib/db';
 import type { PageServerLoad, Actions } from './$types';
-import PocketBase from 'pocketbase';
-
-const pb = new PocketBase('https://jordanrobo.xyz/db');
 
 export const load: PageServerLoad = async () => {
 	const privacyPolicy = await api.pages.read({ slug: 'privacy-policy' });
@@ -24,4 +21,3 @@ export const actions: Actions = {
 		}
 	},
 };
-

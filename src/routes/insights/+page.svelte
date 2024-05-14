@@ -5,6 +5,7 @@
 	import { newPost } from '$lib/utils';
 	import { writable } from 'svelte/store';
 	import { goto } from '$app/navigation';
+	import { SectionHero } from '$lib';
 
 	export let data: PageData;
 
@@ -34,7 +35,12 @@
 
 	};
 
-	console.log($page.data);
+	let insights ={
+		"image": "https://source.unsplash.com/1600x900/?about",
+		"badge":"How we think",
+		"heading":"Insights",
+		"subheading":"We regularly produce articles that we hope will inform, inspire, and provide insights into school strategy and leadership."
+	};
 
 </script>
 
@@ -45,6 +51,8 @@
 		content="Morningtide Consulting is a specialist consultancy working with independent school Boards, Principals, and their teams to create compelling strategy."
 	/>
 </svelte:head>
+
+<SectionHero image={insights.image} badge={insights.badge} heading={insights.heading} subheading={insights.subheading} />
 
 <div class="flex flex-wrap justify-center my-4">
 	<div class="max-w-lg space-x-2 space-y-1 text-center">
@@ -60,7 +68,7 @@
 	</div>
 </div>
 
-<div class="flex flex-wrap justify-center gap-8 my-8">
+<div class="container mx-auto flex flex-wrap justify-center gap-8 my-8">
     {#each data.posts as post (post.id)}
             <PostCard
                 checkNew={newPost(post.published_at)}

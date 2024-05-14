@@ -8,6 +8,7 @@ import RelatedCard from '$lib/components/posts/RelatedCard.svelte';
 import Drawernav from '$lib/components/nav/Drawernav.svelte';
 import SectionHero from '$lib/components/section/Hero.svelte';
 import Services from '$lib/components/section/Services.svelte';
+import Top from '$lib/components/nav/Top.svelte';
 
 export { 
     HomeContent, 
@@ -19,5 +20,6 @@ export {
     RelatedCard, 
     Drawernav,
     SectionHero,
-    Services
+    Services,
+    Top
 };

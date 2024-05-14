@@ -1,5 +1,8 @@
 // @ts-expect-error - required for loading
 import GhostContentAPI from '@tryghost/content-api';
+import PocketBase from 'pocketbase';
+
+const pb = new PocketBase('https://jordanrobo.xyz/db');
 
 const api = GhostContentAPI({
 	url: import.meta.env.VITE_GHOST_URL,
@@ -8,4 +11,4 @@ const api = GhostContentAPI({
 });
 
 // Export the instance
-export { api };
+export { api, pb };
