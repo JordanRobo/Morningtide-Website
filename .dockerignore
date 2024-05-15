@@ -13,4 +13,3 @@ helm-charts
 .idea
 coverage*
 .env
-docker_build.txt

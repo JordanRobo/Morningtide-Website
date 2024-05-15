@@ -1,5 +1,6 @@
 import { api } from '$lib/db';
 import type { PageServerLoad, Actions } from './$types';
+import { error } from '@sveltejs/kit';
 import PocketBase from 'pocketbase';
 
 const pb = new PocketBase('https://jordanrobo.xyz/db');
@@ -17,11 +18,10 @@ export const actions: Actions = {
 
 		const response = await pb.collection('about_form').create(data);
 
-		if (response.ok) {
-			return { success: true, successMessage: 'Form submitted successfully!' };
-		} else {
-			return { success: false, errorMessage: 'Error adding user' };
-		}
+		if (!response) {
+			return error(401, { message: 'Invalid data' });
+		} 
+			return { success: true };
 	},
 };
 

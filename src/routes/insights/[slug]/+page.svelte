@@ -7,18 +7,20 @@
 	let post = data.post;
 </script>
 <svelte:head>
-	<title>Morningtide Consulting | {post.meta_title}</title>
+	<title>Morningtide Consulting | {post.title}</title>
 	<meta name="description" content={post.meta_description} />
 </svelte:head>
 
-<div class="text-sm breadcrumbs px-4">
+<div class="hidden md:block text-sm breadcrumbs px-4">
 	<ul>
 		<li><a href="/">Home</a></li>
 		<li><a href="/insights">Insights</a></li>
 		<li>{data.post.title}</li>
 	</ul>
 </div>
-<div class="bg-cover bg-fixed bg-center h-[480px]" style="background-image: url({post.feature_image})"></div>
+
+<div class="hero h-[500px] bg-no-repeat" style="background-image: url({post.feature_image})"></div>
+
 <div class="flex flex-col max-w-[720px] mx-auto bg-white mb-4 p-8 -m-32 space-y-8">
 	<div class="space-y-6">
 		<h1 class="h1 text-4xl font-bold text-center px-4">{post.title}</h1>

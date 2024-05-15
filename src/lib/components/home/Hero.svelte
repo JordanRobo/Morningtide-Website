@@ -1,25 +1,38 @@
 <script lang="ts">
+	import { onMount, onDestroy } from 'svelte';
+	import { slide } from 'svelte/transition';
 	import Team from '$lib/images/business-team-collaborating_tiny.jpg';
 
-	export let title: string;
-	export let subtitle: string;
-	export let click: () => void;
+	let services: any[] = ["Strategy Planning", "Competitor Analysis", "Financial Forecasting", "Customer Auditing"];
+	let index: number = 0;
+	let roller: any;
+
+	onMount(() => {
+		roller = setInterval(() => {
+			index = index === services.length - 1 ? 0 : index + 1;
+		}, 3000);
+	});
+
+	onDestroy(() => {
+		clearInterval(roller);
+	});
+
 </script>
 
 <div class="hero h-[720px]" style="background-image: url({Team});">
-	<div class="hero-overlay bg-opacity-60"></div>
-	<div class="hero-content text-left text-neutral-content">
-		<div class="grid md:grid-cols-5">
-			<div class="md:col-start-4 md:col-span-2 max-w-md">
-				<div class="card backdrop-blur backdrop-brightness-50 shadow-xl">
-					<div class="card-body">
-						<h2 class="card-title text-accent">{title}</h2>
-						<p>{subtitle}</p>
-						<div class="card-actions justify-end">
-							<button class="btn btn-outline btn-accent" on:click={click}>Read More...</button>
-						</div>
-					</div>
-				</div>
+	<div class="hero-overlay bg-opacity-70"></div>
+	<div class="hero-content flex-col lg:flex-row-reverse lg:w-3/4 lg:justify-end">
+		<div class="text-center lg:text-start">
+			<h1 class="text-5xl font-bold uppercase md:text-7xl text-accent">Morningtide<br>Consulting
+				<span class="text-white/80">for</span>
+			</h1>
+			{#key index}
+				<h1 class="text-5xl font-bold uppercase md:text-7xl text-white/80" transition:slide>{services[index]}</h1>
+			{/key}
+			<p class="py-2 text-xl font-medium lg:max-w-lg text-white">Wondering How You Could Create A Compelling School Strategy?</p>
+			<div class="flex gap-2 max-lg:justify-center py-2">
+				<a href="/services" class="btn btn-primary md:btn-lg rounded-full shadow-md">Get Started</a>
+				<a href="/" class="btn btn-ghost md:btn-lg rounded-full font-light text-white">Read success stories</a>
 			</div>
 		</div>
 	</div>

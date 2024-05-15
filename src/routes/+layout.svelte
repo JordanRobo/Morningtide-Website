@@ -41,7 +41,7 @@
         isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
         if (isMobile) {
-            mobileTimer = setTimeout(showPopUpOnce, 20000);
+            mobileTimer = setTimeout(showPopUpOnce, 10000);
         } else {
             const handleMouseMove = (e: any) => {
                 const cursorPosition = { x: e.clientX, y: e.clientY };
@@ -81,9 +81,9 @@
 			<form method="POST" action="?/subscribe" use:enhance>
 				<div class="space-y-1 w-full">
 					<label for="name" class="label font-bold">Name</label>
-					<input type="text" name="name" placeholder="Enter your name" class="input w-full" />
+					<input required type="text" name="name" placeholder="Enter your name" class="input w-full" />
 					<label for="email" class="label font-bold">Email</label>
-					<input type="email" name="email" placeholder="Enter your email" class="input w-full" />
+					<input required type="email" name="email" placeholder="Enter your email" class="input w-full" />
 					<div class="flex justify-end pt-3">
 						<button class="btn btn-accent">Subscribe</button>
 					</div>

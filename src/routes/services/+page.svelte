@@ -1,29 +1,33 @@
 <script lang="ts">
-	import { Services, SectionHero } from '$lib';
+	import { Services, SectionHero, servicesPage } from '$lib';
 	import { showModal } from '$lib/utils';
 	import { enhance } from '$app/forms';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 
-	let services = {
-		"image": "https://source.unsplash.com/1600x900/?services",
-		"badge":"What we do",
-		"heading":"Our Services",
-		"subheading":"Morningtide Consulting offers several unique services to assist schools. Each service pivots on the concept that strategy is your number one priority."
-	}
+	let successMessage = '';
+	let errorMessage = '';
 
+	async function handleSubmit(event: any) {
+		event.preventDefault();
+		try {
+			successMessage = 'Message sent successfully.';
+			setTimeout(() => successMessage = '', 3000);
+		} catch (error) {
+			errorMessage = 'An error occurred.';
+			setTimeout(() => errorMessage = '', 3000);
+		}
+	}
 </script>
 
 <svelte:head>
 	<title>Services | Morningtide Consulting</title>
-	<meta
-		name="description"
-		content={services.subheading}
-	/>
+	<meta name="description" content={servicesPage.subheading} />
 </svelte:head>
 
-<SectionHero image={services.image} badge={services.badge} heading={services.heading} subheading={services.subheading} />
+<SectionHero image={servicesPage.image} badge={servicesPage.badge} heading={servicesPage.heading} subheading={servicesPage.subheading} />
+
 <div class="container max-w-[760px] flex flex-col mx-auto bg-white mt-8 pb-4">
 	<Services />
 </div>
@@ -34,10 +38,10 @@
 		<span class="text-md mt-2 px-2 text-center md:mt-4 md:px-5 md:text-xl">Take the first step to discuss your strategy needs.</span>
 	</div>
 	<div class="flex flex-wrap justify-center gap-8 my-8">
-		<form method="POST" action="?/submit" use:enhance>
+		<form method="POST" action="?/submit" on:submit={handleSubmit} use:enhance>
 			<div class="grid grid-cols-2 justify-stretch gap-2">
 				<div>
-					<input type="text" name="name" placeholder="Full Name..." class="input input-bordered w-full" />
+					<input required type="text" name="name" placeholder="Full Name..." class="input input-bordered w-full" />
 				</div>
 				<div>
 					<input type="text" name="school" placeholder="Name of School..." class="input input-bordered w-full" />
@@ -53,7 +57,7 @@
 					</select>
 				</div>
 				<div>
-					<input type="email" name="email" placeholder="Email Address..." class="input input-bordered w-full" />
+					<input required type="email" name="email" placeholder="Email Address..." class="input input-bordered w-full" />
 				</div>
 				<div class="col-span-2">
 					<textarea name="message" placeholder="Message..." class="textarea textarea-bordered w-full" ></textarea>
@@ -70,6 +74,22 @@
 		</form>
 	</div>
 </div>
+
+{#if successMessage}
+	<div class="toast toast-center">
+		<div class="alert alert-success">
+			<span>{successMessage}</span>
+		</div>
+	</div>
+{/if}
+
+{#if errorMessage}
+	<div class="toast toast-center">
+		<div class="alert alert-success">
+			<span>{errorMessage}</span>
+		</div>
+	</div>
+{/if}
 
 <dialog id="privacy_policy" class="modal">
 	<div class="modal-box w-2/3 max-w-4xl p-12 h-3/4">

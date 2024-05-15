@@ -1,28 +1,17 @@
 <script lang="ts">
-	import { SectionHero } from '$lib';
+	import { SectionHero, aboutPage } from '$lib';
 	import { enhance } from '$app/forms';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-
-	let about ={
-		"image": "https://source.unsplash.com/1600x900/?about",
-		"badge":"Who we are",
-		"heading":"About Us",
-		"subheading":"Morningtide Consulting brings a fresh approach for Principals and their leadership teams. We help create compelling strategy and then continue the journey through its implementation phase."
-	};
-
 </script>
 
 <svelte:head>
 	<title>About | Morningtide Consulting</title>
-	<meta
-		name="description"
-		content={about.subheading}
-	/>
+	<meta name="description" content={aboutPage.subheading} />
 </svelte:head>
 
-<SectionHero image={about.image} badge={about.badge} heading={about.heading} subheading={about.subheading} />
+<SectionHero image={aboutPage.image} badge={aboutPage.badge} heading={aboutPage.heading} subheading={aboutPage.subheading} />
 
 <div class="modal" role="dialog" id="privacy_modal">
 	<div class="modal-box">

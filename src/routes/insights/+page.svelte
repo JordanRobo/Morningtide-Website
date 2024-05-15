@@ -1,11 +1,10 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { page } from '$app/stores';
-	import { PostCard } from '$lib';
+	import { PostCard, SectionHero, insightsPage } from '$lib';
 	import { newPost } from '$lib/utils';
 	import { writable } from 'svelte/store';
 	import { goto } from '$app/navigation';
-	import { SectionHero } from '$lib';
 
 	export let data: PageData;
 
@@ -34,25 +33,14 @@
 		}
 
 	};
-
-	let insights ={
-		"image": "https://source.unsplash.com/1600x900/?about",
-		"badge":"How we think",
-		"heading":"Insights",
-		"subheading":"We regularly produce articles that we hope will inform, inspire, and provide insights into school strategy and leadership."
-	};
-
 </script>
 
 <svelte:head>
 	<title>Insights | Morningtide Consulting</title>
-	<meta
-		name="description"
-		content="Morningtide Consulting is a specialist consultancy working with independent school Boards, Principals, and their teams to create compelling strategy."
-	/>
+	<meta name="description" content={insightsPage.subheading}/>
 </svelte:head>
 
-<SectionHero image={insights.image} badge={insights.badge} heading={insights.heading} subheading={insights.subheading} />
+<SectionHero image={insightsPage.image} badge={insightsPage.badge} heading={insightsPage.heading} subheading={insightsPage.subheading} />
 
 <div class="flex flex-wrap justify-center my-4">
 	<div class="max-w-lg space-x-2 space-y-1 text-center">

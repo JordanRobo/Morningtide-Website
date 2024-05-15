@@ -14,33 +14,22 @@
 	/>
 </svelte:head>
 
-<div>
-	<Hero
-		title={data.posts[0].title}
-		subtitle={data.posts[0].custom_excerpt}
-		click={() => goto('/insights/' + data.posts[0].slug)}
-	/>
-	<div class="flex flex-col text-center lg:flex-row lg:justify-around bg-primary p-4">
-		<div>
-			<span class="text-white opacity-60">Mon-Fri 8:00 - 18:00 (AEDT)</span>
-		</div>
-		<div>
-			<span class="text-white opacity-60">Melbourne | Sydney | Brisbane | Adelaide | Perth</span>
-		</div>
-		<div>
-			<span class="text-white opacity-60">info@morningtide.com.au</span>
-		</div>
+<Hero />
+
+<div class="flex flex-col text-center lg:flex-row lg:justify-around bg-primary p-4">
+	<div>
+		<span class="text-white opacity-60">Mon-Fri 8:00 - 18:00 (AEDT)</span>
 	</div>
-	<div class="text-center bg-accent p-6 space-y-4">
-		<div>
-			<h3 class="text-white">Wondering How You Could Create<br />A Compelling School Strategy?</h3>
-		</div>
-		<div>
-			<button class="btn btn-outline btn-primary">Get Started</button>
-		</div>
+	<div>
+		<span class="text-white opacity-60">Melbourne | Sydney | Brisbane | Adelaide | Perth</span>
 	</div>
-	<HomeContent />
+	<div>
+		<span class="text-white opacity-60">info@morningtide.com.au</span>
+	</div>
 </div>
+
+<HomeContent />
+
 <div class="container mx-auto">
 	<div class="bg-stone-50">
 		<div class="p-6 w-full sm:w-[600px] md:w-[720px] lg:w-[960px] mx-auto space-y-8 my-8">
