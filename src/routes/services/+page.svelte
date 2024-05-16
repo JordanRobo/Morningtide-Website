@@ -2,23 +2,19 @@
 	import { Services, SectionHero, servicesPage } from '$lib';
 	import { showModal } from '$lib/utils';
 	import { enhance } from '$app/forms';
-	import type { PageData } from './$types';
+	import type { PageData, ActionData } from './$types';
 
 	export let data: PageData;
+	export let form: ActionData;
 
-	let successMessage = '';
-	let errorMessage = '';
+	let showMessage = false;
 
-	async function handleSubmit(event: any) {
-		event.preventDefault();
-		try {
-			successMessage = 'Message sent successfully.';
-			setTimeout(() => successMessage = '', 3000);
-		} catch (error) {
-			errorMessage = 'An error occurred.';
-			setTimeout(() => errorMessage = '', 3000);
-		}
-	}
+	$: if (form?.success !== undefined) {
+		showMessage = true;
+		setTimeout(() => {
+			showMessage = false;
+		}, 5000); 
+	};
 </script>
 
 <svelte:head>
@@ -38,7 +34,7 @@
 		<span class="text-md mt-2 px-2 text-center md:mt-4 md:px-5 md:text-xl">Take the first step to discuss your strategy needs.</span>
 	</div>
 	<div class="flex flex-wrap justify-center gap-8 my-8">
-		<form method="POST" action="?/submit" on:submit={handleSubmit} use:enhance>
+		<form method="POST" action="?/submit" use:enhance>
 			<div class="grid grid-cols-2 justify-stretch gap-2">
 				<div>
 					<input required type="text" name="name" placeholder="Full Name..." class="input input-bordered w-full" />
@@ -75,18 +71,16 @@
 	</div>
 </div>
 
-{#if successMessage}
-	<div class="toast toast-center">
+{#if showMessage && form?.success === true}
+	<div class="toast toast-center z-50">
 		<div class="alert alert-success">
-			<span>{successMessage}</span>
+			<span>Thanks for your submission, we look forward to speaking soon!</span>
 		</div>
 	</div>
-{/if}
-
-{#if errorMessage}
-	<div class="toast toast-center">
-		<div class="alert alert-success">
-			<span>{errorMessage}</span>
+{:else if showMessage && form?.success === false}
+	<div class="toast toast-center z-50">
+		<div class="alert alert-error text-center">
+			<span>Oh No, there was a problem, please try again.</span>
 		</div>
 	</div>
 {/if}

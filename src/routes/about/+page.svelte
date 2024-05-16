@@ -1,9 +1,21 @@
 <script lang="ts">
 	import { SectionHero, aboutPage } from '$lib';
+	import { showModal } from '$lib/utils';
 	import { enhance } from '$app/forms';
-	import type { PageData } from './$types';
+	import type { PageData, ActionData } from './$types';
+	import { EnvelopeClosed, Home, InstagramLogo, LinkedinLogo, Mobile, TwitterLogo } from 'svelte-radix';
 
 	export let data: PageData;
+	export let form: ActionData;
+
+	let showMessage = false;
+
+	$: if (form?.success !== undefined) {
+		showMessage = true;
+		setTimeout(() => {
+			showMessage = false;
+		}, 5000); 
+	};
 </script>
 
 <svelte:head>
@@ -13,54 +25,94 @@
 
 <SectionHero image={aboutPage.image} badge={aboutPage.badge} heading={aboutPage.heading} subheading={aboutPage.subheading} />
 
-<div class="modal" role="dialog" id="privacy_modal">
-	<div class="modal-box">
-		<div class="my-4 mx-8 bg-stone-50">
-			<article class="prose p-8">
+<section id="contactus" class="mt-20">
+	<div class="flex w-full flex-col justify-center">
+		<h1 class="text-center font-urbanist text-2xl font-semibold md:text-5xl">Want to stay up to date?</h1>
+		<span class="text-md mt-2 px-2 text-center font-urbanist md:mt-4 md:px-5 md:text-xl">Follow our socials or signup to our mailing list.</span>
+	</div>
+	<div class="container mx-auto px-6 py-10">
+		<div class="lg:-mx-6 lg:flex lg:items-center">
+			<div class="lg:mx-0 lg:mt-0 lg:flex lg:w-1/2 lg:flex-col lg:items-center">
+				<div class="mt-6 space-y-8 md:mt-8">
+					<p class="-mx-2 flex items-start">
+						<Home class="text-base-400 mx-2 h-6 w-6" />
+						<span class="mx-2 w-72 truncate text-base-content">Kew, Melbourne VIC</span>
+					</p>
+					<p class="-mx-2 flex items-start">
+						<Mobile class="text-base-400 mx-2 h-6 w-6" />
+						<span class="mx-2 w-72 truncate text-base-content">0403 987 946</span>
+					</p>
+					<p class="-mx-2 flex items-start">
+						<EnvelopeClosed class="text-base-400 mx-2 h-6 w-6" />
+						<span class="mx-2 w-72 truncate text-base-content">info@morningtide.com.au</span>
+					</p>
+				</div>
+				<div class="mt-6 w-80 md:mt-8">
+					<h3 class="text-base-400">Follow us</h3>
+					<div class="-mx-1.5 mt-4 flex">
+						<a class="btn mx-1.5 rounded-full bg-base-100" href="https://www.linkedin.com/in/stuart-robinson-mba/" aria-label="linkedin">
+							<LinkedinLogo class="text-base-400 mx-2 h-6 w-6" />
+						</a>
+						<a class="btn mx-1.5 rounded-full bg-base-100" href="https://twitter.com/Morningtide_Go" aria-label="twitter">
+							<TwitterLogo class="text-base-400 mx-2 h-6 w-6" />
+						</a>
+						<a class="btn mx-1.5 rounded-full bg-base-100" href="https://www.instagram.com/morningtide.consulting/" aria-label="instagram">
+							<InstagramLogo class="text-base-400 mx-2 h-6 w-6" />
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="card mt-8 lg:mx-6 lg:w-1/2">
+				<div class="card-body bg-white mx-auto w-full overflow-hidden rounded-lg px-8 py-10 shadow-xl outline outline-base-content/5 lg:max-w-xl" >
+					<h1 class="card-title">Subscribe for the latest updates and articles.</h1>
+					<form method="POST" action="?/subscribe" use:enhance>
+						<div class="space-y-1 w-full">
+							<label for="name" class="label font-bold">Name</label>
+							<input required type="text" name="name" placeholder="Enter your name" class="input w-full outline outline-base-content/5" />
+							<label for="email" class="label font-bold">Email</label>
+							<input required type="email" name="email" placeholder="Enter your email" class="input w-full outline outline-base-content/5" />
+							<div class="col-span-2 flex justify-between items-center pt-3">
+								<div>
+									<span class="label-text">By submitting you confirm you have read<br>and accept the <button class="link link-accent" on:click|preventDefault={() => showModal('privacy_policy')}>Privacy Policy.</button></span>
+								</div>
+								<div>
+									<button class="btn btn-outline btn-primary">Submit</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{#if showMessage && form?.success === true}
+	<div class="toast toast-center z-50">
+		<div class="alert alert-success">
+			<span>Welcome to the Morningtide insider!</span>
+		</div>
+	</div>
+{:else if showMessage && form?.success === false}
+	<div class="toast toast-center z-50">
+		<div class="alert alert-error text-center">
+			<span>Oh No, there was a problem, please try again.</span>
+		</div>
+	</div>
+{/if}
+
+<dialog id="privacy_policy" class="modal">
+	<div class="modal-box w-2/3 max-w-4xl p-12 h-3/4">
+		<div class="bg-stone-50 overflow-y-scroll">
+			<article class="flex flex-col mx-auto prose py-12">
 				<h1>{data.privacyPolicy.title}</h1>
 				{@html data.privacyPolicy.html}
 			</article>
 		</div>
 		<div class="modal-action">
-			<!-- svelte-ignore a11y-invalid-attribute -->
-			<a href="#" class="btn btn-accent">Close</a>
+			<form method="dialog">
+				<button class="btn btn-accent">Close</button>
+			</form>
 		</div>
 	</div>
-</div>
-
-<div class="flex flex-wrap justify-center gap-8 my-8">
-	<form method="POST" action="?/submit" use:enhance>
-		<div class="w-[820px] grid grid-cols-2 justify-stretch gap-2">
-			<div>
-				<input type="text" name="name" placeholder="Full Name..." class="input input-bordered w-full" />
-			</div>
-			<div>
-				<input type="text" name="school" placeholder="Name of School..." class="input input-bordered w-full" />
-			</div>
-			<div>
-				<select name="position" class="select select-bordered w-full" >
-					<option disabled selected>Position</option>
-					<option>Principal</option>
-					<option>Board Chair</option>
-					<option>Business Manager</option>
-					<option>Executive Assistant</option>
-					<option>Other</option>
-				</select>
-			</div>
-			<div>
-				<input type="email" name="email" placeholder="Email Address..." class="input input-bordered w-full" />
-			</div>
-			<div class="col-span-2">
-				<textarea name="message" placeholder="Message..." class="textarea textarea-bordered w-full" ></textarea>
-			</div>
-			<div class="col-span-2 flex justify-between items-center">
-				<div>
-					<span class="label-text"></span>By submitting you confirm you have read and accept the <a class="link link-accent" href="#privacy_modal">Privacy Policy.</a>
-				</div>
-				<div>
-					<button class="btn">Submit</button>
-				</div>
-			</div>
-		</div>
-	</form>
-</div>
+</dialog>

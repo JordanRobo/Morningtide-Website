@@ -1,9 +1,6 @@
-import { api } from '$lib/db';
+import { api, pb } from '$lib/db';
 import type { PageServerLoad, Actions } from './$types';
-import { error } from '@sveltejs/kit';
-import PocketBase from 'pocketbase';
-
-const pb = new PocketBase('https://jordanrobo.xyz/db');
+import { fail } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async () => {
 	const privacyPolicy = await api.pages.read({ slug: 'privacy-policy' });
@@ -14,14 +11,12 @@ export const load: PageServerLoad = async () => {
 
 export const actions: Actions = {
 	submit: async ({ request }) => {
-		const data = await request.formData();
-
-		const response = await pb.collection('about_form').create(data);
-
-		if (!response) {
-			return error(401, { message: 'Invalid data' });
-		} 
-			return { success: true };
+		try {
+			const data = await request.formData();
+			const response = await pb.collection('enquiry_form').create(data);
+			return { response, success: true };
+		} catch (err) {
+			return fail(404, { success: false });
+		}
 	},
 };
-

@@ -1,5 +1,6 @@
 import { api, pb } from '$lib/db';
 import type { PageServerLoad, Actions } from './$types';
+import { fail } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async () => {
 	const posts = await api.posts.browse({ limit: 3 });
@@ -10,14 +11,12 @@ export const load: PageServerLoad = async () => {
 
 export const actions: Actions = {
 	subscribe: async ({ request }) => {
-		const data = await request.formData();
-
-		const response = await pb.collection('mailing_list').create(data);
-
-		if (response.ok) {
-			return { success: true, successMessage: 'Form submitted successfully!' };
-		} else {
-			return { success: false, errorMessage: 'Error adding user' };
+		try {
+			const data = await request.formData();
+			const response = await pb.collection('subscription_form').create(data);
+			return { response, success: true };
+		} catch (err) {
+			return fail(404, { success: false });
 		}
 	},
 };

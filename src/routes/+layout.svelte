@@ -18,7 +18,6 @@
 	const transitionOut = { easing: cubicIn, y: -y, duration };
 	let isMobile = false;
     let mobileTimer: ReturnType<typeof setTimeout> | null = null;
-	let cursorPosition = { x: 0, y: 0 };
 
 	const showPopUpOnce = () => {
         const popUpShown = localStorage.getItem('popUpShown');
