@@ -1,7 +1,9 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { page } from '$app/stores';
-	import { PostCard, SectionHero, insightsPage } from '$lib';
+	import { Individual } from '$lib/components/ui/posts/cards';
+	import { Header } from '$lib/components/ui/shared';
+	import { insights } from '$lib/data';
 	import { newPost } from '$lib/utils';
 	import { writable } from 'svelte/store';
 	import { goto } from '$app/navigation';
@@ -37,10 +39,10 @@
 
 <svelte:head>
 	<title>Insights | Morningtide Consulting</title>
-	<meta name="description" content={insightsPage.subheading}/>
+	<meta name="description" content={insights.subheading}/>
 </svelte:head>
 
-<SectionHero image={insightsPage.image} badge={insightsPage.badge} heading={insightsPage.heading} subheading={insightsPage.subheading} />
+<Header header={insights} />
 
 <div class="flex flex-wrap justify-center my-4">
 	<div class="max-w-lg space-x-2 space-y-1 text-center">
@@ -58,14 +60,7 @@
 
 <div class="container mx-auto flex flex-wrap justify-center gap-8 my-8">
     {#each data.posts as post (post.id)}
-            <PostCard
-                checkNew={newPost(post.published_at)}
-                title={post.title}
-                tags={post.tags}
-                custom_excerpt={post.custom_excerpt}
-                feature_image={post.feature_image}
-                slug={post.slug}
-            />
+            <Individual checkNew={newPost(post.published_at)} {post} />
     {/each}
 </div>
 

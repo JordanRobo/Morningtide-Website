@@ -1,10 +1,11 @@
 <script lang="ts">
-	import { Services, SectionHero, servicesPage } from '$lib';
+	import { Services } from '$lib/components/ui/services';
 	import { showModal } from '$lib/utils';
 	import { enhance } from '$app/forms';
-	import type { PageData, ActionData } from './$types';
+	import type { ActionData } from './$types';
+	import { Header } from '$lib/components/ui/shared';
+	import { services } from '$lib/data';
 
-	export let data: PageData;
 	export let form: ActionData;
 
 	let showMessage = false;
@@ -19,10 +20,10 @@
 
 <svelte:head>
 	<title>Services | Morningtide Consulting</title>
-	<meta name="description" content={servicesPage.subheading} />
+	<meta name="description" content={services.subheading} />
 </svelte:head>
 
-<SectionHero image={servicesPage.image} badge={servicesPage.badge} heading={servicesPage.heading} subheading={servicesPage.subheading} />
+<Header header={services} />
 
 <div class="container max-w-[760px] flex flex-col mx-auto bg-white mt-8 pb-4">
 	<Services />
@@ -84,19 +85,3 @@
 		</div>
 	</div>
 {/if}
-
-<dialog id="privacy_policy" class="modal">
-	<div class="modal-box w-2/3 max-w-4xl p-12 h-3/4">
-		<div class="bg-stone-50 overflow-y-scroll">
-			<article class="flex flex-col mx-auto prose py-12">
-				<h1>{data.privacyPolicy.title}</h1>
-				{@html data.privacyPolicy.html}
-			</article>
-		</div>
-		<div class="modal-action">
-			<form method="dialog">
-				<button class="btn btn-accent">Close</button>
-			</form>
-		</div>
-	</div>
-</dialog>

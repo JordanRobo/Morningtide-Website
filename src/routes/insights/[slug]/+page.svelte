@@ -1,10 +1,15 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { formatDate } from '$lib/utils';
-	import { RelatedCard } from '$lib';
+	import { Related } from '$lib/components/ui/posts/cards';
+	import ShareButtons from '$lib/components/ui/posts/ShareButtons.svelte';
+
 	export let data: PageData;
 
 	let post = data.post;
+
+	const url = "https://jordanrobo.xyz/insights/" + post.slug;
+	const title = post.title;
 </script>
 <svelte:head>
 	<title>Morningtide Consulting | {post.title}</title>
@@ -18,16 +23,17 @@
 		<li>{data.post.title}</li>
 	</ul>
 </div>
-
-<div class="hero h-[500px] bg-no-repeat" style="background-image: url({post.feature_image})"></div>
-
-<div class="flex flex-col max-w-[720px] mx-auto bg-white mb-4 p-8 -m-32 space-y-8">
+<div class="hidden lg:block mx-auto w-11/12">
+	<div class="h-[500px] bg-fixed bg-no-repeat bg-top" style="background-image: url({post.feature_image})"></div>
+</div>
+<img src={post.feature_image} alt={post.title} class="w-full max-h-96 object-cover block lg:hidden" />
+<div class="flex flex-col max-w-[720px] mx-auto bg-white mb-4 p-8 lg:-mt-32 space-y-8">
 	<div class="space-y-6">
 		<h1 class="h1 text-4xl font-bold text-center px-4">{post.title}</h1>
 		<div class="border border-accent"></div>
-		<div class="flex justify-around">
+		<div class="flex flex-col text-center md:flex-row md:justify-around">
 			<p>{post.reading_time} min read</p>
-			<p>By {post.authors[0].name}</p>
+			<p class="font-bold">By {post.authors[0].name}</p>
 			<p>{formatDate(post.published_at)}</p>
 		</div>
 		<div class="border border-accent"></div>
@@ -35,8 +41,9 @@
 			{@html post.html}
 		</div>
 	</div>
+	<ShareButtons {url} {title} />
 	<div class="divider"></div> 
-	<div class="grid grid-cols-3">
+	<div class="grid grid-cols-1 text-center md:text-left md:grid-cols-3 gap-4">
 		<div class="avatar justify-self-center">
 			<div class="w-32 rounded-full">
 				<img src={post.primary_author.profile_image} alt={post.primary_author.name} />
@@ -52,12 +59,7 @@
 	<div class="carousel rounded-box gap-2">
 		{#each data.related as related}
 			<div class="carousel-item w-full sm:w-1/2">
-				<RelatedCard
-					title={related.title}
-					tags={related.tags}
-					feature_image={related.feature_image}
-					slug={related.slug}
-				/>
+				<Related {related} />
 			</div>
 		{/each}
 	</div> 

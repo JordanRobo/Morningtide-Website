@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { SectionHero, aboutPage } from '$lib';
+	import { Header } from '$lib/components/ui/shared';
+	import { about } from '$lib/data';
 	import { showModal } from '$lib/utils';
 	import { enhance } from '$app/forms';
-	import type { PageData, ActionData } from './$types';
+	import type { ActionData } from './$types';
 	import { EnvelopeClosed, Home, InstagramLogo, LinkedinLogo, Mobile, TwitterLogo } from 'svelte-radix';
 
-	export let data: PageData;
 	export let form: ActionData;
 
 	let showMessage = false;
@@ -20,11 +20,10 @@
 
 <svelte:head>
 	<title>About | Morningtide Consulting</title>
-	<meta name="description" content={aboutPage.subheading} />
+	<meta name="description" content={about.subheading} />
 </svelte:head>
 
-<SectionHero image={aboutPage.image} badge={aboutPage.badge} heading={aboutPage.heading} subheading={aboutPage.subheading} />
-
+<Header header={about} />
 <section id="contactus" class="mt-20">
 	<div class="flex w-full flex-col justify-center">
 		<h1 class="text-center font-urbanist text-2xl font-semibold md:text-5xl">Want to stay up to date?</h1>
@@ -100,19 +99,3 @@
 		</div>
 	</div>
 {/if}
-
-<dialog id="privacy_policy" class="modal">
-	<div class="modal-box w-2/3 max-w-4xl p-12 h-3/4">
-		<div class="bg-stone-50 overflow-y-scroll">
-			<article class="flex flex-col mx-auto prose py-12">
-				<h1>{data.privacyPolicy.title}</h1>
-				{@html data.privacyPolicy.html}
-			</article>
-		</div>
-		<div class="modal-action">
-			<form method="dialog">
-				<button class="btn btn-accent">Close</button>
-			</form>
-		</div>
-	</div>
-</dialog>

@@ -1,12 +1,6 @@
 <script lang="ts">
     import { tagLink } from '$lib/utils';
-
-    const services = [
-		{ title: 'Competitor Analysis', url: '/services' },
-		{ title: 'Customer Experience Audit', url: '/services' },
-		{ title: 'Financial Forecast Review', url: '/services' },
-		{ title: 'Strategy Planning', url: '/services' }
-	];
+    import { services } from '$lib/data';
 
 	export let insights: { name: string, slug: string }[];
 
@@ -29,7 +23,7 @@
         <summary class="text-primary">Services</summary>
         <ul>
             <li><a href="/services">View All</a></li>
-            {#each services as service}
+            {#each services.service as service}
 				<li><a href={service.url}>{service.title}</a></li>
 			{/each}
         </ul>
@@ -37,4 +31,3 @@
 </li>
 <li class="text-primary"><a href="/about">About</a></li>
 <li class="text-primary"><a href="https://courses.morningtide.com.au/">Courses</a></li>
-

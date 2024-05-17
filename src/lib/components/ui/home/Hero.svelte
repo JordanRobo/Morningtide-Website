@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { slide } from 'svelte/transition';
-	import Team from '$lib/images/business-team-collaborating_tiny.jpg';
+	import { TeamImg } from '$lib/images/uploads';
 
 	let services: any[] = ["Strategy Planning", "Competitor Analysis", "Financial Forecasting", "Customer Auditing"];
 	let index: number = 0;
@@ -19,7 +19,7 @@
 
 </script>
 
-<div class="hero h-[720px]" style="background-image: url({Team});">
+<div class="hero h-[720px]" style="background-image: url({TeamImg});">
 	<div class="hero-overlay bg-opacity-70"></div>
 	<div class="hero-content flex-col lg:flex-row-reverse lg:w-3/4 lg:justify-end">
 		<div class="text-center lg:text-start">
@@ -35,5 +35,16 @@
 				<a href="/" class="btn btn-ghost md:btn-lg rounded-full font-light text-white">Read success stories</a>
 			</div>
 		</div>
+	</div>
+</div>
+<div class="flex flex-col text-center lg:flex-row lg:justify-around bg-primary p-4">
+	<div>
+		<span class="text-white opacity-60">Mon-Fri 8:00 - 18:00 (AEDT)</span>
+	</div>
+	<div>
+		<span class="text-white opacity-60">Melbourne | Sydney | Brisbane | Adelaide | Perth</span>
+	</div>
+	<div>
+		<span class="text-white opacity-60">info@morningtide.com.au</span>
 	</div>
 </div>

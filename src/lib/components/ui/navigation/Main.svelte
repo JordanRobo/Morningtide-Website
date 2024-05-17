@@ -1,14 +1,8 @@
 <script lang="ts">
-	import logo from '$lib/images/MC-Logo-2020-FC_CMYK.png';
+	import { Colour } from '$lib/images/logo';
 	import { drawer } from '$lib/stores';
 	import { tagLink } from '$lib/utils';
-
-	const services = [
-		{ title: 'Competitor Analysis', url: '/services' },
-		{ title: 'Customer Experience Audit', url: '/services' },
-		{ title: 'Financial Forecast Review', url: '/services' },
-		{ title: 'Strategy Planning', url: '/services' }
-	];
+	import { services } from '$lib/data';
 
 	export let insights: { name: string, slug: string }[];
 
@@ -17,7 +11,7 @@
 <div class="navbar bg-base-100 md:px-8">
 	<div class="flex-1 px-2 mx-2">
 		<a href="/">
-			<img src={logo} alt="Morningtide Logo" class="max-h-16 md:max-h-24 min-w-24 object-contain"/>
+			<img src={Colour} alt="Morningtide Logo" class="max-h-16 md:max-h-24 min-w-24 object-contain"/>
 		</a>
 	</div>
 	<div class="flex-none lg:hidden">
@@ -43,7 +37,7 @@
 				<div class="dropdown dropdown-bottom dropdown-hover dropdown-end">
 					<a role="button" class="text-primary" href="/services">Services</a>
 					<ul class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-						{#each services as service}
+						{#each services.service as service}
 							<li><a href={service.url}>{service.title}</a></li>
 						{/each}
 					</ul>
