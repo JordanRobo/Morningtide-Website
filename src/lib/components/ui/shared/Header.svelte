@@ -1,5 +1,4 @@
 <script lang="ts">
-
   export let header: { image: string, badge: string, heading: string, subheading: string };
 </script>
 

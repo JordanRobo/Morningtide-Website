@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+    import type { Post } from '$lib/data/types';
 
-    export let posts: { title: string, custom_excerpt: string, feature_image: string, slug: string }[];
+    export let posts: Post[];
 </script>
 
 <div class="container mx-auto">
@@ -9,7 +10,7 @@
         {#each posts as post}
             <div class="card lg:card-side bg-white shadow-xl">
                 <figure class="lg:w-1/2 max-h-[220px] lg:max-h-[300px]">
-                    <img class="object-cover h-full" src={post.feature_image} alt={post.title} />
+                    <img class="object-cover h-full" src={post.feature_image} alt={post.title} width=auto height=auto  />
                 </figure>
                 <div class="card-body lg:w-1/2">
                     <h2 class="card-title">{post.title}</h2>

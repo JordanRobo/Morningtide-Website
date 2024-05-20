@@ -9,31 +9,25 @@
 	import { goto } from '$app/navigation';
 
 	export let data: PageData;
-
-	let next = false;
-	let previous = false;
 	
 	const selectedTag = writable<string | null>('');
+	const pageNumber = writable<number | null>(1);
 
-	$: $selectedTag = $page.url.searchParams.get('tag') || '';
+	$: {
+		$selectedTag = $page.url.searchParams.get('tag') || '';
+		$pageNumber = parseInt($page.url.searchParams.get('page') || '1');
+	};
 
 	function nextPage() {
-		const page: any = $page.url.searchParams.get('page') || 1;
-		if (data.meta.pagination.page < data.meta.pagination.pages) {
-			goto(`/insights?page=${parseInt(page) + 1}&tag=${$selectedTag}`);
-		} else {
-			
+		if (data.meta.pagination.page < data.meta.pagination.pages && $pageNumber !== null) {
+			goto(`/insights?page=${$pageNumber + 1}&tag=${$selectedTag}`);
 		}
 	};
 
 	function prevPage() {
-		const page: any = $page.url.searchParams.get('page') || 1;
-		if (data.meta.pagination.page > 1) {
-			goto(`/insights?page=${parseInt(page) - 1}&tag=${$selectedTag}`);
-		} else {
-			
+		if (data.meta.pagination.page > 1 && $pageNumber !== null) {
+			goto(`/insights?page=${$pageNumber - 1}&tag=${$selectedTag}`);
 		}
-
 	};
 </script>
 
@@ -67,8 +61,8 @@
 <div class="flex flex-wrap justify-center py-8">
 	<div class="max-w-lg space-x-2 space-y-1 text-center">
 		<div class="join grid grid-cols-2">
-			<button disabled={previous} class="join-item btn btn-outline" on:click={prevPage}>Previous page</button>
-			<button disabled={next} class="join-item btn btn-outline" on:click={nextPage}>Next</button>
+			<button class="join-item btn btn-outline" on:click={prevPage}>Previous page</button>
+			<button class="join-item btn btn-outline" on:click={nextPage}>Next</button>
 		</div>
 	</div>
 </div>

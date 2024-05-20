@@ -44,7 +44,7 @@
 				</div>
 			</li>
 			<li class="text-primary"><a href="/about">About</a></li>
-			<li class="text-primary"><a href="https://courses.morningtide.com.au/">Courses</a></li>
+			<li class="text-primary"><a href="https://courses.morningtide.com.au/" target="_blank">Courses</a></li>
 		</ul>
 	</div>
 </div>

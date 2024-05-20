@@ -31,8 +31,8 @@
 			{/key}
 			<p class="py-2 text-xl font-medium lg:max-w-lg text-white">Wondering How You Could Create A Compelling School Strategy?</p>
 			<div class="flex gap-2 max-lg:justify-center py-2">
-				<a href="/services" class="btn btn-primary md:btn-lg rounded-full shadow-md">Get Started</a>
-				<a href="/" class="btn btn-ghost md:btn-lg rounded-full font-light text-white">Read success stories</a>
+				<a href="/services" class="btn btn-primary md:btn-lg rounded-full shadow-md">Learn here</a>
+				<a href="/insights" class="btn btn-ghost md:btn-lg rounded-full font-light text-white">Read our insights</a>
 			</div>
 		</div>
 	</div>

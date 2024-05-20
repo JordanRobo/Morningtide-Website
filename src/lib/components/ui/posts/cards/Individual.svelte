@@ -9,7 +9,7 @@
 
 		
 <div class="card w-5/6 sm:w-2/3 md:w-96 bg-base-100 shadow-xl">
-	<figure><img class="object-cover w-full h-48" src={post.feature_image} alt={post.title} /></figure>
+	<figure><img class="object-cover w-full h-48" src={post.feature_image} alt={post.title} width=auto height=auto /></figure>
 	<div class="card-body space-y-2">
 		<h2 class="card-title h2 text-2xl">
 			{post.title}

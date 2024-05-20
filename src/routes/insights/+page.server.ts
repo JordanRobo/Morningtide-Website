@@ -1,4 +1,3 @@
-// src/routes/insights/+page.server.ts
 import { api } from '$lib/db';
 import type { PageServerLoad } from './$types';
 
