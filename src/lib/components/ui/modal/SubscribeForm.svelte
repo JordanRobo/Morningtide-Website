@@ -1,11 +1,13 @@
 <script lang="ts">
     import { enhance } from '$app/forms';
+	import { Cross1 } from "svelte-radix";
+	
 </script>
 
 <dialog id="subscribe_form" class="modal">
 	<div class="modal-box bg-primary text-white w-11/12 max-w-2xl p-8">
 		<form method="dialog">
-			<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+			<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"><Cross1 class="h-4 w-4" /></button>
 		</form>
 		<div class="grid grid-cols-1 md:grid-cols-2 text-center md:text-left">
 			<div>
