@@ -12,10 +12,18 @@
 	
 	const selectedTag = writable<string | null>('');
 	const pageNumber = writable<number | null>(1);
+	const lowerBound = writable<number | null>(1);
+	const upperBound = writable<number | null>(1);
+	const lastPage = writable<boolean>(false);
+	const firstPage = writable<boolean>(true);
 
 	$: {
 		$selectedTag = $page.url.searchParams.get('tag') || '';
 		$pageNumber = parseInt($page.url.searchParams.get('page') || '1');
+		$lowerBound = (data.meta.pagination.page - 1) * data.meta.pagination.limit + 1;
+		$upperBound = Math.min(data.meta.pagination.page * data.meta.pagination.limit, data.meta.pagination.total);
+		$lastPage = $page.data.meta.pagination.page === $page.data.meta.pagination.pages;
+		$firstPage = $page.data.meta.pagination.page === 1;
 	};
 
 	function nextPage() {
@@ -41,6 +49,7 @@
 <div class="flex flex-wrap justify-center my-4">
 	<div class="max-w-lg space-x-2 space-y-1 text-center">
 			<div class="join">
+				<input type="text" class="input join-item input-bordered" placeholder="Search" />
 				<select class="select select-bordered join-item" bind:value={$selectedTag}>
 					<option selected value="">All Posts</option>
 					{#each data.tags as tag (tag.id)}
@@ -60,9 +69,10 @@
 
 <div class="flex flex-wrap justify-center py-8">
 	<div class="max-w-lg space-x-2 space-y-1 text-center">
+		<p>{$lowerBound} - {$upperBound} of {data.meta.pagination.total} Posts</p>
 		<div class="join grid grid-cols-2">
-			<button class="join-item btn btn-outline" on:click={prevPage}>Previous page</button>
-			<button class="join-item btn btn-outline" on:click={nextPage}>Next</button>
+			<button class="join-item btn btn-outline" class:btn-disabled={$firstPage} on:click={prevPage}>Previous page</button>
+			<button class="join-item btn btn-outline" class:btn-disabled={$lastPage} on:click={nextPage}>Next</button>
 		</div>
 	</div>
 </div>

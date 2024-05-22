@@ -21,10 +21,11 @@
 	let hasMouseCursor = true;
 
 	const showPopUpOnce = () => {
-		const popUpShown = localStorage.getItem('popUpShown');
-		if (!popUpShown) {
+		const popUpShownDate = localStorage.getItem('popUpShownDate');
+		const currentDate = new Date();
+		if (!popUpShownDate || (currentDate.getTime() - new Date(popUpShownDate).getTime()) > 14 * 24 * 60 * 60 * 1000) {
 			showModal('subscribe_form');
-			localStorage.setItem('popUpShown', 'true');
+			localStorage.setItem('popUpShownDate', currentDate.toString());
 		}
 	};
 
@@ -46,9 +47,12 @@
 			hasMouseCursor = 'ontouchstart' in window;
 
 			if (hasMouseCursor) {
-				window.addEventListener('beforeunload', showPopUpOnce);
+				setTimeout(() => {
+                window.addEventListener('beforeunload', showPopUpOnce);
+				}, 3000);
 			} else {
-				showPopUpOnce();
+				setTimeout(() => {
+					showPopUpOnce()}, 10000 );
 			}
 		}
 	});

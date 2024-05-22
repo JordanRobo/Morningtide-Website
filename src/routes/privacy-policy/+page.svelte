@@ -11,7 +11,7 @@
 	/>
 </svelte:head>
 
-<div class="container max-w-[760px] flex flex-col mx-auto bg-white my-8">
+<div class="container max-w-3xl flex flex-col mx-auto bg-white my-8">
 	<div class="prose my-12 mx-auto">
 		<h1>{data.privacyPolicy.title}</h1>
 		{@html data.privacyPolicy.html}

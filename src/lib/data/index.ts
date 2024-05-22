@@ -1,5 +1,5 @@
 import { AboutFeat, ServicesFeat, InsightsFeat } from '$lib/images/uploads';
-import { Strategy, Analysis, Customer, Financial } from "$lib/images/icons";
+import { Strategy, Analysis, Customer, Financial, Respectful, BestPractice, Innovative, Inquisitive, Practical } from "$lib/images/icons";
 import type { About, Insights, Services } from "./types";
 
 export const services: Services = {
@@ -48,3 +48,31 @@ export const insights: Insights ={
     "heading":"Insights",
     "subheading":"We regularly produce articles that we hope will inform, inspire, and provide insights into school strategy and leadership."
 };
+
+export const values = [
+    {
+        "title": "Respectful",
+        "icon": Respectful,
+        "body":"We believe in the genius of others and that we each have a part to play."
+    },
+    {
+        "title": "Inquisitive",
+        "icon": Inquisitive,
+        "body":"We believe that the status quo should be continually probed and challenged."
+    },
+    {
+        "title": "Best-practice",
+        "icon": BestPractice,
+        "body":"We believe that change should always be informed by data, and continual assessment."
+    },
+    {
+        "title": "Innovative",
+        "icon": Innovative,
+        "body":"We believe that today's solutions become tomorrow's problems. We need to remain acutely aware of our environment as we innovate."
+    },
+    {
+        "title": "Practical",
+        "icon": Practical,
+        "body":"We believe that solutions must be practical.  Every problem requires the right tool for its solution."
+    },
+]

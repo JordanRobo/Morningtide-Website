@@ -14,7 +14,7 @@
 				<h1 class="font-bold">Leaving so soon?</h1>
 				<p class="py-4">Don't forget to subscribe to our newsletter to keep in the loop.</p>
 			</div>
-			<form method="POST" action="?/subscribe" use:enhance>
+			<form method="POST" action="/about?/subscribe" use:enhance>
 				<div class="space-y-1 w-full">
 					<label for="name" class="label font-bold">Name</label>
 					<input required type="text" name="name" placeholder="Enter your name" class="input w-full" />

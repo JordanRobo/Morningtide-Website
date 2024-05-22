@@ -27,7 +27,7 @@
 	<div class="h-[500px] bg-fixed bg-no-repeat bg-top" style="background-image: url({post.feature_image})"></div>
 </div>
 <img src={post.feature_image} alt={post.title} class="w-full max-h-96 object-cover block lg:hidden" />
-<div class="flex flex-col max-w-[720px] mx-auto bg-white mb-4 p-8 lg:-mt-32 space-y-8">
+<div class="flex flex-col max-w-3xl mx-auto bg-white mb-4 p-8 lg:-mt-32 space-y-8">
 	<div class="space-y-6">
 		<h1 class="h1 text-4xl font-bold text-center px-4">{post.title}</h1>
 		<div class="border border-accent"></div>
