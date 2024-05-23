@@ -1,6 +1,6 @@
 {
   "name": "morningtide",
-  "version": "0.9.5",
+  "version": "0.10.1",
   "private": true,
   "scripts": {
     "dev": "vite dev",
