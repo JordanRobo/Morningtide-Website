@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Colour } from '$lib/images/logo';
+	import Colour from '$lib/images/logo/MC-Logo-2020-FC_CMYK.png?enhanced';
 	import { drawer } from '$lib/stores';
 	import { tagLink } from '$lib/utils';
 	import { services } from '$lib/data';
@@ -9,9 +9,9 @@
 </script>
 
 <div class="navbar bg-base-100 md:px-8">
-	<div class="flex-1 px-2 mx-2">
+	<div class="flex-1 -ml-2 md:ml-2">
 		<a href="/">
-			<img src={Colour} alt="Morningtide Logo" class="max-h-16 md:max-h-24 min-w-24 object-contain"/>
+			<enhanced:img src={Colour} alt="Morningtide Logo" class="max-h-16 md:max-h-24 max-w-48 object-contain"/>
 		</a>
 	</div>
 	<div class="flex-none lg:hidden">

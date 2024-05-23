@@ -6,13 +6,13 @@
 	<div class="flex max-w-screen-lg mx-auto p-4">
 		<div class="grid grid-cols-1 lg:grid-cols-4 grid-rows-2 gap-8 md:py-8 text-center lg:text-left">
 			<div class="hidden lg:block">
-				<img src={AboutFeat} alt="Morningtide Consulting Team" class="h-full object-cover rounded-tr-[120px]" width=auto height=auto/>
+				<img src={AboutFeat} alt="Morningtide Consulting Team" class="h-full object-cover rounded-tr-[120px]" width="100%" height="100%" />
 			</div>
 			<div class="hidden lg:block col-start-1 row-start-2">
-				<img src={InsightsFeat} alt="Morningtide Consulting Team" class="h-full object-cover rounded-bl-[120px]" width=auto height=auto/>
+				<img src={InsightsFeat} alt="Morningtide Consulting Team" class="h-full object-cover rounded-bl-[120px]" width="100%" height="100%" />
 			</div>
 			<div class="hidden lg:block col-start-2 row-start-2">
-				<img src={ServicesFeat} alt="Morningtide Consulting Team" class="h-full object-cover rounded-tr-[120px]" width=auto height=auto/>
+				<img src={ServicesFeat} alt="Morningtide Consulting Team" class="h-full object-cover rounded-tr-[120px]" width="100%" height="100%" />
 			</div>
 			<div class="lg:col-span-2 lg:col-start-2 lg:row-start-1 lg:ml-8">
 				<h1 class="text-accent">Ready to Craft Your School Strategy?</h1>

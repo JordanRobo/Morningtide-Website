@@ -49,7 +49,6 @@
 <div class="flex flex-wrap justify-center my-4">
 	<div class="max-w-lg space-x-2 space-y-1 text-center">
 			<div class="join">
-				<input type="text" class="input join-item input-bordered" placeholder="Search" />
 				<select class="select select-bordered join-item" bind:value={$selectedTag}>
 					<option selected value="">All Posts</option>
 					{#each data.tags as tag (tag.id)}
@@ -69,7 +68,13 @@
 
 <div class="flex flex-wrap justify-center py-8">
 	<div class="max-w-lg space-x-2 space-y-1 text-center">
-		<p>{$lowerBound} - {$upperBound} of {data.meta.pagination.total}</p>
+		<div class="mb-4">
+			{#if $lowerBound === $upperBound}
+				<p>Showing {$lowerBound} of {data.meta.pagination.total} results</p>
+			{:else}
+				<p>Showing {$lowerBound} - {$upperBound} of {data.meta.pagination.total} results</p>
+			{/if}
+		</div>
 		<div class="join grid grid-cols-2">
 			<button class="join-item btn btn-outline" class:btn-disabled={$firstPage} on:click={prevPage}>Previous</button>
 			<button class="join-item btn btn-outline" class:btn-disabled={$lastPage} on:click={nextPage}>Next</button>

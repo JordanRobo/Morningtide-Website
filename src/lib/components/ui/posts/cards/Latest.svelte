@@ -10,7 +10,7 @@
         {#each posts as post}
             <div class="card lg:card-side bg-white shadow-xl">
                 <figure class="lg:w-1/2 max-h-[220px] lg:max-h-[300px]">
-                    <img class="object-cover h-full" src={post.feature_image} alt={post.title} width=auto height=auto  />
+                    <img class="object-cover h-full" src={post.feature_image} alt={post.title} width="100%" height="100%" />
                 </figure>
                 <div class="card-body lg:w-1/2">
                     <h2 class="card-title">{post.title}</h2>
