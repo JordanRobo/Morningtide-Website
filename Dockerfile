@@ -9,11 +9,13 @@ WORKDIR /app
 ARG VITE_GHOST_URL
 ARG VITE_GHOST_KEY
 ARG VITE_PB_URL
+ARG VITE_GETRESPONSE_KEY
 
 # Set environment variables using the build arguments
 ENV VITE_GHOST_URL=${VITE_GHOST_URL}
 ENV VITE_GHOST_KEY=${VITE_GHOST_KEY}
 ENV VITE_PB_URL=${VITE_PB_URL}
+ENV VITE_GETRESPONSE_KEY=${VITE_GETRESPONSE_KEY}
 
 # Copy package.json and bun.lockb (if you have one) to the working directory
 COPY package*.json bun.lockb ./
