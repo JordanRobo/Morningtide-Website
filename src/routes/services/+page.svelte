@@ -1,11 +1,10 @@
 <script lang="ts">
-	import { Services } from '$lib/components/ui/services';	
-	import { services } from '$lib/data';
+	import { Services, Strategy, Competitor, Customer, Financial } from '$lib/components/ui/services';	
 	import type { ActionData } from './$types';
-	import { Header } from '$lib/components/ui/shared';
-    import { showModal } from '$lib/utils';
-	import { enhance } from '$app/forms';
 	import { CheckCircled, ExclamationTriangle } from 'svelte-radix';
+	import { activeService } from '$lib/stores';
+	import { fly } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 
     export let form: ActionData;
 
@@ -20,61 +19,28 @@
 
 </script>
 
-<svelte:head>
-	<title>Services | Morningtide Consulting</title>
-	<meta name="description" content={services.subheading} />
-</svelte:head>
-
-<Header header={services} />
-
-<div class="container max-w-3xl flex flex-col mx-auto py-8">
+{#if $activeService === 'strategy-planning' }
+<div out:fly={{ duration: 300, easing: quintOut, x:100 }} in:fly={{ delay: 350, duration: 300, easing: quintOut, x:-100 }}>
+	<Strategy />
+</div>
+{:else if $activeService === 'competitor-analysis'}
+<div out:fly={{ duration: 300, easing: quintOut, x:100 }} in:fly={{ delay: 350, duration: 300, easing: quintOut, x:-100 }}>
+	<Competitor />
+</div>
+{:else if $activeService === 'financial-forecast-review'}
+<div out:fly={{ duration: 300, easing: quintOut, x:100 }} in:fly={{ delay: 350, duration: 300, easing: quintOut, x:-100 }}>
+	<Financial />
+</div>
+{:else if $activeService === 'customer-experience-audit'}
+<div out:fly={{ duration: 300, easing: quintOut, x:100 }} in:fly={{ delay: 350, duration: 300, easing: quintOut, x:-100 }}>
+	<Customer />
+</div>
+{:else}
+<div out:fly={{ duration: 300, easing: quintOut, x:100 }} in:fly={{ delay: 350, duration: 300, easing: quintOut, x:-100 }}>
 	<Services />
 </div>
+{/if}
 
-<div class="bg-white -mb-8">
-	<div class="container max-w-[760px] flex flex-col mx-auto mt-8">
-		<div class="flex flex-col items-center justify-center p-4 mt-8">
-			<h1 class="text-center text-2xl font-bold md:text-5xl">Ready to Begin?</h1>
-			<span class="text-md mt-2 px-2 text-center md:mt-4 md:px-5 md:text-xl">Take the first step to discuss your strategy needs.</span>
-		</div>
-		<div class="flex flex-wrap justify-center gap-8 my-8">
-			<form method="POST" action="?/submit" use:enhance>
-				<div class="grid grid-cols-2 justify-stretch gap-2">
-					<div>
-						<input required type="text" name="name" placeholder="Full Name..." class="input input-bordered w-full" />
-					</div>
-					<div>
-						<input type="text" name="school" placeholder="Name of School..." class="input input-bordered w-full" />
-					</div>
-					<div>
-						<select name="position" class="select select-bordered w-full" >
-							<option disabled selected>Position</option>
-							<option>Principal</option>
-							<option>Board Chair</option>
-							<option>Business Manager</option>
-							<option>Executive Assistant</option>
-							<option>Other</option>
-						</select>
-					</div>
-					<div>
-						<input required type="email" name="email" placeholder="Email Address..." class="input input-bordered w-full" />
-					</div>
-					<div class="col-span-2">
-						<textarea name="message" placeholder="Message..." class="textarea textarea-bordered w-full" ></textarea>
-					</div>
-					<div class="col-span-2 flex justify-between items-center">
-						<div>
-							<span class="label-text">By submitting you confirm you have read<br>and accept the <button class="link link-accent" on:click|preventDefault={() => showModal('privacy_policy')}>Privacy Policy.</button></span>
-						</div>
-						<div>
-							<button class="btn">Submit</button>
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
 
 {#if showMessage && form?.success === true}
 	<div class="toast toast-center z-50">

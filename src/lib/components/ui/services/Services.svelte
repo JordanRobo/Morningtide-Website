@@ -1,14 +1,12 @@
-<script>
+<script lang="ts">
   import { services } from "$lib/data";
-	import { showModal } from "$lib/utils";
-  import Card from "./Card.svelte";
+  import { activeService } from "$lib/stores";
 
-  function handleClick() {
-    showModal('services_card');
+  function updateService(input: string) {
+    activeService.set(input);
   }
-</script>
 
-<Card />
+</script>
 
 <div id="services" class="mt-10 flex flex-col items-center justify-center md:mt-20">
   <div class="flex flex-col items-center justify-center">
@@ -30,7 +28,7 @@
           </p>
         </div>
         <div class="card-footer flex justify-end mt-4 p-2">
-          <button class="btn btn-primary" on:click={() => handleClick()}>
+            <button class="btn btn-primary" on:click={() => updateService(item.url)}>
             Learn More
           </button>
         </div>

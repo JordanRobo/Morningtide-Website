@@ -2,8 +2,15 @@
     import { tagLink } from '$lib/utils';
     import { services } from '$lib/data';
     import { EnvelopeClosed, Home, InstagramLogo, LinkedinLogo, Mobile, TwitterLogo } from 'svelte-radix';
+    import { goto } from '$app/navigation';
+	import { activeService } from '$lib/stores';
 
 	export let insights: { name: string, slug: string }[];
+
+    function handleClick(input: string) {
+        activeService.set(input);
+		goto("/services");
+    }
 
 </script>
 
@@ -24,9 +31,9 @@
             <details>
                 <summary class="text-primary">Services</summary>
                 <ul>
-                    <li><a href="/services">View All</a></li>
+                    <li><button class="text-primary" on:click={() => handleClick('')}>View All</button></li>
                     {#each services.service as service}
-                        <li><a href={service.url}>{service.title}</a></li>
+                    <li><button on:click={() => handleClick(service.url)}>{service.title}</button></li>
                     {/each}
                 </ul>
             </details>

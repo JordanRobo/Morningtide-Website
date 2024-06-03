@@ -12,3 +12,15 @@ function toggleDrawer() {
 }
 
 export const drawer = toggleDrawer();
+
+function toggleService(service = '') {
+    const { subscribe, update, set } = writable(service);
+
+    return {
+        subscribe,
+        set,
+        update: () => update(() => service)
+    };
+}
+
+export const activeService = toggleService();

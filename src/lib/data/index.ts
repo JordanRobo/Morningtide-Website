@@ -10,25 +10,25 @@ export const services: Services = {
     "service" : [
         {
             title: 'Strategy Planning', 
-            url: '/services',
+            url: 'strategy-planning',
             icon: Strategy,
             description: "The world is changing at a rapidly, dynamic pace and it's more complex than ever. So, strategy planning has to become more fluid and continuous to keep up."
         },
         {
             title: 'Competitor Analysis', 
-            url: '/services',
+            url: 'competitor-analysis',
             icon: Analysis,
             description: "Conducting analysis into your competitor schools sometimes illuminates opportunities often overlooked. Morningtide Consulting offers research capabilities that provide insight into where your school fits in the current demographic environment."
         },
         {
             title: 'Financial Forecast Review', 
-            url: '/services',
+            url: 'financial-forecast-review',
             icon: Financial,
             description: "Your 3-5 year financial forecast is the pinnacle document to execute your strategy. It dictates which resources will be prioritised. Morningtide Consulting can review the assumptions and calculations to ensure that it mirrors your strategic intent.",
         },
         {
             title: 'Customer Experience Audit', 
-            url: '/services',
+            url: 'customer-experience-audit',
             icon: Customer,
             description: "Word of mouth is your best marketing tool, closely followed by customer service. Every employee has a part to play. Morningtide Consulting can audit your stakeholder engagement to identify customer experience (CX) opportunities.",
         }

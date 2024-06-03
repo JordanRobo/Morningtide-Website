@@ -3,8 +3,15 @@
 	import { drawer } from '$lib/stores';
 	import { tagLink } from '$lib/utils';
 	import { services } from '$lib/data';
+	import { goto } from '$app/navigation';
+	import { activeService } from '$lib/stores';
 
 	export let insights: { name: string, slug: string }[];
+
+	function handleClick(input: string) {
+        activeService.set(input);
+		goto("/services");
+    }
 
 </script>
 
@@ -35,10 +42,10 @@
 			</li>
 			<li>
 				<div class="dropdown dropdown-bottom dropdown-hover dropdown-end">
-					<a role="button" class="text-primary" href="/services">Services</a>
+					<button class="text-primary" on:click={() => handleClick('')}>Services</button>
 					<ul class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
 						{#each services.service as service}
-							<li><a href={service.url}>{service.title}</a></li>
+							<li><button on:click={() => handleClick(service.url)}>{service.title}</button></li>
 						{/each}
 					</ul>
 				</div>
