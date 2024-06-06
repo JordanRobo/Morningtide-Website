@@ -40,8 +40,8 @@
                 </div>
             </div>
         {:else if currentCard === 1}
-            <div out:scale={{ duration: 450, easing: quintOut, start: 0.7, opacity: 0 }} in:fly={{ delay: 450, duration: 450, easing: quintOut, x:-100 }} class="card card-side w-full p-4 bg-gradient-to-br from-primary/100 to-primary/80 border rounded-br-[120px] min-h-72">
-                <figure><img src={Essence} alt="Essence of Strategy"/></figure>
+            <div out:scale={{ duration: 450, easing: quintOut, start: 0.7, opacity: 0 }} in:fly={{ delay: 450, duration: 450, easing: quintOut, x:-100 }} class="card lg:card-side w-full p-4 bg-gradient-to-br from-primary/100 to-primary/80 border rounded-br-[120px] min-h-72">
+                <figure class="mx-auto w-1/2 lg:w-full"><img src={Essence} alt="Essence of Strategy"/></figure>
                 <div class="card-body">
                         <h2 class="text-3xl font-bold text-accent">
                             Compelling strategy
@@ -59,7 +59,7 @@
             </div>
         {:else if currentCard === 2}
             <div out:scale={{ duration: 450, easing: quintOut, start: 0.7, opacity: 0 }} in:fly={{ delay: 450, duration: 450, easing: quintOut, x:-100 }} class="card w-full p-4 bg-white border flex rounded-bl-[120px] min-h-72">
-                <div class="card-body text-center p-12">
+                <div class="card-body text-center lg:p-12">
                     <h2 class="text-3xl font-bold text-accent">
                         Successful execution
                     </h2>

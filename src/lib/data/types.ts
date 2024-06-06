@@ -7,6 +7,7 @@ export type Post = {
 };
 
 export type Service = {
+    id: string,
     title: string,
     url: string,
     icon: string,

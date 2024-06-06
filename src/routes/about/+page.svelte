@@ -2,7 +2,7 @@
 	import { Header } from '$lib/components/ui/shared';
 	import { about } from '$lib/data';
 	import type { ActionData } from './$types';
-	import { Values, Subscribe } from '$lib/components/ui/about';
+	import { Values, Subscribe, Clients, Details } from '$lib/components/ui/about';
 	import { CheckCircled, ExclamationTriangle } from 'svelte-radix';
 
 	export let form: ActionData;
@@ -23,7 +23,9 @@
 </svelte:head>
 
 <Header header={about} />
+<Clients />
 <Values />
+<Details />
 <Subscribe />
 
 {#if showMessage && form?.success === true}

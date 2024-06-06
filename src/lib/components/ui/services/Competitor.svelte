@@ -40,7 +40,7 @@
             </div>
         {:else if currentCard === 1}
             <div out:scale={{ duration: 350, easing: quintOut, start: 0.7, opacity: 0 }} in:fly={{ delay: 350, duration: 350, easing: quintOut, x:-100 }} class="card w-full p-4 bg-gradient-to-br from-primary/100 to-primary/80 border rounded-br-[120px] min-h-72 ">
-                <div class="card-body text-center p-12">
+                <div class="card-body text-center lg:p-12">
                     <h2 class="text-3xl font-bold text-accent">
                         Competitive advantage
                     </h2>
@@ -57,7 +57,7 @@
             </div>
             {:else if currentCard === 2}
             <div out:scale={{ duration: 350, easing: quintOut, start: 0.7, opacity: 0 }} in:fly={{ delay: 350, duration: 350, easing: quintOut, x:-100 }} class="card w-full p-4 bg-white border rounded-bl-[120px] min-h-72">
-                <div class="card-body text-center p-12">
+                <div class="card-body text-center lg:p-12">
                     <h2 class="text-3xl font-bold text-accent">
                         Demography
                     </h2>
@@ -74,7 +74,7 @@
             </div>
             {:else if currentCard === 3}
             <div out:scale={{ duration: 350, easing: quintOut, start: 0.7, opacity: 0 }} in:fly={{ delay: 350, duration: 350, easing: quintOut, x:-100 }} class="card w-full p-4 bg-gradient-to-br from-primary/100 to-primary/80 border rounded-br-[120px] min-h-72">
-                <div class="card-body text-center p-12">
+                <div class="card-body text-center lg:p-12">
                     <h2 class="text-3xl font-bold text-accent">
                         Reputational voice
                     </h2>
@@ -88,7 +88,7 @@
             </div>
             {:else if currentCard === 4}
             <div out:scale={{ duration: 350, easing: quintOut, start: 0.7, opacity: 0 }} in:fly={{ delay: 350, duration: 350, easing: quintOut, x:-100 }} class="card w-full p-4 bg-white border flex rounded-bl-[120px] min-h-72">
-                <div class="card-body text-center p-12">
+                <div class="card-body text-center lg:p-12">
                     <h2 class="text-3xl font-bold text-accent">
                         Prospective competition
                     </h2>

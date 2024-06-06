@@ -32,8 +32,8 @@
 				<div class="dropdown dropdown-bottom dropdown-hover dropdown-end">
 					<a role="button" class="text-primary" href="/insights">Insights</a>
 					<ul class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-						<li><a href="/insights">View All</a></li>
-						<div class="divider"></div> 
+						<li><a href="/insights" class="text-primary">View All</a></li>
+						<div class="divider -my-2"></div> 
 						{#each insights as insight}
 							<li><a href={tagLink(insight.slug)}>{insight.name}</a></li>
 						{/each}
