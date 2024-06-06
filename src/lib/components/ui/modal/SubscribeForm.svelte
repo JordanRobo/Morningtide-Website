@@ -17,9 +17,9 @@
 			<form method="POST" action="/about?/subscribe" use:enhance>
 				<div class="space-y-1 w-full">
 					<label for="name" class="label font-bold">Name</label>
-					<input required type="text" name="name" placeholder="Enter your name" class="input w-full" />
+					<input required id="name" type="text" placeholder="Enter your name" class="input w-full" />
 					<label for="email" class="label font-bold">Email</label>
-					<input required type="email" name="email" placeholder="Enter your email" class="input w-full" />
+					<input required id="email" type="email" placeholder="Enter your email" class="input w-full" />
 					<div class="flex justify-end pt-3">
 						<button class="btn btn-accent">Subscribe</button>
 					</div>

@@ -3,7 +3,6 @@ import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ url }) => {
   const selectedTag = url.searchParams.get('tag') || null;
-  const pageNo = url.searchParams.get('page') || 1;
 
   let filter = {};
   
@@ -11,12 +10,10 @@ export const load: PageServerLoad = async ({ url }) => {
     filter = { filter: 'tag:' + selectedTag };
   }
 
-  const posts = await api.posts.browse({ include: 'tags', ...filter, limit: 9, page: pageNo });
-  const { meta } = await api.posts.browse({ include: 'tags', ...filter, limit: 9, page: pageNo });
+  const posts = await api.posts.browse({ include: 'tags', ...filter });
 
   return {
     posts,
-    meta,
     selectedTag
   };
 };

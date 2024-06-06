@@ -15,7 +15,7 @@ export function newPost(date: string) {
 };
 
 export function tagLink(tag: string) {
-	return `/insights?page=1&tag=${tag}`;
+	return `/insights?tag=${tag}`;
 };
 
 export function showModal(id: string) {

@@ -11,18 +11,12 @@
 	const url = "https://jordanrobo.xyz/insights/" + post.slug;
 	const title = post.title;
 </script>
+
 <svelte:head>
 	<title>Morningtide Consulting | {post.title}</title>
 	<meta name="description" content={post.meta_description} />
 </svelte:head>
 
-<div class="hidden md:block text-sm breadcrumbs px-4">
-	<ul>
-		<li><a href="/">Home</a></li>
-		<li><a href="/insights">Insights</a></li>
-		<li>{data.post.title}</li>
-	</ul>
-</div>
 <div class="hidden lg:block mx-auto w-11/12">
 	<div class="h-[500px] bg-fixed bg-no-repeat bg-top" style="background-image: url({post.feature_image})"></div>
 </div>
