@@ -1,11 +1,15 @@
 <script lang="ts">
-    import { tagLink } from '$lib/utils';
     import { services } from '$lib/data';
     import { EnvelopeClosed, Home, InstagramLogo, LinkedinLogo, Mobile, TwitterLogo } from 'svelte-radix';
     import { goto } from '$app/navigation';
-	import { activeService } from '$lib/stores';
+	import { activeService, tagFilter } from '$lib/stores';
 
 	export let insights: { name: string, slug: string }[];
+
+    function handleTag(tag: string) {
+		tagFilter.set(tag);
+		goto("/insights");
+	}
 
     function handleClick(input: string) {
         activeService.set(input);
@@ -20,9 +24,9 @@
             <details>
                 <summary class="text-primary">Insights</summary>
                 <ul>
-                    <li><a href="/insights">View All</a></li>
+                    <li><button on:click={() => handleTag('')}>View All</button></li>
                     {#each insights as insight}
-                        <li><a href={tagLink(insight.slug)}>{insight.name}</a></li>
+                        <li><button on:click={() => handleTag(insight.slug)}>{insight.name}</button></li>
                     {/each}
                 </ul>
             </details>

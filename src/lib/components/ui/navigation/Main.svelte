@@ -1,12 +1,15 @@
 <script lang="ts">
 	import Colour from '$lib/images/logo/MC-Logo-2020-FC_CMYK.png?enhanced';
-	import { drawer } from '$lib/stores';
-	import { tagLink } from '$lib/utils';
+	import { drawer, tagFilter, activeService } from '$lib/stores';
 	import { services } from '$lib/data';
 	import { goto } from '$app/navigation';
-	import { activeService } from '$lib/stores';
 
 	export let insights: { name: string, slug: string }[];
+
+	function handleTag(tag: string) {
+		tagFilter.set(tag);
+		goto("/insights");
+	}
 
 	function handleClick(input: string) {
         activeService.set(input);
@@ -32,10 +35,10 @@
 				<div class="dropdown dropdown-bottom dropdown-hover dropdown-end">
 					<a role="button" class="text-primary" href="/insights">Insights</a>
 					<ul class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-						<li><a href="/insights" class="text-primary">View All</a></li>
+						<li><button on:click={() => handleTag('')} class="text-primary">View All</button></li>
 						<div class="divider -my-2"></div> 
 						{#each insights as insight}
-							<li><a href={tagLink(insight.slug)}>{insight.name}</a></li>
+							<li><button on:click={() => handleTag(insight.slug)}>{insight.name}</button></li>
 						{/each}
 					</ul>
 				</div>
