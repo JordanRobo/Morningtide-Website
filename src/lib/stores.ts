@@ -1,6 +1,7 @@
 import { writable } from "svelte/store";
 
 export const tagFilter = writable<string | null>('');
+export const postsPage = writable(1);
 
 function toggleDrawer() {
     const { subscribe, update, set } = writable(false);
