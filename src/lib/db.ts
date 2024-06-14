@@ -1,12 +1,13 @@
 // @ts-expect-error - required for loading
 import GhostContentAPI from '@tryghost/content-api';
 import PocketBase from 'pocketbase';
+import { env } from '$env/dynamic/private';
 
-const pb = new PocketBase('https://jordanrobo.xyz/db');
+const pb = new PocketBase(env.PB_URL);
 
 const api = GhostContentAPI({
-	url: import.meta.env.VITE_GHOST_URL,
-	key: import.meta.env.VITE_GHOST_KEY,
+	url: env.GHOST_URL,
+	key: env.GHOST_KEY,
 	version: "v5.81"
 });
 

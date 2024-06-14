@@ -1,6 +1,7 @@
 import { api, pb } from '$lib/db';
 import type { PageServerLoad, Actions } from './$types';
 import { fail } from '@sveltejs/kit';
+import { env } from '$env/dynamic/private';
 
 export const load: PageServerLoad = async () => {
 	const privacyPolicy = await api.pages.read({ slug: 'privacy-policy' });
@@ -28,7 +29,7 @@ export const actions: Actions = {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
-					'X-Auth-Token': `api-key ${import.meta.env.VITE_GETRESPONSE_KEY}`,
+					'X-Auth-Token': `api-key ${env.GETRESPONSE_KEY}`,
 				},
 				body: JSON.stringify(getResponseData),
 			};
