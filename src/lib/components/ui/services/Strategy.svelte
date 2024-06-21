@@ -24,8 +24,8 @@
 
     <div class="container mt-10 gap-10 p-4">
         {#if currentCard === 0}
-            <div out:scale={{ duration: 450, easing: quintOut, start: 0.7, opacity: 0 }} in:fly={{ delay: 450, duration: 450, easing: quintOut, x:-100 }} class="card w-full p-4 bg-white border flex flex-col rounded-bl-[120px] min-h-72">
-                <div class="card-body flex-grow text-center">
+            <div out:scale={{ duration: 450, easing: quintOut, start: 0.7, opacity: 0 }} in:fly={{ delay: 450, duration: 450, easing: quintOut, x:-100 }} class="card w-full py-4 px-12 bg-white border flex flex-col rounded-bl-[120px] min-h-72">
+                <div class="card-body flex-grow">
                     <h2 class="text-3xl font-bold text-accent">
                         Did you know?
                     </h2>
@@ -58,8 +58,8 @@
                 </div>
             </div>
         {:else if currentCard === 2}
-            <div out:scale={{ duration: 450, easing: quintOut, start: 0.7, opacity: 0 }} in:fly={{ delay: 450, duration: 450, easing: quintOut, x:-100 }} class="card w-full p-4 bg-white border flex rounded-bl-[120px] min-h-72">
-                <div class="card-body text-center lg:p-12">
+            <div out:scale={{ duration: 450, easing: quintOut, start: 0.7, opacity: 0 }} in:fly={{ delay: 450, duration: 450, easing: quintOut, x:-100 }} class="card w-full py-4 px-12 bg-white border flex rounded-bl-[120px] min-h-72">
+                <div class="card-body lg:p-12">
                     <h2 class="text-3xl font-bold text-accent">
                         Successful execution
                     </h2>

@@ -25,9 +25,9 @@
                 <summary class="text-primary">Insights</summary>
                 <ul>
                     <li><button on:click={() => handleTag('')}>View All</button></li>
-                    {#each insights as insight}
-                        <li><button on:click={() => handleTag(insight.slug)}>{insight.name}</button></li>
-                    {/each}
+					{#each insights as insight}
+						<li><button on:click={() => handleTag(insight.slug)}>{insight.name}</button></li>
+					{/each}
                 </ul>
             </details>
         </li>
@@ -37,13 +37,13 @@
                 <ul>
                     <li><button class="text-primary" on:click={() => handleClick('')}>View All</button></li>
                     {#each services.service as service}
-                    <li><button on:click={() => handleClick(service.url)}>{service.title}</button></li>
+                        <li><button on:click={() => handleClick(service.url)}>{service.title}</button></li>
                     {/each}
                 </ul>
             </details>
         </li>
         <li class=""><a href="/about">About</a></li>
-        <li class=""><a href="https://courses.morningtide.com.au/" target="_blank">Courses</a></li>
+        <li class=""><a href="/courses">Courses</a></li>
     </div>
     <div class="pb-24 pl-4">
         <div class="mt-6 space-y-4 md:mt-8">

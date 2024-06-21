@@ -56,23 +56,11 @@
 	</div>
 </div>
 
-{#await data.posts}
-	<div class="container mx-auto flex flex-wrap justify-center gap-8 my-8">
-		<Skeleton />
-	</div>
-{:then}
-	{#if filteredPosts.length === 0}
-		<p>No posts found</p>
-	{:else}
-		<div class="container mx-auto flex flex-wrap justify-center gap-8 my-8">
-			{#each paginatedPosts as post (post.id)}
-				<Individual checkNew={newPost(post.published_at)} {post} />
-			{/each}
-		</div>
-	{/if}
-{:catch error}
-	<p style="color: red">{error.message}</p>
-{/await}
+<div class="container mx-auto flex flex-wrap justify-center gap-8 my-8">
+	{#each paginatedPosts as post (post.id)}
+		<Individual checkNew={newPost(post.published_at)} {post} />
+	{/each}
+</div>
 
 <div class="flex flex-row">
 	<div class="flex flex-col mx-auto text-center gap-2">

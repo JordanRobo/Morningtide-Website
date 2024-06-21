@@ -10,9 +10,9 @@
 			<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"><Cross1 class="h-4 w-4" /></button>
 		</form>
 		<div class="grid grid-cols-1 md:grid-cols-2 text-center md:text-left">
-			<div>
-				<h1 class="font-bold">Leaving so soon?</h1>
-				<p class="py-4">Don't forget to subscribe to our newsletter to keep in the loop.</p>
+			<div class="pl-4">
+				<h1 class="font-bold">Stay ahead of the game!</h1>
+				<p class="py-4">Subscribe to our newsletter for exclusive updates and insights.</p>
 			</div>
 			<form method="POST" action="/about?/subscribe" use:enhance>
 				<div class="space-y-1 w-full">
