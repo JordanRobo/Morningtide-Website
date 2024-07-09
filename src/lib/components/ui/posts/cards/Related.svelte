@@ -6,7 +6,7 @@
 </script>
 
 
-<div class="card w-96 bg-base-100 shadow-xl image-full">
+<div class="card w-80 shadow-xl image-full">
     <figure><img src={related.feature_image} alt={related.title} width="100%" height="100%" /></figure>
     <div class="card-body h-full flex flex-col justify-between">
         <div class="space-y-2">

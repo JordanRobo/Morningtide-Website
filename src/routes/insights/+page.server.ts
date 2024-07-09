@@ -2,9 +2,21 @@ import { api } from '$lib/db';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
-  const posts = await api.posts.browse({ include: 'tags'});
+  try {
+    const [posts, tags] = await Promise.all([
+      api.posts.browse({ include: 'tags' }),
+      api.tags.browse()
+    ]);
 
-  return {
-    posts
-  };
+    return {
+      posts,
+      tags
+    };
+  } catch (error) {
+    console.error('Error loading insights data:', error);
+    return {
+      posts: [],
+      tags: []
+    };
+  }
 };

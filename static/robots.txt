@@ -1,5 +1,9 @@
 User-agent: *
 
+Allow: /
+
 Disallow: /*.js$
 Disallow: /*.json
 Disallow: /db/
+
+Sitemap: https://morningtide.com.au/sitemap.xml

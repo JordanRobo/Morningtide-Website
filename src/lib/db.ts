@@ -1,3 +1,5 @@
+// src/lib/db.ts
+
 // @ts-expect-error - required for loading
 import GhostContentAPI from '@tryghost/content-api';
 import PocketBase from 'pocketbase';

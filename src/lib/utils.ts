@@ -6,23 +6,19 @@ export function formatDate(date: string): string {
 	});
 }
 
-export function newPost(date: string) {
-	const postDate = new Date(date);
-	const currentDate = new Date();
-	const timeDifference = currentDate.getTime() - postDate.getTime();
-	const daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
-	return daysDifference < 7;
-};
+export function newPost(date: string, thresholdDays: number = 7): boolean {
+    const postDate = new Date(date);
+    const currentDate = new Date();
+    const timeDifference = currentDate.getTime() - postDate.getTime();
+    const daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
+    return daysDifference < thresholdDays;
+}
 
-export function tagLink(tag: string) {
+export function tagLink(tag: string): string {
 	return `/insights?tag=${tag}`;
 };
 
-export function showModal(id: string) {
-	const modal = document.getElementById(id) as HTMLDialogElement | null;
-	if (modal) {
-		modal.showModal();
-	} else {
-		console.error('Modal element not found');
-	}
-};
+export function showModal(id: string): void {
+    const modal = document.getElementById(id) as HTMLDialogElement | null;
+    modal?.showModal() ?? console.error('Modal element not found');
+}

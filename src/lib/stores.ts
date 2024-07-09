@@ -1,5 +1,9 @@
 import { writable } from "svelte/store";
 
+interface Service {
+    name: string;
+}
+
 export const tagFilter = writable<string | null>('');
 export const postsPage = writable(1);
 
@@ -16,13 +20,13 @@ function toggleDrawer() {
 
 export const drawer = toggleDrawer();
 
-function toggleService(service = '') {
-    const { subscribe, update, set } = writable(service);
+function toggleService(initialService: Service | null = null) {
+    const { subscribe, set } = writable<Service | null>(initialService);
 
     return {
         subscribe,
         set,
-        update: () => update(() => service)
+        update: (service: Service) => set(service)
     };
 }
 

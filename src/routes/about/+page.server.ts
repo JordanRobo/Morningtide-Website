@@ -4,45 +4,58 @@ import { fail } from '@sveltejs/kit';
 import { env } from '$env/dynamic/private';
 
 export const load: PageServerLoad = async () => {
-	const privacyPolicy = await api.pages.read({ slug: 'privacy-policy' });
-	return {
-		privacyPolicy
-	};
+	try {
+		const privacyPolicy = await api.pages.read({ slug: 'privacy-policy' });
+		return { privacyPolicy };
+	} catch (error) {
+		console.error('Error loading privacy policy:', error);
+		return { privacyPolicy: null };
+	}
 };
 
 export const actions: Actions = {
 	subscribe: async ({ request }) => {
 		try {
 			const data = await request.formData();
-			const name = data.get('name');
-			const email = data.get('email');
+			const name = data.get('name') as string;
+			const email = data.get('email') as string;
 
-			const response = await pb.collection('subscription_form').create(data);
-
-			const getResponseData = {
-				name,
-				campaign: { campaignId: 'rqKBE'},
-				email,
-			};
-
-			const getResponseOptions = {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-					'X-Auth-Token': `api-key ${env.GETRESPONSE_KEY}`,
-				},
-				body: JSON.stringify(getResponseData),
-			};
-
-			const getResponse = await fetch('https://api.getresponse.com/v3/contacts', getResponseOptions);
-
-			if (!getResponse.ok) {
-				return console.log('Error:', getResponse.statusText);
+			if (!name || !email) {
+				return fail(400, { success: false, message: 'Name and email are required' });
 			}
 
-			return { response, success: true };
+			const [pbResponse, grResponse] = await Promise.all([
+				pb.collection('subscription_form').create(data),
+				subscribeToGetResponse(name, email)
+			]);
+
+			return { success: true, pbResponse, grResponse };
 		} catch (err) {
-			return fail(404, { success: false });
+			console.error('Subscription error:', err);
+			return fail(500, { success: false, message: 'An error occurred during subscription' });
 		}
 	},
 };
+
+async function subscribeToGetResponse(name: string, email: string) {
+	const getResponseData = {
+		name,
+		email,
+		campaign: { campaignId: 'rqKBE' }
+	};
+
+	const response = await fetch('https://api.getresponse.com/v3/contacts', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			'X-Auth-Token': `api-key ${env.GETRESPONSE_KEY}`
+		},
+		body: JSON.stringify(getResponseData)
+	});
+
+	if (!response.ok) {
+		throw new Error(`GetResponse API error: ${response.statusText}`);
+	}
+
+	return response.json();
+}

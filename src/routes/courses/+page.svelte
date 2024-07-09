@@ -1,4 +1,6 @@
 <script lang="ts">
+    // src/routes/courses/+page.svelte
+
 	import { showModal } from '$lib/utils';
 	import { enhance } from '$app/forms';
 

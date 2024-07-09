@@ -1,20 +1,8 @@
 <script lang="ts">
 	import { services } from '$lib/data';
-	import type { ActionData } from './$types';
 	import { Header } from '$lib/components/ui/shared';
     import { showModal } from '$lib/utils';
 	import { enhance } from '$app/forms';
-
-    export let form: ActionData;
-
-    let showMessage = false;
-
-    $: if (form?.success !== undefined) {
-        showMessage = true;
-        setTimeout(() => {
-            showMessage = false;
-        }, 5000); 
-    };
 
 </script>
 
