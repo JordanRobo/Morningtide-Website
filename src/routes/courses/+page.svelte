@@ -1,14 +1,12 @@
 <script lang="ts">
-    // src/routes/courses/+page.svelte
-
-	import { showModal } from '$lib/utils';
+    import { showModal } from '$lib/utils';
 	import { enhance } from '$app/forms';
 
 </script>
 
-<div class="card my-12">
+<div class="card my-24 p-2">
     <div class="card-body bg-primary mx-auto w-full overflow-hidden rounded-lg px-8 py-6 shadow-xl outline outline-base-content/5 lg:max-w-xl text-white" >
-        <h1 class="text-accent text-2xl font-bold md:text-5xl">Coming Soon!</h1>
+        <h1 class="text-accent text-4xl font-bold md:text-5xl">Coming Soon!</h1>
         <p>We're currently upgrading our courses user experience.</p>
         <p>We hope that this will create a more seamless and enjoyable experience for all.</p>
 
@@ -20,8 +18,8 @@
 
 
 <div class="bg-white -mb-8">
-	<div class="container max-w-[760px] flex flex-col mx-auto mt-8">
-		<div class="flex flex-col items-center justify-center p-4 mt-8">
+	<div class="container max-w-[760px] flex flex-col mx-auto pb-4 md:pb-12 md:pt-8">
+		<div class="flex flex-col items-center justify-center p-4">
             <form method="POST" action="/about?/subscribe" use:enhance>
                 <div class="space-y-1 w-full">
                     <label for="name" class="label font-bold">Name</label>

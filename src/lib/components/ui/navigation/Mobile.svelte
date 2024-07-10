@@ -11,7 +11,7 @@
 		goto("/insights");
 	}
 
-    function handleClick(input: string) {
+    function handleClick(input: any) {
         activeService.set(input);
 		goto("/services");
     }

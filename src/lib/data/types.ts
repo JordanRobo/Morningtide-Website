@@ -1,3 +1,5 @@
+import type { ImageSet } from '$lib/images/uploads'; 
+
 export type Post = {
     title: string,
 	custom_excerpt: string,
@@ -15,7 +17,7 @@ export type Service = {
 };
 
 export type Services = {
-    image: string,
+    image: ImageSet,
     badge: string,
     heading: string,
     subheading: string,
@@ -23,14 +25,14 @@ export type Services = {
 };
 
 export type About = {
-    image: string,
+    image: ImageSet,
     badge: string,
     heading: string,
     subheading: string
 };
 
 export type Insights = {
-    image: string,
+    image: ImageSet,
     badge: string,
     heading: string,
     subheading: string

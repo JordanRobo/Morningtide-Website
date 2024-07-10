@@ -5,7 +5,7 @@
 	import { quintOut } from 'svelte/easing';
 
 
-    function updateService(input: string) {
+    function updateService(input: any) {
         activeService.set(input);
     }
 
@@ -40,23 +40,47 @@
                 </div>
             </div>
         {:else if currentCard === 1}
-            <div out:scale={{ duration: 450, easing: quintOut, start: 0.7, opacity: 0 }} in:fly={{ delay: 450, duration: 450, easing: quintOut, x:-100 }} class="card lg:card-side w-full p-4 bg-gradient-to-br from-primary/100 to-primary/80 border rounded-br-[120px] min-h-72">
-                <figure class="mx-auto w-1/2 lg:w-full"><img src={Essence} alt="Essence of Strategy"/></figure>
-                <div class="card-body">
-                        <h2 class="text-3xl font-bold text-accent">
-                            Compelling strategy
-                        </h2>
-                        <p class="text-md font-medium text-white opacity-70">
-                            First, we help you distil what we call the "essence of strategy". This is the starting point for your strategy.
-                        </p>
-                        <p class="text-md font-medium text-white opacity-70">
-                            Next, we help you and your team craft a compelling strategy, fleshing out your goals, milestones, and key performance metrics.
-                        </p>
-                    <div class="card-actions justify-end mr-4">
-                        <button class="btn btn-white" on:click={nextCard}>Next..</button>
-                    </div>
-                </div>
+        <div 
+        out:scale={{ duration: 450, easing: quintOut, start: 0.7, opacity: 0 }} 
+        in:fly={{ delay: 450, duration: 450, easing: quintOut, x: -100 }} 
+        class="card lg:card-side w-full p-4 bg-gradient-to-br from-primary/100 to-primary/80 border rounded-br-[120px] min-h-72"
+    >
+        <figure class="mx-auto w-1/2 lg:w-full relative">
+            <picture class="w-full h-full">
+                <source
+                    type="image/avif"
+                    srcset="{Essence.avif['300w']} 300w, {Essence.avif['600w']} 600w, {Essence.avif['1200w']} 1200w"
+                    sizes="(max-width: 1024px) 50vw, 33vw"
+                />
+                <source
+                    type="image/webp"
+                    srcset="{Essence.webp['300w']} 300w, {Essence.webp['600w']} 600w, {Essence.webp['1200w']} 1200w"
+                    sizes="(max-width: 1024px) 50vw, 33vw"
+                />
+                <img
+                    src={Essence.webp['600w']}
+                    alt="Essence of Strategy"
+                    class="w-full h-full object-contain"
+                    loading="lazy"
+                    decoding="async"
+                />
+            </picture>
+        </figure>
+        <div class="card-body">
+            <h2 class="text-3xl font-bold text-accent">
+                Compelling strategy
+            </h2>
+            <p class="text-md font-medium text-white opacity-70">
+                First, we help you distil what we call the "essence of strategy". This is the starting point for your strategy.
+            </p>
+            <p class="text-md font-medium text-white opacity-70">
+                Next, we help you and your team craft a compelling strategy, fleshing out your goals, milestones, and key performance metrics.
+            </p>
+            <div class="card-actions justify-end mr-4">
+                <button class="btn btn-white" on:click={nextCard}>Next..</button>
             </div>
+        </div>
+    </div>
         {:else if currentCard === 2}
             <div out:scale={{ duration: 450, easing: quintOut, start: 0.7, opacity: 0 }} in:fly={{ delay: 450, duration: 450, easing: quintOut, x:-100 }} class="card w-full py-4 px-12 bg-white border flex rounded-bl-[120px] min-h-72">
                 <div class="card-body lg:p-12">

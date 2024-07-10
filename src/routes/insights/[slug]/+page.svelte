@@ -49,7 +49,7 @@
 	<hr class="border-accent" />
 
 	<section class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
-		<img src={post.primary_author.profile_image} alt={post.primary_author.name} class="w-32 h-32 rounded-full mx-auto md:mx-0" />
+		<img src={post.primary_author.profile_image} alt={post.primary_author.name} class="w-32 h-32 rounded-full mx-auto md:mx-0 justify-self-center" />
 		<div class="col-span-2 text-center md:text-left">
 			<h2 class="text-xl font-semibold">{post.primary_author.name}</h2>
 			<p>{post.primary_author.bio}</p>
