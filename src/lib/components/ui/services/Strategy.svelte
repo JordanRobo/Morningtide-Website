@@ -24,7 +24,7 @@
 
     <div class="container mt-10 gap-10 p-4">
         {#if currentCard === 0}
-            <div out:scale={{ duration: 450, easing: quintOut, start: 0.7, opacity: 0 }} in:fly={{ delay: 450, duration: 450, easing: quintOut, x:-100 }} class="card w-full py-4 px-12 bg-white border flex flex-col rounded-bl-[120px] min-h-72">
+            <div out:fly={{ duration: 350, easing: quintOut, x: 100 }} in:fly={{ delay: 450, duration: 450, easing: quintOut, x:-100 }} class="card w-full py-4 px-12 bg-white border flex flex-col rounded-bl-[120px] min-h-72">
                 <div class="card-body flex-grow">
                     <h2 class="text-3xl font-bold text-accent">
                         Did you know?
@@ -40,11 +40,7 @@
                 </div>
             </div>
         {:else if currentCard === 1}
-        <div 
-        out:scale={{ duration: 450, easing: quintOut, start: 0.7, opacity: 0 }} 
-        in:fly={{ delay: 450, duration: 450, easing: quintOut, x: -100 }} 
-        class="card lg:card-side w-full p-4 bg-gradient-to-br from-primary/100 to-primary/80 border rounded-br-[120px] min-h-72"
-    >
+        <div out:fly={{ duration: 350, easing: quintOut, x: 100 }} in:fly={{ delay: 450, duration: 450, easing: quintOut, x: -100 }} class="card lg:card-side w-full p-4 bg-gradient-to-br from-primary/100 to-primary/80 border rounded-br-[120px] min-h-72">
         <figure class="mx-auto w-1/2 lg:w-full relative">
             <picture class="w-full h-full">
                 <source
@@ -82,7 +78,7 @@
         </div>
     </div>
         {:else if currentCard === 2}
-            <div out:scale={{ duration: 450, easing: quintOut, start: 0.7, opacity: 0 }} in:fly={{ delay: 450, duration: 450, easing: quintOut, x:-100 }} class="card w-full py-4 px-12 bg-white border flex rounded-bl-[120px] min-h-72">
+            <div out:fly={{ duration: 350, easing: quintOut, x: 100 }} in:fly={{ delay: 450, duration: 450, easing: quintOut, x:-100 }} class="card w-full py-4 px-12 bg-white border flex rounded-bl-[120px] min-h-72">
                 <div class="card-body lg:p-12">
                     <h2 class="text-3xl font-bold text-accent">
                         Successful execution

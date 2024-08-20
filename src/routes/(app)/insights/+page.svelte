@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import type { Post } from '$lib/data/types';
 	import { Individual } from '$lib/components/ui/posts/cards';
 	import { Header } from '$lib/components/ui/shared';
 	import { insights } from '$lib/data';
@@ -10,7 +11,7 @@
 
 	const PAGE_SIZE = 9;
 
-	$: filteredPosts = data.posts.filter((post) => 
+	$: filteredPosts = data.posts.filter((post: Post) => 
 		!$tagFilter || post.tags.some(tag => tag.slug === $tagFilter)
 	);
 
