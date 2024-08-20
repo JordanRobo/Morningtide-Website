@@ -1,6 +1,4 @@
 <script lang="ts">
-	// src/routes/privacy-policy/+page.svelte
-	
 	import type { PageData } from './$types';
 	export let data: PageData;
 </script>

@@ -70,7 +70,7 @@ import portraitAvif300 from './Portrait_gradient-300w.avif';
 import portraitAvif600 from './Portrait_gradient-600w.avif';
 import portraitAvif1200 from './Portrait_gradient-1200w.avif';
 
-interface ImageSet {
+export interface ImageSet {
   webp: {
     '300w': string;
     '600w': string;

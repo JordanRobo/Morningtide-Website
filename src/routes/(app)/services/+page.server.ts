@@ -1,16 +1,6 @@
-import { api, pb } from '$lib/db';
-import type { PageServerLoad, Actions } from './$types';
+import { pb } from '$lib/db';
+import type { Actions } from './$types';
 import { fail } from '@sveltejs/kit';
-
-export const load: PageServerLoad = async () => {
-	try {
-		const privacyPolicy = await api.pages.read({ slug: 'privacy-policy' });
-		return { privacyPolicy };
-	} catch (error) {
-		console.error('Error loading privacy policy:', error);
-		return { privacyPolicy: null };
-	}
-};
 
 export const actions: Actions = {
 	submit: async ({ request }) => {

@@ -5,7 +5,7 @@ export type Post = {
 	custom_excerpt: string,
 	feature_image: string,
 	slug: string,
-	tags: { id: number, name: string }[]
+	tags: { id: number, name: string, slug: string }[]
 };
 
 export type Service = {
