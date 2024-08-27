@@ -16,15 +16,3 @@ To get started with the project, follow these steps:
 2. Install dependencies: `bun install`
 3. Configure the PocketBase API and Ghost CMS API credentials in the appropriate configuration files.
 4. Start the development server: `bun --bun run dev`
-
-## Contributing
-
-If you would like to contribute to the project, please follow these guidelines:
-
-1. Fork the repository and create a new branch for your feature or bug fix.
-2. Make your changes and ensure that the code passes all tests.
-3. Submit a pull request with a clear description of your changes.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
