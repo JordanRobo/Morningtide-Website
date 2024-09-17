@@ -1,24 +1,26 @@
 <script lang="ts">
-	import type { PageData } from './$types';
 	import type { Post } from '$lib/data/types';
 	import { Individual } from '$lib/components/ui/posts/cards';
 	import { Header } from '$lib/components/ui/shared';
 	import { insights } from '$lib/data';
 	import { newPost } from '$lib/utils';
 	import { tagFilter, postsPage } from '$lib/stores';
+	import type { PageData } from './$types';
 
 	export let data: PageData;
 
-	const PAGE_SIZE = 9;
+	$: posts = data.posts;
 
-	$: filteredPosts = data.posts.filter((post: Post) => 
-		!$tagFilter || post.tags.some(tag => tag.slug === $tagFilter)
+	let page_size = 9;
+
+	$: filteredPosts = posts.filter(
+		(post: Post) => !$tagFilter || post.tags.some((tag) => tag.slug === $tagFilter)
 	);
 
 	$: totalPosts = filteredPosts.length;
-	$: totalPages = Math.ceil(totalPosts / PAGE_SIZE);
-	$: paginatedPosts = filteredPosts.slice(($postsPage - 1) * PAGE_SIZE, $postsPage * PAGE_SIZE);
-	$: ({ low, high } = getPaginationRange($postsPage, PAGE_SIZE, totalPosts));
+	$: totalPages = Math.ceil(totalPosts / page_size);
+	$: paginatedPosts = filteredPosts.slice(($postsPage - 1) * page_size, $postsPage * page_size);
+	$: ({ low, high } = getPaginationRange($postsPage, page_size, totalPosts));
 
 	function getPaginationRange(currentPage: number, pageSize: number, total: number) {
 		const low = (currentPage - 1) * pageSize + 1;
@@ -33,7 +35,7 @@
 
 <svelte:head>
 	<title>Insights | Morningtide Consulting</title>
-	<meta name="description" content={insights.subheading}/>
+	<meta name="description" content={insights.subheading} />
 </svelte:head>
 
 <Header header={insights} />
@@ -62,7 +64,11 @@
 		<button class="btn join-item w-24" on:click={() => changePage(-1)} disabled={$postsPage === 1}>
 			Previous
 		</button>
-		<button class="btn join-item w-24" on:click={() => changePage(1)} disabled={$postsPage === totalPages}>
+		<button
+			class="btn join-item w-24"
+			on:click={() => changePage(1)}
+			disabled={$postsPage === totalPages}
+		>
 			Next
 		</button>
 	</div>
