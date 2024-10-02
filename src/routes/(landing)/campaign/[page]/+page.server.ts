@@ -1,10 +1,10 @@
-import { api, pb } from '$lib/db';
+import { pb } from '$lib/db';
 import { fail } from '@sveltejs/kit';
 import type { PageServerLoad, Actions } from './$types';
 
 export const load: PageServerLoad = async ({ cookies, params }) => {
 	try {
-		const [page] = await Promise.all([api.pages.read({ slug: params.page })]);
+		const page = await pb.collection('landing_pages').getFirstListItem(`slug="${params.page}"`);
 		const formCompleted = cookies.get('formCompleted') === 'true';
 
 		return { page, formCompleted };

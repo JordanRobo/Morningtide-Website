@@ -42,9 +42,12 @@
   },
   "type": "module",
   "dependencies": {
+    "@mux/mux-player": "^3.0.0",
     "@sveltejs/enhanced-img": "^0.2.0",
     "@tryghost/admin-api": "^1.13.11",
     "@tryghost/content-api": "^1.11.20",
+    "embla-carousel-autoplay": "^8.3.0",
+    "embla-carousel-svelte": "^8.3.0",
     "pocketbase": "^0.21.2",
     "sharer.js": "^0.5.1",
     "showdown": "^2.1.0",
