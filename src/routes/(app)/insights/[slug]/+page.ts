@@ -1,8 +1,8 @@
 import { api } from '$lib/db';
-import type { PageServerLoad } from './$types';
+import type { PageLoad } from './$types';
 import { error } from '@sveltejs/kit';
 
-export const load: PageServerLoad = async ({ params }) => {
+export const load: PageLoad = async ({ params }) => {
 	try {
 		const [post, related] = await Promise.all([
 			api.posts.read({ slug: params.slug, include: 'tags,authors' }),
@@ -15,7 +15,7 @@ export const load: PageServerLoad = async ({ params }) => {
 
 		return {
 			post,
-			related: related.filter(r => r.id !== post.id)
+			related: related.filter((r) => r.id !== post.id)
 		};
 	} catch (err) {
 		console.error('Error loading post:', err);

@@ -24,7 +24,7 @@ export const actions: Actions = {
 			console.error('Subscription error:', err);
 			return fail(500, { success: false, message: 'An error occurred during subscription' });
 		}
-	},
+	}
 };
 
 async function subscribeToGetResponse(name: string, email: string) {
@@ -38,7 +38,7 @@ async function subscribeToGetResponse(name: string, email: string) {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
-			'X-Auth-Token': `api-key ${env.GETRESPONSE_KEY}`
+			'X-Auth-Token': `api-key ${env.PUBLIC_GETRESPONSE_KEY}`
 		},
 		body: JSON.stringify(getResponseData)
 	});

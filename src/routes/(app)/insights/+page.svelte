@@ -31,6 +31,8 @@
 	function changePage(delta: number) {
 		$postsPage = Math.max(1, Math.min($postsPage + delta, totalPages));
 	}
+
+	// console.log(data.posts.meta.pagination);
 </script>
 
 <svelte:head>

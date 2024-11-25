@@ -73,18 +73,18 @@
 			<mux-player
 				bind:this={muxPlayer}
 				class="w-full"
-				playback-id={page.video_id}
+				playback-id={page?.video_id}
 				accent-color="#262262"
-				metadata-video-title={page.video_title}
+				metadata-video-title={page?.video_title}
 			/>
 		</div>
 		<div class="flex flex-row">
 			<div class="mx-4 space-y-2">
-				<h1 class="text-4xl md:text-5xl font-bold">{page.video_title}</h1>
+				<h1 class="text-4xl md:text-5xl font-bold">{page?.video_title}</h1>
 				<h2 class="text-2xl md:text-3xl">
-					{page.video_sub_title}
+					{page?.video_sub_title}
 				</h2>
-				<span class="badge badge-accent badge-lg">{page.tag}</span>
+				<span class="badge badge-accent badge-lg">{page?.tag}</span>
 			</div>
 		</div>
 		<div class="border flex flex-col md:w-2/3 p-4 shadow-md bg-white">
@@ -92,7 +92,7 @@
 				<hr class="border-accent" />
 				<div class="prose max-w-full">
 					<!-- eslint-disable-next-line -->
-					{@html page.page_2}
+					{@html page?.page_2}
 				</div>
 			</div>
 		</div>
@@ -103,18 +103,18 @@
 		<div class="md:col-span-3 w-full space-y-4">
 			<div class="md:p-4">
 				<img
-					src="https://db.morningtide.com.au/api/files/{page.collectionId}/{page.id}/{page.feature_image}?token="
-					alt={page.page_title}
+					src="https://db.morningtide.com.au/api/files/{page?.collectionId}/{page?.id}/{page?.feature_image}?token="
+					alt={page?.page_title}
 					class="rounded-bl-[120px] md:rounded-bl-[220px]"
 				/>
 			</div>
 			<div class="card bg-white border flex flex-col min-h-72 p-4 shadow-md">
 				<div class="card-body space-y-4">
-					<h1 class="text-5xl font-bold text-accent">{page.page_title}</h1>
+					<h1 class="text-5xl font-bold text-accent">{page?.page_title}</h1>
 					<hr class="border-accent" />
 					<div class="prose max-w-full">
 						<!-- eslint-disable-next-line -->
-						{@html page.page_1}
+						{@html page?.page_1}
 					</div>
 				</div>
 			</div>
@@ -176,7 +176,7 @@
 									<input type="text" class="grow" name="school" required />
 								</label>
 								<input hidden type="email" bind:value={email} name="email" />
-								<input hidden type="text" value={page.title} name="campaign_id" />
+								<input hidden type="text" value={page?.title} name="campaign_id" />
 								<button class="btn btn-outline hover:bg-accent text-white w-1/3 justify-self-end">
 									Submit
 								</button>

@@ -1,7 +1,7 @@
 import { api } from '$lib/db';
-import type { PageServerLoad } from './$types';
+import type { PageLoad } from './$types';
 
-export const load: PageServerLoad = async ({ parent }) => {
+export const load: PageLoad = async ({ parent }) => {
 	try {
 		const posts = await api.posts.browse({ limit: 'all', include: 'tags' });
 		const tags = (await parent()).tags;

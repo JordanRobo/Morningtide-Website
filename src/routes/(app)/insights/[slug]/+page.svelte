@@ -52,9 +52,10 @@
 
 	<hr class="border-accent" />
 
-	<div class="prose mx-auto">
+	<article class="prose prose-a:text-blue-600 mx-auto">
+		<!-- eslint-disable-next-line -->
 		{@html post.html}
-	</div>
+	</article>
 
 	<ShareButtons {url} {title} />
 
