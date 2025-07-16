@@ -1,0 +1,136 @@
+{
+	"services": [
+		{
+			"title": "Strategic Teams Workshop",
+			"id": "strategic-teams-workshop",
+			"price": "$2,500",
+			"description": "Great strategy doesn’t just live at the top. This energising, hands-on workshop gives your middle leaders the confidence, tools and mindset to lead strategic projects that actually deliver - building both their capability and your school’s future.",
+			"image": "/images/uploads/service_1.webp",
+			"badge": "Workshop",
+			"accordion": [
+				{
+					"title": "Who is this service for?",
+					"content": "Designed for schools that want to grow the strategic capacity of their middle leadership team. Ideal for Heads of Department, Year Level Coordinators, Directors of Learning or any leader tasked with implementing change or improvement projects."
+				},
+				{
+					"title": "What’s included and what do schools gain?",
+					"content": "<ul><li>3-hour onsite or virtual workshop tailored to your school’s goals</li><li>Strategic project templates and facilitation tools</li><li>Team planning time and structured feedback</li><li>Optional add-on: 1:1 coaching sessions with project leads</li></ul>Schools gain more strategic, confident middle leaders. Clearer alignment between school strategy and grassroots initiatives. And a stronger internal pipeline of future leaders ready to contribute beyond their portfolio."
+				},
+				{
+					"title": "What happens next?",
+					"content": "<ol><li>We meet to identify key teams or initiatives you'd like to focus on</li><li>Workshop is tailored and delivered at your school or online</li><li>Teams leave with a ready-to-go project framework and shared language</li></ol>"
+				}
+			]
+		},
+		{
+			"title": "Strategic Health Check",
+			"id": "strategic-health-check",
+			"price": "$3,000",
+			"description": "Is your school’s strategy working—or just sitting on a shelf? The Strategic Health Check is a two-week deep dive that reveals what’s aligned, what’s drifting, and where you're exposed. It’sa fast, evidence-based way to regain clarity.",
+			"image": "/images/uploads/service_2.webp",
+			"badge": "Starter",
+			"accordion": [
+				{
+					"title": "Who is this service for?",
+					"content": "This is ideal for Principals and Board Chairs who suspect their school’s priorities may be scattered, under-aligned, or outdated. It’s also a strong pre-strategy step for those considering a full planning cycle."
+				},
+				{
+					"title": "What’s included and what do schools gain?",
+					"content": "<ul><li>Review of current strategic documents, goals, and initiatives</li><li>Environmental scan (internal and external trends)</li><li>1:1 consultation with the Principal and Board Chair</li><li>Visual report outlining strengths, risks, blind spots, and recommendations</li></ul>Schools leave this process with greater confidence in their leadership decisions and clarity on what to focus on next. One client recently described it as “the moment the fog cleared.”"
+				},
+				{
+					"title": "What happens next?",
+					"content": "<ol><li>Book a 30-minute discovery call to discuss your school context</li><li>We provide a tailored proposal with timeline and inclusions</li><li>Work begins within 1–2 weeks of confirmation</li></ol>"
+				}
+			]
+		},
+		{
+			"title": "After-Action Reviews Workshop",
+			"id": "after-action-reviews-workshop",
+			"price": "$2,500",
+			"description": "Don’t wait until the next crisis to learn the lessons from the last. This practical and energising workshop trains your team to conduct After-Action Reviews that build capability and avoid repeat mistakes.",
+			"image": "/images/uploads/service_3.webp",
+			"badge": "Workshop",
+			"accordion": [
+				{
+					"title": "Who is this service for?",
+					"content": "Perfect for school executives or middle leadership teams ready to improve performance through reflection. Especially useful after events, PD days, or project rollouts."
+				},
+				{
+					"title": "What’s included and what do schools gain?",
+					"content": "<ul><li>2-hour onsite or virtual workshop</li><li>Templates, facilitation guides, and question frameworks</li><li>One-month follow-up coaching session</li></ul>Schools benefit from clearer thinking, shared accountability, and a method for lifting performance across programs. ARR processes often lead to insights that inform deeper strategy or culture conversations."
+				},
+				{
+					"title": "What happens next?",
+					"content": "<ol><li>We identify a team or group to participate</li><li>Schedule a session at a time that suits your leadership calendar</li><li>Receive tools and coaching that you can embed immediately</li></ol>"
+				}
+			]
+		},
+		{
+			"title": "Vision & Values Refresh",
+			"id": "vision-values-refresh",
+			"price": "$6,800",
+			"description": "If your school’s statements are sounding tired—or don’t reflect what you actually do—it’s time for a refresh. We help your team rediscover and rearticulate its purpose in language that inspires action and unites your community.",
+			"image": "/images/uploads/service_4.webp",
+			"badge": "Value",
+			"accordion": [
+				{
+					"title": "Who is this service for?",
+					"content": "Designed for Boards ready to breathe new life into their Vision, Mission, and Values. Especially powerful before a new strategic cycle or leadership transition."
+				},
+				{
+					"title": "What’s included and what do schools gain?",
+					"content": "<ul><li>Pre-session survey and document review</li><li>1-day facilitation workshop with leadership</li><li>Drafting and refinement of statements, including community feedback loop</li></ul>Your Board will gain clear, concise language that energises your school community and aligns future priorities. Many schools describe it as the “missing clarity” they needed."
+				},
+				{
+					"title": "What happens next?",
+					"content": "<ol><li>Schedule a planning call to discuss context and tone</li><li>Run the session onsite or via hybrid facilitation</li><li>Receive fully edited statements and rollout support</li></ol>"
+				}
+			]
+		},
+		{
+			"title": "Goal Alignment Audit",
+			"id": "goal-alignment-audit",
+			"price": "$5,000",
+			"description": "Are your teams aiming at the same target—or at all? This audit uncovers how well goals across faculties and portfolios actually support your strategy, and identifies disconnects holding you back.",
+			"image": "/images/uploads/service_5.webp",
+			"badge": "Audit",
+			"accordion": [
+				{
+					"title": "Who is this service for?",
+					"content": "For schools that want to sharpen execution. Especially relevant for large or siloed teams, or those preparing for accreditation, strategy rollout, or performance reviews."
+				},
+				{
+					"title": "What’s included and what do schools gain?",
+					"content": "<ul><li>Review of team, faculty, and school-wide goals</li><li>Gap and duplication analysis</li><li>Recommendations for tighter alignment and measurement</li></ul>Schools will benefit from increased coherence, accountability, and strategic focus. Schools often discover 30–50% of goals are poorly aligned or unmeasured—this is your chance to fix that."
+				},
+				{
+					"title": "What happens next?",
+					"content": "<ol><li>Send through your current documents and org structure</li><li>We provide a draft report within 2 weeks</li><li>Final recommendations are delivered in a wrap-up call</li></ol>"
+				}
+			]
+		},
+		{
+			"title": "The Full R.I.D.G.E Strategic Process",
+			"id": "full-ridge-strategic-process",
+			"price": null,
+			"description": "<p>Strategy done properly. R.I.D.G.E. is Morningtide’s flagship service - an end-to-end strategy process designed specifically for independent and Catholic schools.</p>\n <img src='/images/logo/ridge-logo.png' class='w-full md:w-2/3 object-contain my-4 mx-auto invert' /> \n\n<p>If your current plan feels vague, uninspiring, or out of step with the future, R.I.D.G.E. gives you the structure, clarity and momentum to lead with purpose.</p>",
+			"image": "/images/uploads/service_6.webp",
+			"badge": "Custom",
+			"accordion": [
+				{
+					"title": "Who is this service for?",
+					"content": "Ideal for school leaders and Boards ready to commit to a new mid-term strategy. Especially suited to schools facing transitions in leadership, enrolment pressure, shifting community needs, or outdated direction."
+				},
+				{
+					"title": "What’s included and what do schools gain?",
+					"content": "<ul><li>Stakeholder consultation (staff, students, families, board)</li><li>Environmental scan and data analysis</li><li>30-year scenario planning</li><li>Leadership and Board strategy workshops</li><li>Design and articulation of mission, vision, values</li><li>Goal setting, performance scoreboards, implementation tools</li><li>Final delivery of a complete mid-term strategy with board-ready presentation and execution plans</li></ul>Schools will gain a clear, actionable and future-focused strategy. Schools emerge from the process with a shared language, a unified direction, and the tools to execute, not just another document.<br>R.I.D.G.E. has helped schools boost enrolment, refocus leadership energy, streamline budgets, and re-energise staff culture."
+				},
+				{
+					"title": "What happens next?",
+					"content": "<ol><li>Book a consultation to scope your school’s needs and planning timeline</li><li>Receive a tailored proposal with milestones and team commitments</li><li>Project delivery is scheduled around your calendar, school terms, and board cycles</li></ol>"
+				}
+			]
+		}
+	]
+}

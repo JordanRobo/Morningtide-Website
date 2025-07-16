@@ -1,10 +1,45 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+	name: "morningtide";
+	default: false;
+	prefersdark: false;
+	color-scheme: "light";
+	--color-base-100: #ffffff;
+	--color-base-200: oklch(98% 0 0);
+	--color-base-300: oklch(95% 0 0);
+	--color-base-content: oklch(21% 0.006 285.885);
+	--color-primary: #262262;
+	--color-primary-content: oklch(93% 0.034 272.788);
+	--color-secondary: #000000;
+	--color-secondary-content: oklch(100% 0 0);
+	--color-accent: #c7994a;
+	--color-accent-content: #262262;
+	--color-neutral: #3d4451;
+	--color-neutral-content: oklch(100% 0 0);
+	--color-info: oklch(74% 0.16 232.661);
+	--color-info-content: oklch(29% 0.066 243.157);
+	--color-success: oklch(76% 0.177 163.223);
+	--color-success-content: oklch(37% 0.077 168.94);
+	--color-warning: oklch(82% 0.189 84.429);
+	--color-warning-content: oklch(41% 0.112 45.904);
+	--color-error: oklch(71% 0.194 13.428);
+	--color-error-content: oklch(27% 0.105 12.094);
+	--radius-selector: 0.5rem;
+	--radius-field: 0.25rem;
+	--radius-box: 0.5rem;
+	--size-selector: 0.25rem;
+	--size-field: 0.25rem;
+	--border: 0.5px;
+	--depth: 0;
+	--noise: 0;
+}
 
 @layer base {
 	p {
-		font-family: 'Open Sans', sans-serif;
+		font-family: "Open Sans", sans-serif;
 		font-size: 1rem;
 	}
 
@@ -14,7 +49,7 @@
 	h4,
 	h5,
 	h6 {
-		font-family: 'Work Sans', sans-serif;
+		font-family: "Work Sans", sans-serif;
 		font-weight: 600;
 		line-height: 1.35;
 	}

@@ -1,0 +1,6 @@
+{
+    "workbench.editor.customLabels.patterns": {
+        "**/+page.svelte": "${dirname}_page",
+        "**/+layout.svelte": "${dirname}_layout",
+    }
+}

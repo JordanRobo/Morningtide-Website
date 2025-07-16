@@ -1,18 +1,38 @@
-# Morningtide Consulting Website
+# sv
 
-This repository contains the code for the Morningtide Consulting website. It is built using Svelte, Typescript, Bun, and Sveltekit.
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-## Features
+## Creating a project
 
-- **Form Data API**: The website utilizes the PocketBase API to handle form data. This allows users to submit their information through the website's forms.
-- **Posts API**: The website integrates with the Ghost CMS API to fetch and display blog posts. This allows the client to easily manage and update their blog content.
-- **Client Website Tracking**: This repository serves as a version control system for the Morningtide Consulting website. It allows you to keep track of changes made to the codebase and collaborate with other developers.
+If you're seeing this, you've probably already done this step. Congrats!
 
-## Getting Started
+```bash
+# create a new project in the current directory
+npx sv create
 
-To get started with the project, follow these steps:
+# create a new project in my-app
+npx sv create my-app
+```
 
-1. Clone the repository: `git clone https://github.com/jordanrobo/morningtide-consulting.git`
-2. Install dependencies: `bun install`
-3. Configure the PocketBase API and Ghost CMS API credentials in the appropriate configuration files.
-4. Start the development server: `bun --bun run dev`
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
