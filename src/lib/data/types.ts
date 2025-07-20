@@ -10,7 +10,6 @@ export interface Post {
 export interface Service {
 	title: string;
 	id: string;
-	price: string | null;
 	description: string;
 	image: string;
 	badge: string;
