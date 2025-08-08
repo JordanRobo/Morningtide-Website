@@ -1,5 +1,6 @@
 <script lang="ts">
 	import * as services from "$lib/data/services.json";
+	import type { Service } from "$lib/data/types";
 	import { ChevronRight } from "svelte-radix";
     import { superForm } from "sveltekit-superforms";
     import { Control, Field, Label, Description, Fieldset } from "formsnap";
@@ -51,19 +52,6 @@
 		},
 	});
 	const { form: formData, enhance } = form;
-
-	interface Service {
-		title: string;
-		id: string;
-		price: string | null;
-		description: string;
-		image: string;
-		badge: string;
-		accordion: Array<{
-			title: string;
-			content: string;
-		}>;
-	};
 
 	const referrers = [
 		'Google',
@@ -235,13 +223,6 @@
                 <h2 class="text-2xl lg:text-3xl font-bold mb-4 tracking-wide">
                     {input.title}
                 </h2>
-
-                <!-- Price -->
-                {#if input.price}
-                <p class="text-xl font-semibold text-gray-800 group-last:text-white/90 mb-6">
-                    From {input.price} <span class="text-gray-400 text-sm italic">(+GST)</span>
-                </p>
-                {/if}
 
                 <!-- Description -->
                 <p class="text-gray-600 group-last:text-white/80 leading-relaxed mb-8">

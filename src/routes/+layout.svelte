@@ -51,7 +51,7 @@
 <svelte:window bind:scrollY={y} bind:innerWidth={width} />
 <svelte:body onmouseleave={showPopup} />
 
-<Toaster richColors position="bottom-right" />
+<Toaster richColors position="bottom-center" />
 <PrivacyPolicy data={data.privacyPolicy} />
 <SubscribeForm data={data.subscribeForm} />
 

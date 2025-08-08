@@ -16,7 +16,6 @@ docker buildx build --platform linux/arm64,linux/amd64 \
   --build-arg GHOST_URL="$PUBLIC_GHOST_URL" \
   --build-arg GHOST_KEY="$PUBLIC_GHOST_KEY" \
   --build-arg PB_URL="$PUBLIC_PB_URL" \
-  --build-arg GETRESPONSE_KEY="$PUBLIC_GETRESPONSE_KEY" \
   -t jordanrobo22/morningtide:$VERSION \
   -t jordanrobo22/morningtide:latest \
   --push .
