@@ -32,15 +32,6 @@
 		}
 	});
 
-	afterNavigate(() => {
-		if (gtag) {
-			gtag("config", "G-2WZCE65J3P", {
-				page_title: document.title,
-				page_path: page.url.pathname,
-			});
-		};
-	});
-
 	onMount(() => {
 		setTimeout(() => {
 			showPopup();
