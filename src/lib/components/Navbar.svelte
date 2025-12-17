@@ -27,9 +27,11 @@
 					<ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
 						<li><button onclick={() => goto("/insights")} class="text-primary">View All</button></li>
 						<div class="divider -my-2"></div>
-						{#each data.tags as insight}
-							<li><button onclick={() => goto(`/insights?filter=tag:${insight.slug}`)}>{insight.name}</button></li>
-						{/each}
+						{#if data?.tags}
+							{#each data.tags as insight}
+								<li><button onclick={() => goto(`/insights?filter=tag:${insight.slug}`)}>{insight.name}</button></li>
+							{/each}
+						{/if}
 					</ul>
 				</div>
 				<div transition:fade={{ duration: 300 }} class="dropdown dropdown-hover dropdown-end">

@@ -8,7 +8,7 @@ export const load: LayoutServerLoad = async ({ url }) => {
 	const subscribeForm = await superValidate(valibot(subscribeSchema));
 
 	try {
-		const [tags, highlight_posts, privacyPolicy] = await Promise.all([api.tags.browse(), api.posts.browse({ limit: 3 }), api.pages.read({ slug: "privacy-policy" })]);
+		const [tags, highlight_posts, privacyPolicy] = await Promise.all([api?.tags?.browse(), api?.posts?.browse({ limit: 3 }), api?.pages?.read({ slug: "privacy-policy" })]);
 
 		const { pathname } = url;
 		return { tags, highlight_posts, pathname, privacyPolicy, subscribeForm };

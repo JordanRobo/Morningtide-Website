@@ -1,26 +1,26 @@
 <script lang="ts">
-	import type { Post } from '$lib/data/types';
-	import { goto } from '$app/navigation';
-	import type { PageProps } from './$types';
+	import type { Post } from "$lib/data/types";
+	import { goto } from "$app/navigation";
+	import type { PageProps } from "./$types";
 	import { slide } from "svelte/transition";
-    import { getContext } from 'svelte';
+	import { getContext } from "svelte";
 
 	let { data }: PageProps = $props();
 
 	const services: string[] = ["Strategy Planning", "Competitor Analysis", "Financial Forecasting", "Customer Auditing"];
 	let index: number = $state(0);
-	const width: Function = getContext('width');
+	const width: Function = getContext("width");
 	const isLargeScreen: boolean = $derived(width() >= 1024);
 
 	$effect(() => {
-			const roller = setInterval(() => {
-				index = (index + 1) % services.length;
-			}, 5000);
+		const roller = setInterval(() => {
+			index = (index + 1) % services.length;
+		}, 5000);
 
-			return () => {
-				clearInterval(roller);
-			};
-		});
+		return () => {
+			clearInterval(roller);
+		};
+	});
 </script>
 
 <svelte:head>
@@ -87,15 +87,14 @@
 			<div class="lg:col-span-2 lg:col-start-2 lg:row-start-1 lg:ml-8">
 				<h2 class="text-accent text-4xl font-bold mb-4">Ready to Craft Your School Strategy?</h2>
 				<p class="mb-2">
-					Many independent school leaders view school strategy in one of two ways. Either they are keen to get started but not sure how, or past experiences have numbed the desire, and the pressure to
-					deliver the school's strategic plan now evokes anxiety and stress. <span class="font-bold">You are not alone.</span>
+					Many independent school leaders view school strategy in one of two ways. Either they are keen to get started but not sure how, or past experiences have numbed the desire, and the pressure to deliver the school's
+					strategic plan now evokes anxiety and stress. <span class="font-bold">You are not alone.</span>
 				</p>
 			</div>
 			<div class="lg:col-span-2 lg:row-start-2 lg:self-end lg:ml-6">
 				<h3 class="text-accent text-3xl font-bold mb-2">How We Can Help</h3>
 				<p class="mb-2">
-					Morningtide Consulting can help you craft a compelling school strategy. We then provide you an unconventional framework to successfully implement it - while keeping your stakeholders engaged
-					and committed.
+					Morningtide Consulting can help you craft a compelling school strategy. We then provide you an unconventional framework to successfully implement it - while keeping your stakeholders engaged and committed.
 				</p>
 				<p class="mb-2">Take a look around our site and read some of our articles, service offerings, and recommendations.</p>
 				<p>When you are ready, book an <a href="/services" class="link link-accent">obligation-free consultation.</a></p>
@@ -104,26 +103,27 @@
 	</div>
 </div>
 
-
-{@render latestPost(data.highlight_posts)}
+{#if data?.highlight_posts}
+	{@render latestPost(data.highlight_posts)}
+{/if}
 
 {#snippet latestPost(posts: Post[])}
 	<div class="container mx-auto">
-	    <div class="p-6 w-full sm:w-[600px] md:w-[720px] lg:w-[960px] mx-auto space-y-8 my-8">
-	        {#each posts as post}
-	            <div class="card lg:card-side bg-white shadow-xl">
-	                <figure class="lg:w-1/2 max-h-[220px] lg:max-h-[300px]">
-	                    <img class="object-cover h-full" src={post.feature_image} alt={post.title} width="100%" height="100%" />
-	                </figure>
-	                <div class="card-body lg:w-1/2">
-	                    <h2 class="card-title">{post.title}</h2>
-	                        <p class="line-clamp-5">{post.custom_excerpt}</p>
-	                    <div class="card-actions justify-end">
-	                        <button onclick={() => goto(`/insights/${post.slug}`)} class="btn btn-primary">Read more</button>
-	                    </div>
-	                </div>
-	            </div>
-	        {/each}
-	    </div>
+		<div class="p-6 w-full sm:w-[600px] md:w-[720px] lg:w-[960px] mx-auto space-y-8 my-8">
+			{#each posts as post}
+				<div class="card lg:card-side bg-white shadow-xl">
+					<figure class="lg:w-1/2 max-h-[220px] lg:max-h-[300px]">
+						<img class="object-cover h-full" src={post.feature_image} alt={post.title} width="100%" height="100%" />
+					</figure>
+					<div class="card-body lg:w-1/2">
+						<h2 class="card-title">{post.title}</h2>
+						<p class="line-clamp-5">{post.custom_excerpt}</p>
+						<div class="card-actions justify-end">
+							<button onclick={() => goto(`/insights/${post.slug}`)} class="btn btn-primary">Read more</button>
+						</div>
+					</div>
+				</div>
+			{/each}
+		</div>
 	</div>
 {/snippet}
