@@ -3,7 +3,7 @@ import { valibot } from "sveltekit-superforms/adapters";
 import { fail } from "@sveltejs/kit";
 import type { Actions } from "./$types";
 import { enquirySchema, subscribeSchema } from "$lib/schema";
-import { pb } from "$lib/db";
+import { pb } from "$lib/pb.server";
 
 export const actions: Actions = {
 	subscribe: async ({ request }) => {

@@ -1,4 +1,4 @@
-import { api } from "$lib/db";
+import { ghost } from "$lib/ghost";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ url, setHeaders }) => {
@@ -6,7 +6,7 @@ export const load: PageServerLoad = async ({ url, setHeaders }) => {
 	const filter = url.searchParams.get("filter") || "";
 
 	async function fetchPosts(page: number = 1, filter: string) {
-		const data = await api.posts.browse({
+		const data = await ghost.posts.browse({
 			limit: 9,
 			page,
 			include: "tags",

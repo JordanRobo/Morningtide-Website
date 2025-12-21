@@ -10,8 +10,9 @@
 
 	let { data }: { data: SuperValidated<Infer<SubscribeSchema>> } = $props();
 
+	// svelte-ignore state_referenced_locally
 	const form = superForm(data, {
-		id: 'subscribe-popup',
+		id: "subscribe-popup",
 		customValidity: true,
 		validators: valibotClient(subscribeSchema),
 		onUpdated({ form }) {
@@ -23,10 +24,11 @@
 			}
 		},
 	});
+
 	const { form: formData, enhance } = form;
 
 	onMount(() => {
-		$formData.form_id = 'subscribe popup';
+		$formData.form_id = "subscribe popup";
 	});
 </script>
 
@@ -43,7 +45,7 @@
 			<form class="flex items-center" method="POST" action="/?/subscribe" use:enhance>
 				<div class="space-y-4 w-full text-base-content">
 					<input type="text" name="form_id" class="hidden" bind:value={$formData.form_id} />
-					<Field {form} name='name'>
+					<Field {form} name="name">
 						<Control>
 							{#snippet children({ props })}
 								<Label class="floating-label">
@@ -53,13 +55,13 @@
 							{/snippet}
 						</Control>
 					</Field>
-					<Field {form} name='email'>
+					<Field {form} name="email">
 						<Control>
 							{#snippet children({ props })}
-							<Label class="floating-label">
-								<span>Email</span>
-								<input class="input md:input-sm validator" {...props} type="email" placeholder="john.doe@example.com" required bind:value={$formData.email} />
-							</Label>
+								<Label class="floating-label">
+									<span>Email</span>
+									<input class="input md:input-sm validator" {...props} type="email" placeholder="john.doe@example.com" required bind:value={$formData.email} />
+								</Label>
 							{/snippet}
 						</Control>
 					</Field>

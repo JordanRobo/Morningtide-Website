@@ -29,7 +29,7 @@
 </svelte:head>
 
 <!--Hero Section -->
-<div class="hero h-[720px] relative">
+<div class="hero h-180 relative">
 	<picture class="absolute inset-0 w-full h-full">
 		<img src="/images/uploads/business-team-collaborating_tiny-1200w.webp" alt="Team collaborating" class="w-full h-full object-cover" loading="eager" decoding="async" />
 	</picture>
@@ -65,7 +65,7 @@
 
 <!-- Introduction Text -->
 <div class="bg-white">
-	<div class="max-w-screen-lg mx-auto p-4">
+	<div class="max-w-5xl mx-auto p-4">
 		<div class="grid grid-cols-1 lg:grid-cols-4 grid-rows-2 gap-8 md:py-8 text-center lg:text-left">
 			{#if isLargeScreen}
 				<div>
@@ -109,10 +109,10 @@
 
 {#snippet latestPost(posts: Post[])}
 	<div class="container mx-auto">
-		<div class="p-6 w-full sm:w-[600px] md:w-[720px] lg:w-[960px] mx-auto space-y-8 my-8">
+		<div class="p-6 w-full sm:w-150] md:w-180 lg:w-240 mx-auto space-y-8 my-8">
 			{#each posts as post}
 				<div class="card lg:card-side bg-white shadow-xl">
-					<figure class="lg:w-1/2 max-h-[220px] lg:max-h-[300px]">
+					<figure class="lg:w-1/2 max-h-55 lg:max-h-75">
 						<img class="object-cover h-full" src={post.feature_image} alt={post.title} width="100%" height="100%" />
 					</figure>
 					<div class="card-body lg:w-1/2">

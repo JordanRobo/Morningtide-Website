@@ -30,14 +30,14 @@
 	];
 </script>
 
-<div class="flex flex-col md:flex-row max-w-screen-lg mx-auto gap-4 my-12">
+<div class="flex flex-col md:flex-row max-w-5xl mx-auto gap-4 my-12">
 	<div class="w-full md:w-1/2">
 		<div class="space-y-1 p-4">
 			<h2 class="text-3xl text-center md:text-left font-bold md:text-4xl">Our Legacy</h2>
 			<span class="divider mx-auto md:mx-0 divider-accent w-48"></span>
 			<p class="text-center md:text-left">
-				Morningtide is a specialist consultancy working with independent school Boards, Principals, and their teams to create compelling strategy. We are dedicated to ensuring the success of your
-				strategic execution, and our goal is to establish a sustained culture of strategic planning within your school long after our job is complete.
+				Morningtide is a specialist consultancy working with independent school Boards, Principals, and their teams to create compelling strategy. We are dedicated to ensuring the success of your strategic execution, and our goal is
+				to establish a sustained culture of strategic planning within your school long after our job is complete.
 			</p>
 		</div>
 	</div>
@@ -56,8 +56,8 @@
 	</div>
 </div>
 
-<div class="bg-gradient-to-br from-primary/100 to-primary/80 text-white">
-	<div class="max-w-screen-lg mx-auto p-4 gap-4 py-8">
+<div class="bg-linear-to-br from-primary to-primary/80 text-white">
+	<div class="max-w-5xl mx-auto p-4 gap-4 py-8">
 		<div class="flex flex-col items-center">
 			<h1 class="text-center text-3xl font-bold md:text-4xl">Our Values</h1>
 			<span class="divider divider-accent w-48 mx-auto"></span>
@@ -74,7 +74,7 @@
 	</div>
 </div>
 
-<div id="contact" class="flex flex-col max-w-screen-md mx-auto p-4 gap-4 my-12">
+<div id="contact" class="flex flex-col max-w-3xl mx-auto p-4 gap-4 my-12">
 	<div class="flex flex-col items-center my-2">
 		<h2 class="text-center text-3xl font-bold md:text-4xl">Our Founder</h2>
 		<span class="divider divider-accent w-48 mx-auto"></span>
@@ -85,8 +85,8 @@
 		</div>
 		<h3 class="font-bold text-3xl">Stuart Robinson</h3>
 		<p>
-			Founder, Stuart Robinson, has more than 25 years managing the business of schools. Equipped with his MBA (Leadership), a Bachelor of Business (Accounting and Marketing), and as a graduate of the
-			Australian Institute of Company Directors, Stuart is highly capable and experienced to help you set your school's strategy.
+			Founder, Stuart Robinson, has more than 25 years managing the business of schools. Equipped with his MBA (Leadership), a Bachelor of Business (Accounting and Marketing), and as a graduate of the Australian Institute of Company
+			Directors, Stuart is highly capable and experienced to help you set your school's strategy.
 		</p>
 		<div class="card bg-primary text-white shadow-xl mt-6">
 			<div class="card-body">

@@ -3,7 +3,7 @@
 </script>
 
 <dialog id="privacy_policy" class="modal modal-bottom sm:modal-middle">
-	<div class="modal-box !max-w-xl relative">
+	<div class="modal-box max-w-xl! relative">
 		<div class="bg-stone-50 h-[70vh] overflow-y-auto p-6">
 			<article class="prose">
 				<h1>{data.title}</h1>

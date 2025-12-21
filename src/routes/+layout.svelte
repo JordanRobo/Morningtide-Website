@@ -3,11 +3,10 @@
 	import { fly, fade } from "svelte/transition";
 	import { onMount, setContext } from "svelte";
 	import { cubicIn, cubicOut } from "svelte/easing";
-	import { page } from "$app/state";
 	import { Navbar, Footer, PrivacyPolicy, SubscribeForm } from "$lib/components";
 	import { showPopup } from "$lib/utils";
 	import type { LayoutProps } from "./$types";
-	import { afterNavigate, goto } from "$app/navigation";
+	import { goto } from "$app/navigation";
 	import { Toaster } from "svelte-sonner";
 	import { ChevronUp, Home } from "svelte-radix";
 	import Dock from "$lib/components/Dock.svelte";

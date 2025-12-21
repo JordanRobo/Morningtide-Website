@@ -3,8 +3,8 @@
 
 	let { url, title } = $props();
 
-	const shareUrl = encodeURIComponent(url);
-	const shareTitle = encodeURIComponent(title);
+	const shareUrl = $derived(encodeURIComponent(url));
+	const shareTitle = $derived(encodeURIComponent(title));
 
 	const shareOnFacebook = () => {
 		const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${shareTitle}`;

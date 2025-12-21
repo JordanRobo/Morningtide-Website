@@ -13,30 +13,30 @@
 		"start": "bun build/index.js"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^6.0.0",
-		"@sveltejs/kit": "^2.16.0",
-		"@sveltejs/vite-plugin-svelte": "^5.0.0",
-		"@tailwindcss/forms": "^0.5.9",
-		"@tailwindcss/typography": "^0.5.15",
-		"@tailwindcss/vite": "^4.0.0",
+		"@sveltejs/adapter-auto": "^6.1.1",
+		"@sveltejs/kit": "^2.49.2",
+		"@sveltejs/vite-plugin-svelte": "^5.1.1",
+		"@tailwindcss/forms": "^0.5.10",
+		"@tailwindcss/typography": "^0.5.19",
+		"@tailwindcss/vite": "^4.1.18",
 		"daisyui": "^5.0.43",
-		"svelte": "^5.0.0",
+		"svelte": "^5.46.0",
 		"svelte-adapter-bun": "^0.5.2",
-		"svelte-check": "^4.0.0",
-		"tailwindcss": "^4.0.0",
-		"typescript": "^5.0.0",
-		"vite": "^6.2.6"
+		"svelte-check": "^4.3.4",
+		"tailwindcss": "^4.1.18",
+		"typescript": "^5.9.3",
+		"vite": "^6.4.1"
 	},
 	"dependencies": {
-		"@mux/mux-player": "^3.4.0",
-		"@tryghost/content-api": "^1.11.25",
+		"@mux/mux-player": "^3.10.1",
+		"@tryghost/content-api": "^1.12.2",
 		"embla-carousel-autoplay": "^8.6.0",
 		"embla-carousel-svelte": "^8.6.0",
 		"formsnap": "^2.0.1",
-		"pocketbase": "^0.26.0",
-		"svelte-radix": "^2.0.1",
-		"svelte-sonner": "^1.0.5",
-		"sveltekit-superforms": "^2.26.1",
-		"valibot": "^1.1.0"
+		"pocketbase": "^0.26.5",
+		"svelte-radix": "^2.0.2",
+		"svelte-sonner": "^1.0.7",
+		"sveltekit-superforms": "^2.29.1",
+		"valibot": "^1.2.0"
 	}
 }

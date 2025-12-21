@@ -11,6 +11,8 @@
 	const handleClick = (title: string) => {
 		goto(`/services?service=${title}`);
 	};
+
+	const tags = $derived(data?.tags);
 </script>
 
 <nav class="navbar bg-base-100 md:px-8">
@@ -24,11 +26,11 @@
 			{#if !isCampaign}
 				<div transition:fade={{ duration: 300 }} class="dropdown dropdown-hover dropdown-end">
 					<button class="btn btn-ghost text-primary font-medium" onclick={() => goto("/insights")}>Insights</button>
-					<ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+					<ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-50 w-52 p-2 shadow-sm">
 						<li><button onclick={() => goto("/insights")} class="text-primary">View All</button></li>
 						<div class="divider -my-2"></div>
-						{#if data?.tags}
-							{#each data.tags as insight}
+						{#if tags}
+							{#each tags as insight}
 								<li><button onclick={() => goto(`/insights?filter=tag:${insight.slug}`)}>{insight.name}</button></li>
 							{/each}
 						{/if}
@@ -36,7 +38,7 @@
 				</div>
 				<div transition:fade={{ duration: 300 }} class="dropdown dropdown-hover dropdown-end">
 					<button class="btn btn-ghost text-primary font-medium" onclick={() => goto("/services")}>Services</button>
-					<ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+					<ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-50 w-52 p-2 shadow-sm">
 						{#each services.services as service}
 							<li><button onclick={() => handleClick(service.id)}>{service.title}</button></li>
 						{/each}
