@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { Post } from "$lib/data/types";
-	import { goto } from "$app/navigation";
 	import type { PageProps } from "./$types";
 	import { slide } from "svelte/transition";
 	import { getContext } from "svelte";
@@ -119,7 +118,7 @@
 						<h2 class="card-title">{post.title}</h2>
 						<p class="line-clamp-5">{post.custom_excerpt}</p>
 						<div class="card-actions justify-end">
-							<button onclick={() => goto(`/insights/${post.slug}`)} class="btn btn-primary">Read more</button>
+							<a href="/insights/{post.slug}" class="btn btn-primary">Read more</a>
 						</div>
 					</div>
 				</div>

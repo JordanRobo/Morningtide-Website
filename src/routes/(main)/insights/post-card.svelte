@@ -4,7 +4,6 @@
 
 <script lang="ts">
 	import type { Post } from "$lib/data/types";
-	import { goto } from "$app/navigation";
 </script>
 
 {#snippet postCard(post: Post, checkNew: boolean = false, loading: boolean = false)}
@@ -22,11 +21,11 @@
 					<div class="badge badge-accent badge-outline">{tag.name}</div>
 				{/each}
 			</div>
-			<p >{post.custom_excerpt}</p>
+			<p>{post.custom_excerpt}</p>
 			<div class="card-actions justify-between">
 				<div class="self-end"></div>
 				<div>
-					<button onclick={() => goto("insights/" + post.slug)} class="btn btn-primary">Read More...</button>
+					<a href="insights/{post.slug}" class="btn btn-primary">Read More...</a>
 				</div>
 			</div>
 		</div>

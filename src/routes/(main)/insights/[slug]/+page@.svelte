@@ -4,8 +4,7 @@
 	import { fade } from "svelte/transition";
 	import emblaCarouselSvelte from "embla-carousel-svelte";
 	import Autoplay from "embla-carousel-autoplay";
-	import { goto } from '$app/navigation';
-	import type { Post } from '$lib/data/types';
+	import type { Post } from "$lib/data/types";
 	import type { PageProps } from "./$types";
 
 	let options = { loop: true };
@@ -95,7 +94,7 @@
 				</div>
 			</div>
 			<div class="card-actions justify-end">
-				<button onclick={() => goto(post.slug)} class="btn btn-primary">Read More...</button>
+				<a href="/insights/{post.slug}" class="btn btn-primary">Read More...</a>
 			</div>
 		</div>
 	</div>
