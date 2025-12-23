@@ -4,16 +4,12 @@ import type { LayoutServerLoad } from "./$types";
 import { valibot } from "sveltekit-superforms/adapters";
 import { subscribeSchema } from "$lib/schema";
 
-export const load: LayoutServerLoad = async ({ setHeaders }) => {
+export const load: LayoutServerLoad = async ({ url }) => {
 	const subscribeForm = await superValidate(valibot(subscribeSchema));
-
-	setHeaders({
-		"cache-control": "public, max-age=300",
-	});
 
 	try {
 		const [tags, privacyPolicy] = await Promise.all([ghost?.tags?.browse(), ghost?.pages?.read({ slug: "privacy-policy" })]);
-		return { tags, privacyPolicy, subscribeForm };
+		return { tags, privacyPolicy, subscribeForm, pathname: url.pathname };
 	} catch (error) {
 		console.error("Error loading layout data:", error);
 		console.error("Error details:", {
@@ -22,6 +18,6 @@ export const load: LayoutServerLoad = async ({ setHeaders }) => {
 			timestamp: new Date().toISOString(),
 		});
 
-		return { tags: [], privacyPolicy: null, subscribeForm };
+		return { tags: [], privacyPolicy: null, subscribeForm, pathname: url.pathname };
 	}
 };

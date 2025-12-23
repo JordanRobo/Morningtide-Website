@@ -1,7 +1,7 @@
 <script lang="ts">
 	import "../app.css";
 	import { fly, fade } from "svelte/transition";
-	import { onMount, setContext } from "svelte";
+	import { onMount, setContext, onDestroy } from "svelte";
 	import { cubicIn, cubicOut } from "svelte/easing";
 	import { Navbar, Footer, PrivacyPolicy, SubscribeForm } from "$lib/components";
 	import { showPopup } from "$lib/utils";
@@ -10,6 +10,9 @@
 	import { Toaster } from "svelte-sonner";
 	import { ChevronUp, Home } from "svelte-radix";
 	import Dock from "$lib/components/Dock.svelte";
+	import * as Swetrix from "swetrix";
+	import { page } from "$app/state";
+	import { browser } from "$app/environment";
 
 	let { data, children }: LayoutProps = $props();
 
@@ -18,6 +21,7 @@
 	let showButton = $state(false);
 	let y: number = $state(0);
 	let width: number = $state(0);
+	let startTime: number = $state(0);
 	const scrollThreshold = 200;
 
 	setContext("width", () => width);
@@ -31,15 +35,48 @@
 		}
 	});
 
+	const handleMouseleave = () => {
+		showPopup("exit_intent");
+	};
+
 	onMount(() => {
 		setTimeout(() => {
-			showPopup();
+			showPopup("time_delay");
 		}, 15000);
+	});
+
+	onMount(() => {
+		startTime = Date.now();
+
+		Swetrix.init("oUz9nOwqpVSS", {
+			apiURL: "https://api.swetrix.morningtide.com.au/log",
+		});
+		Swetrix.trackViews({ search: true });
+		Swetrix.trackErrors();
+
+		Swetrix.track({
+			ev: "session_started",
+		});
+
+		return () => {
+			const sessionTime = Math.floor((Date.now() - startTime) / 1000);
+
+			Swetrix.track({
+				ev: "session_ended",
+				meta: {
+					session_duration: sessionTime,
+				},
+			});
+		};
+	});
+
+	$effect(() => {
+		(page.url.pathname, browser && Swetrix.trackViews({ search: true }));
 	});
 </script>
 
 <svelte:window bind:scrollY={y} bind:innerWidth={width} />
-<svelte:body onmouseleave={showPopup} />
+<svelte:body onmouseleave={handleMouseleave} />
 
 <Toaster richColors position="bottom-center" />
 

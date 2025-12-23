@@ -3,7 +3,7 @@ import GhostContentAPI from "@tryghost/content-api";
 import { env } from "$env/dynamic/public";
 
 const ghost = GhostContentAPI({
-	url: env.PUBLIC_GHOST_URL || "https://example.com",
+	url: env.PUBLIC_GHOST_URL || "http://ghost:2368",
 	key: env.PUBLIC_GHOST_KEY || "4f7a3e9c2b8d1a6f5e4c3b2a1d",
 	version: "v6.0",
 });

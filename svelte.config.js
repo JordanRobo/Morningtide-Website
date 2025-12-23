@@ -7,7 +7,7 @@ const config = {
 
 	kit: {
 		csrf: {
-	                trustedOrigins: [
+	        trustedOrigins: [
 				"https://morningtide.com.au",
 				"https://db.morningtide.com.au",
 				"http://localhost:3000",

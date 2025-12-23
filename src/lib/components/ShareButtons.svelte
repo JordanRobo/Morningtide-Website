@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { LinkedinLogo, TwitterLogo } from "svelte-radix";
+	import * as Swetrix from "swetrix";
 
 	let { url, title } = $props();
 
@@ -9,16 +10,37 @@
 	const shareOnFacebook = () => {
 		const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${shareTitle}`;
 		window.open(fbShareUrl, "_blank", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600");
+		Swetrix.track({
+			ev: "insight_share_clicked",
+			meta: {
+				platform: "Facebook",
+				post_title: shareTitle,
+			},
+		});
 	};
 
 	const shareOnTwitter = () => {
 		const twitterShareUrl = `https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`;
 		window.open(twitterShareUrl, "_blank", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600");
+		Swetrix.track({
+			ev: "insight_share_clicked",
+			meta: {
+				platform: "Twitter",
+				post_title: shareTitle,
+			},
+		});
 	};
 
 	const shareOnLinkedIn = () => {
 		const linkedInShareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareTitle}`;
 		window.open(linkedInShareUrl, "_blank", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600");
+		Swetrix.track({
+			ev: "insight_share_clicked",
+			meta: {
+				platform: "LinkedIn",
+				post_title: shareTitle,
+			},
+		});
 	};
 </script>
 

@@ -9,6 +9,7 @@
 	import { onMount, getContext } from "svelte";
 	import { toast } from "svelte-sonner";
 	import { page } from "$app/state";
+	import * as Swetrix from "swetrix";
 
 	let prop = $props();
 	const serviceId = $derived(page.url.searchParams.get("service"));
@@ -63,6 +64,16 @@
 		enquiry_form?.scrollIntoView({
 			behavior: "smooth",
 			block: "center",
+		});
+	};
+
+	const handleSubmit = (service_type: string, refferer: string) => {
+		Swetrix.track({
+			ev: "enquiry_form_submitted",
+			meta: {
+				service_type,
+				refferer,
+			},
 		});
 	};
 
@@ -175,7 +186,7 @@
 						</Description>
 					</Fieldset>
 					<div class="flex justify-end -mt-2 md:-mt-4">
-						<button class="btn btn-primary w-full md:w-32" type="submit">Submit</button>
+						<button class="btn btn-primary w-full md:w-32" onclick={() => handleSubmit($formData.enquiry_service, $formData.enquiry_referrer)} type="submit">Submit</button>
 					</div>
 				</form>
 			</div>

@@ -6,11 +6,11 @@ import { enquirySchema, subscribeSchema } from "$lib/schema";
 import { pb } from "$lib/pb.server";
 import { ghost } from "$lib/ghost";
 
-export const load: PageServerLoad = async ({ url }) => {
+export const load: PageServerLoad = async () => {
 	try {
-		const [highlight_posts] = await ghost?.posts?.browse({ limit: 3 });
+		const highlight_posts = await ghost?.posts?.browse({ limit: 3 });
 
-		return { highlight_posts, pathname: url.pathname };
+		return { highlight_posts };
 	} catch (error) {
 		console.error("Error loading pagedata", error);
 		console.error("Error details:", {
@@ -19,7 +19,7 @@ export const load: PageServerLoad = async ({ url }) => {
 			timestamp: new Date().toISOString(),
 		});
 
-		return { highlight_posts: [], pathname: url.pathname };
+		return { highlight_posts: [] };
 	}
 };
 

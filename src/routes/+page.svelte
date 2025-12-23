@@ -2,7 +2,8 @@
 	import type { Post } from "$lib/data/types";
 	import type { PageProps } from "./$types";
 	import { slide } from "svelte/transition";
-	import { getContext } from "svelte";
+	import { getContext, onMount } from "svelte";
+	import * as Swetrix from "swetrix";
 
 	let { data }: PageProps = $props();
 

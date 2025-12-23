@@ -6,6 +6,7 @@
 	import Autoplay from "embla-carousel-autoplay";
 	import type { Post } from "$lib/data/types";
 	import type { PageProps } from "./$types";
+	import * as Swetrix from "swetrix";
 
 	let options = { loop: true };
 	let plugins = [Autoplay({ delay: 4000 })];
@@ -16,6 +17,15 @@
 	const related = $derived(data.related);
 	const url = $derived(`https://morningtide.com.au/insights/${post.slug}`);
 	const title = $derived(post.title);
+
+	const handleRelatedPost = (post_title: string) => {
+		Swetrix.track({
+			ev: "insights_related_clicked",
+			meta: {
+				post_title,
+			},
+		});
+	};
 </script>
 
 <svelte:head>
@@ -94,7 +104,7 @@
 				</div>
 			</div>
 			<div class="card-actions justify-end">
-				<a href="/insights/{post.slug}" class="btn btn-primary">Read More...</a>
+				<a onclick={() => handleRelatedPost(post.title)} href="/insights/{post.slug}" class="btn btn-primary">Read More...</a>
 			</div>
 		</div>
 	</div>
