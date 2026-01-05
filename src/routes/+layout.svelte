@@ -1,7 +1,7 @@
 <script lang="ts">
 	import "../app.css";
 	import { fly, fade } from "svelte/transition";
-	import { onMount, setContext, onDestroy } from "svelte";
+	import { onMount, setContext } from "svelte";
 	import { cubicIn, cubicOut } from "svelte/easing";
 	import { Navbar, Footer, PrivacyPolicy, SubscribeForm } from "$lib/components";
 	import { showPopup } from "$lib/utils";
@@ -21,7 +21,6 @@
 	let showButton = $state(false);
 	let y: number = $state(0);
 	let width: number = $state(0);
-	let startTime: number = $state(0);
 	const scrollThreshold = 200;
 
 	setContext("width", () => width);
@@ -46,32 +45,18 @@
 	});
 
 	onMount(() => {
-		startTime = Date.now();
-
 		Swetrix.init("oUz9nOwqpVSS", {
 			apiURL: "https://api.swetrix.morningtide.com.au/log",
 		});
 		Swetrix.trackViews({ search: true });
 		Swetrix.trackErrors();
-
-		Swetrix.track({
-			ev: "session_started",
-		});
-
-		return () => {
-			const sessionTime = Math.floor((Date.now() - startTime) / 1000);
-
-			Swetrix.track({
-				ev: "session_ended",
-				meta: {
-					session_duration: sessionTime,
-				},
-			});
-		};
 	});
 
 	$effect(() => {
-		(page.url.pathname, browser && Swetrix.trackViews({ search: true }));
+		if (browser && page.url.pathname) {
+			Swetrix.trackViews({ search: true });
+			Swetrix.trackErrors();
+		}
 	});
 </script>
 

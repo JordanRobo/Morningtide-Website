@@ -29,7 +29,6 @@
 	},
 	"dependencies": {
 		"@mux/mux-player": "^3.10.2",
-		"@tryghost/content-api": "^1.12.2",
 		"embla-carousel-autoplay": "^8.6.0",
 		"embla-carousel-svelte": "^8.6.0",
 		"formsnap": "^2.0.1",

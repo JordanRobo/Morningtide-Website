@@ -1,12 +1,24 @@
 import type { Post } from "$lib/data/types";
-import { ghost } from "$lib/ghost";
 import type { RequestHandler } from "./$types";
+import { env } from "$env/dynamic/public";
 
 const BASE_URL = "https://morningtide.com.au";
 
 export const GET: RequestHandler = async () => {
 	try {
-		const posts: Post[] = await ghost.posts.browse({ limit: "all" });
+		const posts_req = await fetch(`${env.PUBLIC_GHOST_URL}/ghost/api/content/posts/?key=${env.PUBLIC_GHOST_KEY}&limit=100`, {
+			method: "GET",
+			headers: {
+				"Accept-Version": "v6.0",
+				"X-Forwarded-Proto": "https",
+				"X-Forwarded-Host": "admin.morningtide.com.au",
+				"X-Real-IP": "127.0.0.1",
+			},
+		});
+
+		const postsData = await posts_req.json();
+		const posts: Post[] = postsData.posts;
+
 		const pages = ["", "/about", "/services", "/insights"];
 
 		const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

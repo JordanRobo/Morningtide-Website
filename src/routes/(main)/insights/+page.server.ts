@@ -1,22 +1,22 @@
-import { ghost } from "$lib/ghost";
 import type { PageServerLoad } from "./$types";
+import { env } from "$env/dynamic/public";
 
-export const load: PageServerLoad = async ({ url, setHeaders }) => {
+export const load: PageServerLoad = async ({ url, setHeaders, fetch }) => {
 	const page = Number(url.searchParams.get("page")) || 1;
 	const filter = url.searchParams.get("filter") || "";
 
-	async function fetchPosts(page: number = 1, filter: string) {
-		const data = await ghost.posts.browse({
-			limit: 9,
-			page,
-			include: "tags",
-			...(filter && { filter }),
-		});
-		return data;
-	}
-
 	try {
-		const posts = await fetchPosts(page, filter);
+		const posts_req = await fetch(`${env.PUBLIC_GHOST_URL}/ghost/api/content/posts/?key=${env.PUBLIC_GHOST_KEY}&limit=9&page=${page}&include=tags&filter=${filter}`, {
+			method: "GET",
+			headers: {
+				"Accept-Version": "v6.0",
+				"X-Forwarded-Proto": "https",
+				"X-Forwarded-Host": "admin.morningtide.com.au",
+				"X-Real-IP": "127.0.0.1",
+			},
+		});
+
+		const postsData = await posts_req.json();
 
 		setHeaders({
 			"Cache-Control": "public, max-age=3600, s-maxage=14400, stale-while-revalidate=86400",
@@ -24,8 +24,8 @@ export const load: PageServerLoad = async ({ url, setHeaders }) => {
 		});
 
 		return {
-			posts: posts,
-			meta: posts.meta,
+			posts: postsData.posts,
+			meta: postsData.meta,
 		};
 	} catch (error) {
 		console.error("Error loading insights data:", error);

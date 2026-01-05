@@ -4,13 +4,23 @@ import { fail } from "@sveltejs/kit";
 import type { Actions, PageServerLoad } from "./$types";
 import { enquirySchema, subscribeSchema } from "$lib/schema";
 import { pb } from "$lib/pb.server";
-import { ghost } from "$lib/ghost";
+import { env } from "$env/dynamic/public";
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({ fetch }) => {
 	try {
-		const highlight_posts = await ghost?.posts?.browse({ limit: 3 });
+		const highlightPosts_req = await fetch(`${env.PUBLIC_GHOST_URL}/ghost/api/content/posts/?key=${env.PUBLIC_GHOST_KEY}&limit=3`, {
+			method: "GET",
+			headers: {
+				"Accept-Version": "v6.0",
+				"X-Forwarded-Proto": "https",
+				"X-Forwarded-Host": "admin.morningtide.com.au",
+				"X-Real-IP": "127.0.0.1",
+			},
+		});
 
-		return { highlight_posts };
+		const highlightPostsData = await highlightPosts_req.json();
+
+		return { highlight_posts: highlightPostsData.posts };
 	} catch (error) {
 		console.error("Error loading pagedata", error);
 		console.error("Error details:", {

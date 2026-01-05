@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { EnvelopeClosed, InstagramLogo, LinkedinLogo, TwitterLogo } from "svelte-radix";
 	import { page } from "$app/state";
-	import { onMount } from "svelte";
+	import { onMount, getContext } from "svelte";
 	import { superForm } from "sveltekit-superforms";
 	import type { Infer, SuperValidated } from "sveltekit-superforms";
 	import { subscribeSchema, type SubscribeSchema } from "$lib/schema";
@@ -36,7 +36,6 @@
 			ev: "email_footer_subscribed",
 			meta: {
 				form_location: "footer",
-				time_on_site: "",
 			},
 		});
 	};
