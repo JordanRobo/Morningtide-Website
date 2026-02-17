@@ -63,6 +63,11 @@
 	};
 </script>
 
+<svelte:head>
+    <title>Education Strategy Insights | Leadership & School Planning Articles | Morningtide</title>
+    <meta name="description" content="Expert insights on school strategy, leadership development, change management, and organizational culture for independent schools. Read the latest from Morningtide Consulting.">
+</svelte:head>
+
 <div class="flex flex-wrap justify-center my-6">
 	<div class="max-w-lg space-x-2 space-y-1 text-center">
 		<div class="join">

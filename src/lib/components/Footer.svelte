@@ -8,7 +8,6 @@
 	import { toast } from "svelte-sonner";
 	import { Control, Description, Fieldset, Label } from "formsnap";
 	import { valibotClient } from "sveltekit-superforms/adapters";
-	import * as Swetrix from "swetrix";
 
 	let { data }: { data: SuperValidated<Infer<SubscribeSchema>> } = $props();
 
@@ -30,15 +29,6 @@
 
 	let isCampaign = $derived(page.url.toString().includes("campaign"));
 	let currentYear = $state(0);
-
-	const handleSubmit = () => {
-		Swetrix.track({
-			ev: "email_footer_subscribed",
-			meta: {
-				form_location: "footer",
-			},
-		});
-	};
 
 	onMount(() => {
 		currentYear = new Date().getFullYear();
@@ -63,7 +53,7 @@
 										<input class="input input-sm text-base-content" {...props} type="email" bind:value={$formData.email} />
 									</Label>
 								</div>
-								<button onclick={() => handleSubmit()} class="btn btn-sm btn-accent text-white join-item">Subscribe</button>
+								<button class="btn btn-sm btn-accent text-white join-item" type="submit">Subscribe</button>
 							</div>
 						{/snippet}
 					</Control>

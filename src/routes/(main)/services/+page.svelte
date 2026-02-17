@@ -9,7 +9,7 @@
 	import { onMount, getContext } from "svelte";
 	import { toast } from "svelte-sonner";
 	import { page } from "$app/state";
-	import * as Swetrix from "swetrix";
+    import { schemaCrumb } from "$lib/data/jsonLd";
 
 	let prop = $props();
 	const serviceId = $derived(page.url.searchParams.get("service"));
@@ -67,20 +67,17 @@
 		});
 	};
 
-	const handleSubmit = (service_type: string, refferer: string) => {
-		Swetrix.track({
-			ev: "enquiry_form_submitted",
-			meta: {
-				service_type,
-				refferer,
-			},
-		});
-	};
-
 	onMount(() => {
 		$formData.form_id = "services enquiry";
 	});
 </script>
+
+<svelte:head>
+    <title>School Strategy Services | Strategic Planning for Independent Schools | Morningtide</title>
+    <meta name="description" content="Discover our school strategy services including the R.I.D.G.E framework, Strategic Health Checks, and leadership workshops. Tailored consulting for Australian independent schools.">
+
+    {@html `<script type="application/ld+json">${JSON.stringify(schemaCrumb)}</script>`}
+</svelte:head>
 
 <div class="max-w-5xl mx-auto p-4 gap-4 my-16 space-y-12">
 	<div class="flex flex-col items-center text-center space-y-1">
@@ -186,7 +183,7 @@
 						</Description>
 					</Fieldset>
 					<div class="flex justify-end -mt-2 md:-mt-4">
-						<button class="btn btn-primary w-full md:w-32" onclick={() => handleSubmit($formData.enquiry_service, $formData.enquiry_referrer)} type="submit">Submit</button>
+						<button class="btn btn-primary w-full md:w-32" type="submit">Submit</button>
 					</div>
 				</form>
 			</div>

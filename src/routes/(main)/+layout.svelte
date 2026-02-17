@@ -13,11 +13,6 @@
 	const pageBanner = $derived(data.banner || { image: '', badge: '', heading: '', subheading: '' });
 </script>
 
-<svelte:head>
-	<title>{pageBanner?.heading} | Morningtide Consulting</title>
-	<meta name="description" content={pageBanner?.subheading} />
-</svelte:head>
-
 {@render banner(pageBanner)}
 {@render children()}
 

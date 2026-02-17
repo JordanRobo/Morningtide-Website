@@ -1,5 +1,3 @@
-import * as Swetrix from "swetrix";
-
 export function formatDate(date: string): string {
 	return new Date(date).toLocaleDateString("en-US", {
 		month: "short",
@@ -26,13 +24,5 @@ export function showPopup(trigger: string): void {
 	if (!popUpShownDate || currentDate - new Date(popUpShownDate).getTime() > 14 * 24 * 60 * 60 * 1000) {
 		subscribe_form.showModal();
 		localStorage.setItem("popUpShownDate", currentDate.toString());
-
-		Swetrix.track({
-			ev: "email_popup_shown",
-			meta: {
-				form_location: "popup",
-				trigger_type: trigger,
-			},
-		});
 	}
 }

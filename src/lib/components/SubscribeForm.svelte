@@ -7,7 +7,6 @@
 	import { toast } from "svelte-sonner";
 	import { Control, Field, Label } from "formsnap";
 	import { valibotClient } from "sveltekit-superforms/adapters";
-	import * as Swetrix from "swetrix";
 
 	let { data }: { data: SuperValidated<Infer<SubscribeSchema>> } = $props();
 
@@ -28,24 +27,6 @@
 
 	const { form: formData, enhance } = form;
 
-	const handleSubmit = () => {
-		Swetrix.track({
-			ev: "email_popup_subscribed",
-			meta: {
-				form_location: "popup",
-			},
-		});
-	};
-
-	const handleExit = () => {
-		Swetrix.track({
-			ev: "email_popup_dismissed",
-			meta: {
-				form_location: "popup",
-			},
-		});
-	};
-
 	onMount(() => {
 		$formData.form_id = "subscribe popup";
 	});
@@ -54,7 +35,7 @@
 <dialog id="subscribe_form" class="modal">
 	<div class="modal-box bg-primary text-white w-11/12 max-w-2xl p-8">
 		<form method="dialog">
-			<button onclick={() => handleExit()} class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"><Cross1 class="h-4 w-4" /></button>
+			<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"><Cross1 class="h-4 w-4" /></button>
 		</form>
 		<div class="grid grid-cols-1 md:grid-cols-2 text-center md:text-left gap-4">
 			<div class="pl-4">
@@ -85,7 +66,7 @@
 						</Control>
 					</Field>
 					<div class="flex justify-end pt-3">
-						<button onclick={() => handleSubmit()} class="btn btn-accent text-white" type="submit">Subscribe</button>
+						<button class="btn btn-accent text-white" type="submit">Subscribe</button>
 					</div>
 				</div>
 			</form>

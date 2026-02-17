@@ -1,9 +1,6 @@
-<script module>
+<script module lang="ts">
 	export { postCard };
-</script>
-
-<script lang="ts">
-	import type { Post } from "$lib/data/types";
+    import type { Post } from "$lib/data/types";
 </script>
 
 {#snippet postCard(post: Post, checkNew: boolean = false, loading: boolean = false)}

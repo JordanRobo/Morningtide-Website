@@ -1,18 +1,17 @@
 <script lang="ts">
 	import "../app.css";
-	import { fly, fade } from "svelte/transition";
+	import type { LayoutProps } from "./$types";
+	import { goto, afterNavigate } from "$app/navigation";
+
 	import { onMount, setContext } from "svelte";
 	import { cubicIn, cubicOut } from "svelte/easing";
-	import { Navbar, Footer, PrivacyPolicy, SubscribeForm } from "$lib/components";
+	import { fly, fade } from "svelte/transition";
+
+	import { Navbar, Footer, PrivacyPolicy, SubscribeForm, Dock } from "$lib/components";
 	import { showPopup } from "$lib/utils";
-	import type { LayoutProps } from "./$types";
-	import { goto } from "$app/navigation";
+
 	import { Toaster } from "svelte-sonner";
 	import { ChevronUp, Home } from "svelte-radix";
-	import Dock from "$lib/components/Dock.svelte";
-	import * as Swetrix from "swetrix";
-	import { page } from "$app/state";
-	import { browser } from "$app/environment";
 
 	let { data, children }: LayoutProps = $props();
 
@@ -42,21 +41,6 @@
 		setTimeout(() => {
 			showPopup("time_delay");
 		}, 15000);
-	});
-
-	onMount(() => {
-		Swetrix.init("oUz9nOwqpVSS", {
-			apiURL: "https://api.swetrix.morningtide.com.au/log",
-		});
-		Swetrix.trackViews({ search: true });
-		Swetrix.trackErrors();
-	});
-
-	$effect(() => {
-		if (browser && page.url.pathname) {
-			Swetrix.trackViews({ search: true });
-			Swetrix.trackErrors();
-		}
 	});
 </script>
 
